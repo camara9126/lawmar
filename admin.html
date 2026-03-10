@@ -1,0 +1,2938 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Lawmar PMS - Administration</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- DataTables -->
+    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <!-- SweetAlert2 -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/locale/fr.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables -->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- jsPDF & html2canvas - Version corrigée -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <style>
+        /* ===== VARIABLES ===== */
+        :root {
+            --primary: #0d6efd;
+            --primary-dark: #0b5ed7;
+            --primary-light: #e7f1ff;
+            --secondary: #6c757d;
+            --success: #198754;
+            --success-light: #d1e7dd;
+            --warning: #ffc107;
+            --warning-light: #fff3cd;
+            --danger: #dc3545;
+            --danger-light: #f8d7da;
+            --info: #0dcaf0;
+            --info-light: #cff4fc;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --indigo: #1E3A5F;
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--indigo));
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 40px rgba(0,0,0,0.15);
+            --transition: all 0.3s ease;
+            --sidebar-width: 280px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: var(--dark);
+        }
+
+        /* ===== PAGE DE CONNEXION ===== */
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 32px;
+            padding: 3rem 2.5rem;
+            box-shadow: var(--shadow-lg);
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-primary);
+        }
+
+        .login-logo {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .login-logo img {
+            width: 100px;
+            height: 100px;
+            border-radius: 25px;
+            object-fit: cover;
+            border: 4px solid var(--primary-light);
+            margin-bottom: 1rem;
+        }
+
+        .login-logo h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+        }
+
+        .login-logo p {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 16px;
+            font-size: 1rem;
+            transition: var(--transition);
+            margin-bottom: 1.5rem;
+        }
+
+        .login-input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 4px var(--primary-light);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(13,110,253,0.3);
+        }
+
+        .login-error {
+            color: var(--danger);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            text-align: center;
+            min-height: 24px;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: white;
+            box-shadow: 2px 0 30px rgba(0,0,0,0.1);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: var(--transition);
+            z-index: 1000;
+            border-right: 1px solid rgba(13,110,253,0.1);
+        }
+
+        .sidebar-header {
+            padding: 2rem 1.5rem;
+            border-bottom: 2px solid var(--primary-light);
+            background: linear-gradient(145deg, white, var(--primary-light));
+        }
+
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .sidebar-logo-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+            border: 3px solid white;
+        }
+
+        .sidebar-logo-text h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .sidebar-logo-text p {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            margin: 0;
+        }
+
+        .sidebar-menu {
+            padding: 2rem 0;
+        }
+
+        .menu-section {
+            margin-bottom: 2rem;
+        }
+
+        .menu-title {
+            padding: 0 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            font-weight: 800;
+        }
+
+        .menu-item {
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--dark);
+            transition: var(--transition);
+            cursor: pointer;
+            margin: 0.25rem 1rem;
+            border-radius: 14px;
+            border: none;
+            background: none;
+            width: calc(100% - 2rem);
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .menu-item i {
+            width: 24px;
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+
+        .menu-item:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .menu-item.active {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .menu-item.active i {
+            color: white;
+        }
+
+        .menu-item .badge {
+            margin-left: auto;
+            background: var(--warning);
+            color: var(--dark);
+            padding: 0.3rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main {
+            margin-left: var(--sidebar-width);
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .top-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+        }
+
+        .date-display {
+            background: var(--primary-light);
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .user-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 18px;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.3rem;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+        }
+
+        .user-avatar:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* ===== STATISTIQUES ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* ===== CARTES ADMIN ===== */
+        .admin-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .card-header-custom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .card-header-custom h2 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* ===== TABLEAUX ===== */
+        .table-responsive {
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+        }
+
+        .table thead th {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+            padding: 1rem;
+            border: none;
+        }
+
+        .table thead th:first-child {
+            border-radius: 12px 0 0 12px;
+        }
+
+        .table thead th:last-child {
+            border-radius: 0 12px 12px 0;
+        }
+
+        .table tbody tr {
+            background: var(--light);
+            transition: var(--transition);
+        }
+
+        .table tbody tr:hover {
+            background: white;
+            transform: scale(1.01);
+            box-shadow: var(--shadow);
+        }
+
+        .table tbody td {
+            padding: 1rem;
+            vertical-align: middle;
+            border: none;
+        }
+
+        .table tbody td:first-child {
+            border-radius: 12px 0 0 12px;
+        }
+
+        .table tbody td:last-child {
+            border-radius: 0 12px 12px 0;
+        }
+
+        /* ===== BADGES ===== */
+        .badge {
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: var(--success-light);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+
+        .badge-warning {
+            background: var(--warning-light);
+            color: #856404;
+            border: 1px solid var(--warning);
+        }
+
+        .badge-danger {
+            background: var(--danger-light);
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+
+        .badge-info {
+            background: var(--info-light);
+            color: #055160;
+            border: 1px solid var(--info);
+        }
+
+        .badge-primary {
+            background: var(--primary-light);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        /* ===== BOUTONS ===== */
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(13,110,253,0.3);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #146c43);
+            color: white;
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, var(--warning), #ffca2c);
+            color: var(--dark);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, var(--danger), #bb2d3b);
+            color: white;
+        }
+
+        .btn-info {
+            background: linear-gradient(135deg, var(--info), #3dd5f3);
+            color: white;
+        }
+
+        .btn-sm {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+            border-radius: 8px;
+        }
+
+        /* ===== BOUTONS NOUVEAU ===== */
+        .btn-new {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .btn-new:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(40,167,69,0.2);
+        }
+
+        /* ===== MODAL FACTURE ===== */
+        .modal-content {
+            border-radius: 28px;
+            border: none;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 28px 28px 0 0;
+            padding: 1.5rem 2rem;
+            border: none;
+        }
+
+        .modal-header .btn-close {
+            filter: invert(1);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-footer {
+            border-top: 2px solid var(--primary-light);
+            padding: 1.5rem 2rem;
+        }
+
+        /* ===== FORMULAIRES MODAUX ===== */
+        .form-label {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control, .form-select {
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 0.7rem 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 4px var(--primary-light);
+        }
+
+        /* ===== FACTURE PREVIEW STYLE CASA MIA ===== */
+        .invoice-pdf-mobile {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            font-family: Arial, sans-serif;
+            color: #000;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .invoice-header-mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .company-info-mobile {
+            width: 100%;
+        }
+
+        .company-logo-mobile {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .company-contact-mobile {
+            font-size: 10px;
+            color: #666;
+            line-height: 1.3;
+        }
+
+        .invoice-title-mobile h1 {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin: 0 0 10px 0;
+        }
+
+        .invoice-number-mobile {
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .invoice-details-mobile {
+            margin: 15px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .section-title-mobile {
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .invoice-table-mobile {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10px;
+        }
+
+        .invoice-table-mobile thead {
+            background: var(--primary);
+        }
+
+        .invoice-table-mobile th {
+            padding: 8px 6px;
+            text-align: left;
+            color: white;
+            font-weight: bold;
+            border: none;
+            font-size: 10px;
+        }
+
+        .invoice-table-mobile td {
+            padding: 6px;
+            border-bottom: 1px solid #ddd;
+            font-size: 10px;
+        }
+
+        .invoice-table-mobile .text-right {
+            text-align: right;
+        }
+
+        .invoice-table-mobile .text-center {
+            text-align: center;
+        }
+
+        .totals-section-mobile {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border: 1px solid var(--primary-light);
+        }
+
+        .grand-total-mobile {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--primary-dark);
+            border-top: 2px solid var(--primary);
+            padding-top: 8px;
+            margin-top: 8px;
+        }
+
+        .footer-mobile {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            font-size: 9px;
+            color: #666;
+            line-height: 1.3;
+        }
+
+        .stamp-mobile {
+            text-align: center;
+            margin: 20px auto;
+            padding: 15px 25px;
+            border: 2px solid var(--primary);
+            border-radius: 3px;
+            display: inline-block;
+            transform: rotate(-5deg);
+            background: rgba(13, 110, 253, 0.05);
+            font-size: 10px;
+        }
+
+        .conditions-mobile {
+            margin-top: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 3px;
+            font-size: 9px;
+            line-height: 1.3;
+        }
+
+        /* ===== LOADING ===== */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(5px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid var(--primary-light);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ===== NOTIFICATIONS ===== */
+        .notification-center {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 9999;
+            max-width: 350px;
+        }
+
+        .notification {
+            background: white;
+            border-radius: 16px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-left: 6px solid;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* ===== MENU TOGGLE MOBILE ===== */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1001;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            box-shadow: var(--shadow);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.show {
+                transform: translateX(0);
+            }
+            
+            .main {
+                margin-left: 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main {
+                padding: 1rem;
+                padding-top: 5rem;
+            }
+            
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .table thead {
+                display: none;
+            }
+            
+            .table tbody tr {
+                display: block;
+                margin-bottom: 1rem;
+                padding: 1rem;
+            }
+            
+            .table tbody td {
+                display: flex;
+                justify-content: space-between;
+                padding: 0.5rem 0;
+                border-bottom: 1px dashed var(--primary-light);
+            }
+            
+            .table tbody td:last-child {
+                border-bottom: none;
+            }
+            
+            .table tbody td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: var(--primary);
+                margin-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page de connexion -->
+    <div id="loginPage" class="login-container">
+        <div class="login-card">
+            <div class="login-logo">
+                <img src="images/logo1.png" alt="Lawmar" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%230d6efd%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2265%22%20fill%3D%22white%22%20font-size%3D%2240%22%3ELAW%3C%2Ftext%3E%3C%2Fsvg%3E'">
+                <h1>LAWMAR PMS</h1>
+                <p>Administration - Accès sécurisé</p>
+            </div>
+            <form onsubmit="handleLogin(event)">
+                <input type="text" class="login-input" id="username" placeholder="Nom d'utilisateur" value="admin" autocomplete="off">
+                <input type="password" class="login-input" id="password" placeholder="Mot de passe" value="">
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-lock-open"></i> Se connecter
+                </button>
+                <div class="login-error" id="loginError"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Application principale (cachée par défaut) -->
+    <div id="appContent" style="display: none;">
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner"></div>
+        </div>
+
+        <!-- Notification Center -->
+        <div class="notification-center" id="notification-center"></div>
+
+        <!-- Menu Toggle Mobile -->
+        <button class="menu-toggle" id="menuToggle" onclick="toggleSidebar()">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="sidebar-logo" onclick="loadModule('dashboard'); return false;">
+                    <img src="images/logo1.png" alt="Lawmar" class="sidebar-logo-img" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%3E%3Crect%20width%3D%2260%22%20height%3D%2260%22%20fill%3D%22%230d6efd%22%2F%3E%3Ctext%20x%3D%2212%22%20y%3D%2240%22%20fill%3D%22white%22%20font-size%3D%2224%22%3ELAW%3C%2Ftext%3E%3C%2Fsvg%3E'">
+                    <div class="sidebar-logo-text">
+                        <h2>LAWMAR PMS</h2>
+                        <p>Administration</p>
+                    </div>
+                </a>
+            </div>
+
+            <nav class="sidebar-menu">
+                <div class="menu-section">
+                    <div class="menu-title">TABLEAU DE BORD</div>
+                    <button class="menu-item active" onclick="loadModule('dashboard')" data-module="dashboard">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Dashboard</span>
+                        <span class="badge" id="dashboard-badge">0</span>
+                    </button>
+                </div>
+
+                <div class="menu-section">
+                    <div class="menu-title">HÔTEL</div>
+                    <button class="menu-item" onclick="loadModule('bookings')" data-module="bookings">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Réservations</span>
+                        <span class="badge" id="bookings-badge">0</span>
+                    </button>
+                    <button class="menu-item" onclick="loadModule('rooms')" data-module="rooms">
+                        <i class="fas fa-door-open"></i>
+                        <span>Chambres</span>
+                    </button>
+                    <button class="menu-item" onclick="loadModule('guests')" data-module="guests">
+                        <i class="fas fa-users"></i>
+                        <span>Clients</span>
+                    </button>
+                </div>
+
+                <div class="menu-section">
+                    <div class="menu-title">RESTAURANT</div>
+                    <button class="menu-item" onclick="loadModule('orders')" data-module="orders">
+                        <i class="fas fa-utensils"></i>
+                        <span>Commandes</span>
+                        <span class="badge" id="orders-badge">0</span>
+                    </button>
+                </div>
+
+                <div class="menu-section">
+                    <div class="menu-title">FINANCES</div>
+                    <button class="menu-item" onclick="loadModule('invoices')" data-module="invoices">
+                        <i class="fas fa-file-invoice"></i>
+                        <span>Factures</span>
+                    </button>
+                    <button class="menu-item" onclick="loadModule('expenses')" data-module="expenses">
+                        <i class="fas fa-coins"></i>
+                        <span>Dépenses</span>
+                    </button>
+                </div>
+
+                <div class="menu-section">
+                    <div class="menu-title">STOCKS</div>
+                    <button class="menu-item" onclick="loadModule('stock')" data-module="stock">
+                        <i class="fas fa-boxes"></i>
+                        <span>Stock</span>
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main" id="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <h1 class="page-title" id="page-title">Tableau de bord</h1>
+
+                <div class="date-display" id="currentDate">
+                    <i class="fas fa-calendar-day"></i>
+                    <span>Chargement...</span>
+                </div>
+
+                <button class="user-avatar" onclick="logout()" title="Déconnexion">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </header>
+
+            <!-- Dynamic Content -->
+            <div id="dashboard-content">
+                <!-- Le contenu est chargé dynamiquement -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Nouvelle Réservation -->
+    <div class="modal fade" id="newBookingModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-plus-circle"></i> Nouvelle réservation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="newBookingForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Client</label>
+                                <input type="text" class="form-control" id="bookingGuest" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Téléphone</label>
+                                <input type="tel" class="form-control" id="bookingPhone" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" id="bookingEmail">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Chambre</label>
+                                <select class="form-select" id="bookingRoom">
+                                    <option value="">Sélectionner...</option>
+                                    <option value="101 - Standard">101 - Standard</option>
+                                    <option value="102 - Standard">102 - Standard</option>
+                                    <option value="201 - Deluxe">201 - Deluxe</option>
+                                    <option value="202 - Deluxe">202 - Deluxe</option>
+                                    <option value="301 - Prestige">301 - Prestige</option>
+                                    <option value="302 - Prestige">302 - Prestige</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Arrivée</label>
+                                <input type="date" class="form-control" id="bookingCheckin" value="${moment().format('YYYY-MM-DD')}">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Départ</label>
+                                <input type="date" class="form-control" id="bookingCheckout" value="${moment().add(2, 'days').format('YYYY-MM-DD')}">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Adultes</label>
+                                <input type="number" class="form-control" id="bookingAdults" value="1" min="1">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Enfants</label>
+                                <input type="number" class="form-control" id="bookingChildren" value="0" min="0">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Total (XOF)</label>
+                                <input type="number" class="form-control" id="bookingTotal" value="65000">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-success" onclick="saveNewBooking()">
+                        <i class="fas fa-save"></i> Enregistrer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Nouvelle Commande -->
+    <div class="modal fade" id="newOrderModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-plus-circle"></i> Nouvelle commande</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="newOrderForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Client</label>
+                                <input type="text" class="form-control" id="orderGuest" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Table</label>
+                                <input type="number" class="form-control" id="orderTable" value="1">
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">Articles</label>
+                                <div id="orderItems">
+                                    <div class="row mb-2">
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" placeholder="Article" value="Thieboudienne">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="number" class="form-control" placeholder="Qté" value="1">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="number" class="form-control" placeholder="Prix" value="12500">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-sm btn-primary mt-2" onclick="addOrderItem()">
+                                    <i class="fas fa-plus"></i> Ajouter article
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-success" onclick="saveNewOrder()">
+                        <i class="fas fa-save"></i> Enregistrer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Nouvelle Chambre -->
+    <div class="modal fade" id="newRoomModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-plus-circle"></i> Nouvelle chambre</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="newRoomForm">
+                        <div class="mb-3">
+                            <label class="form-label">Numéro</label>
+                            <input type="number" class="form-control" id="roomNumber" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Type</label>
+                            <select class="form-select" id="roomType">
+                                <option value="Standard">Standard</option>
+                                <option value="Deluxe">Deluxe</option>
+                                <option value="Prestige">Prestige</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Prix (XOF)</label>
+                            <input type="number" class="form-control" id="roomPrice" value="65000">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-success" onclick="saveNewRoom()">
+                        <i class="fas fa-save"></i> Enregistrer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Nouveau Client -->
+    <div class="modal fade" id="newGuestModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-plus-circle"></i> Nouveau client</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="newGuestForm">
+                        <div class="mb-3">
+                            <label class="form-label">Nom complet</label>
+                            <input type="text" class="form-control" id="guestName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="guestEmail">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Téléphone</label>
+                            <input type="tel" class="form-control" id="guestPhone">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-success" onclick="saveNewGuest()">
+                        <i class="fas fa-save"></i> Enregistrer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Nouveau Stock -->
+    <div class="modal fade" id="newStockModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-plus-circle"></i> Nouvel article</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="newStockForm">
+                        <div class="mb-3">
+                            <label class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="stockName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Catégorie</label>
+                            <select class="form-select" id="stockCategory">
+                                <option value="épicerie">Épicerie</option>
+                                <option value="viande">Viande</option>
+                                <option value="poissonnerie">Poissonnerie</option>
+                                <option value="légumes">Légumes</option>
+                                <option value="boissons">Boissons</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Quantité</label>
+                                <input type="number" class="form-control" id="stockQuantity" value="1">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Unité</label>
+                                <select class="form-select" id="stockUnit">
+                                    <option value="kg">Kg</option>
+                                    <option value="L">Litre</option>
+                                    <option value="pièce">Pièce</option>
+                                    <option value="boîte">Boîte</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Seuil d'alerte</label>
+                            <input type="number" class="form-control" id="stockThreshold" value="5">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Date expiration</label>
+                            <input type="date" class="form-control" id="stockExpiry" value="${moment().add(1, 'month').format('YYYY-MM-DD')}">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-success" onclick="saveNewStock()">
+                        <i class="fas fa-save"></i> Enregistrer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Nouvelle Dépense -->
+    <div class="modal fade" id="newExpenseModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-plus-circle"></i> Nouvelle dépense</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="newExpenseForm">
+                        <div class="mb-3">
+                            <label class="form-label">Date</label>
+                            <input type="date" class="form-control" id="expenseDate" value="${moment().format('YYYY-MM-DD')}">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Catégorie</label>
+                            <select class="form-select" id="expenseCategory">
+                                <option value="électricité">Électricité</option>
+                                <option value="eau">Eau</option>
+                                <option value="achats">Achats</option>
+                                <option value="salaire">Salaire</option>
+                                <option value="maintenance">Maintenance</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <input type="text" class="form-control" id="expenseDescription" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Montant (XOF)</label>
+                            <input type="number" class="form-control" id="expenseAmount" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Statut</label>
+                            <select class="form-select" id="expensePaid">
+                                <option value="true">Payée</option>
+                                <option value="false">En attente</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-success" onclick="saveNewExpense()">
+                        <i class="fas fa-save"></i> Enregistrer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Nouvelle Facture -->
+    <div class="modal fade" id="newInvoiceModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-plus-circle"></i> Nouvelle facture</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="newInvoiceForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Client</label>
+                                <input type="text" class="form-control" id="invoiceClient" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Type</label>
+                                <select class="form-select" id="invoiceType">
+                                    <option value="Hôtel">Hôtel</option>
+                                    <option value="Restaurant">Restaurant</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">Montant (XOF)</label>
+                                <input type="number" class="form-control" id="invoiceAmount" required>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-success" onclick="saveNewInvoice()">
+                        <i class="fas fa-save"></i> Enregistrer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Facture -->
+    <div class="modal fade" id="invoiceModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-file-invoice"></i>
+                        Facture
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="invoiceContent">
+                    <!-- Le contenu de la facture sera injecté ici -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" onclick="downloadInvoicePDF()">
+                        <i class="fas fa-file-pdf"></i> Télécharger PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Confirmation -->
+    <div class="modal fade" id="confirmModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="confirmMessage">
+                    Êtes-vous sûr de vouloir effectuer cette action ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-danger" id="confirmActionBtn">Confirmer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration et vérification des bibliothèques
+        moment.locale('fr');
+        
+        // Vérification des dépendances
+        console.log('Vérification des bibliothèques:');
+        console.log('- html2canvas:', typeof html2canvas !== 'undefined' ? '✅' : '❌');
+        console.log('- jspdf:', typeof window.jspdf !== 'undefined' ? '✅' : '❌');
+        
+        // Fallback pour jsPDF
+        if (typeof window.jspdf === 'undefined' && typeof window.jsPDF !== 'undefined') {
+            window.jspdf = { jsPDF: window.jsPDF };
+            console.log('✅ Fallback jsPDF activé');
+        }
+
+        // Variables d'authentification
+        const VALID_USERNAME = "admin";
+        const VALID_PASSWORD = "lawmar2026";
+        let isAuthenticated = false;
+
+        // ============================================
+        // GESTION DE LA CONNEXION
+        // ============================================
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorElement = document.getElementById('loginError');
+
+            if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+                isAuthenticated = true;
+                document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('appContent').style.display = 'block';
+                initializeApp();
+                showNotification('Connexion réussie !', 'success');
+            } else {
+                errorElement.textContent = 'Nom d\'utilisateur ou mot de passe incorrect';
+                showNotification('Échec de connexion', 'error');
+            }
+        }
+
+        function logout() {
+            showConfirm('Se déconnecter ?', () => {
+                isAuthenticated = false;
+                document.getElementById('loginPage').style.display = 'flex';
+                document.getElementById('appContent').style.display = 'none';
+                document.getElementById('username').value = 'admin';
+                document.getElementById('password').value = '';
+                document.getElementById('loginError').textContent = '';
+            });
+        }
+
+        // ============================================
+        // BASE DE DONNÉES
+        // ============================================
+        let database = {
+            bookings: [],
+            orders: [],
+            guests: [
+                { id: 'G001', name: 'Marie Diouf', email: 'marie.diouf@gmail.com', phone: '+221 77 123 45 67', stays: 3, totalSpent: 1850000, lastStay: moment().format('YYYY-MM-DD') },
+                { id: 'G002', name: 'Pierre Martin', email: 'pierre.martin@yahoo.fr', phone: '+221 78 234 56 78', stays: 1, totalSpent: 380000, lastStay: moment().subtract(2, 'days').format('YYYY-MM-DD') },
+                { id: 'G003', name: 'Aminata Ba', email: 'aminata.ba@gmail.com', phone: '+221 76 345 67 89', stays: 2, totalSpent: 520000, lastStay: moment().subtract(5, 'days').format('YYYY-MM-DD') }
+            ],
+            rooms: [
+                { number: 101, type: 'Standard', price: 65000, status: 'available' },
+                { number: 102, type: 'Standard', price: 65000, status: 'occupied', guest: 'Aminata Ba' },
+                { number: 201, type: 'Deluxe', price: 95000, status: 'occupied', guest: 'Pierre Martin' },
+                { number: 202, type: 'Deluxe', price: 95000, status: 'available' },
+                { number: 301, type: 'Prestige', price: 150000, status: 'occupied', guest: 'Marie Diouf' },
+                { number: 302, type: 'Prestige', price: 150000, status: 'available' }
+            ],
+            stock: [
+                { id: 'S001', name: 'Riz', category: 'épicerie', quantity: 25, unit: 'kg', threshold: 10, expiry: moment().add(2, 'months').format('YYYY-MM-DD') },
+                { id: 'S002', name: 'Poisson frais', category: 'poissonnerie', quantity: 5, unit: 'kg', threshold: 8, expiry: moment().add(2, 'days').format('YYYY-MM-DD') },
+                { id: 'S003', name: 'Poulet', category: 'viande', quantity: 8, unit: 'kg', threshold: 5, expiry: moment().add(5, 'days').format('YYYY-MM-DD') }
+            ],
+            expenses: [
+                { id: 'EX001', date: moment().format('YYYY-MM-DD'), category: 'électricité', amount: 85000, description: 'Facture Senelec', paid: true },
+                { id: 'EX002', date: moment().subtract(2, 'days').format('YYYY-MM-DD'), category: 'eau', amount: 35000, description: 'Facture SDE', paid: false },
+                { id: 'EX003', date: moment().subtract(5, 'days').format('YYYY-MM-DD'), category: 'achats', amount: 125000, description: 'Approvisionnement', paid: true }
+            ]
+        };
+
+        // ============================================
+        // CHARGEMENT DES DONNÉES
+        // ============================================
+        function loadData() {
+            console.log("Chargement des données...");
+            
+            // Charger les réservations
+            try {
+                const savedBookings = localStorage.getItem('lawmarBookings');
+                if (savedBookings) {
+                    database.bookings = JSON.parse(savedBookings);
+                    console.log("Réservations chargées:", database.bookings.length);
+                } else {
+                    // Données par défaut
+                    database.bookings = [
+                        { id: 'BK001', guest: 'Marie Diouf', room: 'Suite Prestige', roomNumber: 301, checkin: moment().subtract(2, 'days').format('YYYY-MM-DD'), checkout: moment().add(3, 'days').format('YYYY-MM-DD'), adults: 2, children: 1, status: 'confirmed', total: 750000, phone: '+221 77 123 45 67', email: 'marie.diouf@gmail.com', prepaid: 225000 },
+                        { id: 'BK002', guest: 'Pierre Martin', room: 'Chambre Deluxe', roomNumber: 201, checkin: moment().subtract(1, 'days').format('YYYY-MM-DD'), checkout: moment().add(4, 'days').format('YYYY-MM-DD'), adults: 2, children: 0, status: 'checked-in', total: 380000, phone: '+221 78 234 56 78', email: 'pierre.martin@yahoo.fr', prepaid: 114000 },
+                        { id: 'BK003', guest: 'Aminata Ba', room: 'Chambre Standard', roomNumber: 102, checkin: moment().subtract(5, 'days').format('YYYY-MM-DD'), checkout: moment().subtract(1, 'days').format('YYYY-MM-DD'), adults: 1, children: 0, status: 'checked-out', total: 260000, phone: '+221 76 345 67 89', email: 'aminata.ba@gmail.com', prepaid: 78000 }
+                    ];
+                }
+            } catch (e) {
+                console.error('Erreur chargement réservations:', e);
+            }
+
+            // Charger les commandes
+            try {
+                const savedOrders = localStorage.getItem('restaurantOrders');
+                if (savedOrders) {
+                    database.orders = JSON.parse(savedOrders);
+                    console.log("Commandes chargées:", database.orders.length);
+                } else {
+                    // Données par défaut
+                    database.orders = [
+                        { id: 'R001', table: 5, guest: 'Marie Diouf', items: [{ name: 'Thieboudienne', qty: 2, price: 12500 }], total: 25000, status: 'paid', time: '12:30', date: moment().format('YYYY-MM-DD') },
+                        { id: 'R002', table: 3, guest: 'Pierre Martin', items: [{ name: 'Yassa Poulet', qty: 1, price: 11000 }, { name: 'Pastels', qty: 1, price: 8000 }], total: 19000, status: 'pending', time: '19:15', date: moment().format('YYYY-MM-DD') },
+                        { id: 'R003', table: 2, guest: 'Aminata Ba', items: [{ name: 'Mafé', qty: 1, price: 12000 }], total: 12000, status: 'preparing', time: '20:00', date: moment().format('YYYY-MM-DD') }
+                    ];
+                }
+            } catch (e) {
+                console.error('Erreur chargement commandes:', e);
+            }
+
+            updateBadges();
+        }
+
+        function initializeApp() {
+            loadData();
+            updateDateTime();
+            loadModule('dashboard');
+            
+            setInterval(updateDateTime, 60000);
+            setInterval(refreshData, 30000);
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth <= 992) {
+                    document.querySelector('.menu-toggle').style.display = 'block';
+                } else {
+                    document.querySelector('.menu-toggle').style.display = 'none';
+                    document.getElementById('sidebar').classList.remove('show');
+                }
+            });
+        }
+
+        // ============================================
+        // STATISTIQUES
+        // ============================================
+        function getStats() {
+            const totalRooms = database.rooms.length;
+            const occupiedRooms = database.rooms.filter(r => r.status === 'occupied' || r.status === 'reserved').length;
+            const occupancyRate = totalRooms > 0 ? Math.round((occupiedRooms / totalRooms) * 100) : 0;
+            
+            return {
+                occupancyRate,
+                occupiedRooms,
+                totalRooms,
+                hotelRevenue: database.bookings.reduce((s, b) => s + b.total, 0),
+                restaurantRevenue: database.orders.reduce((s, o) => s + o.total, 0),
+                pendingOrders: database.orders.filter(o => o.status === 'pending' || o.status === 'preparing').length,
+                lowStock: database.stock.filter(s => s.quantity <= s.threshold).length,
+                totalRevenue: database.bookings.reduce((s, b) => s + b.total, 0) + database.orders.reduce((s, o) => s + o.total, 0),
+                todayCheckins: database.bookings.filter(b => b.checkin === moment().format('YYYY-MM-DD')).length,
+                todayCheckouts: database.bookings.filter(b => b.checkout === moment().format('YYYY-MM-DD')).length
+            };
+        }
+
+        // ============================================
+        // VARIABLES GLOBALES
+        // ============================================
+        let currentModule = 'dashboard';
+        let currentInvoice = null;
+
+        // ============================================
+        // FONCTIONS D'INTERFACE
+        // ============================================
+        function updateDateTime() {
+            document.querySelector('#currentDate span').textContent = moment().format('dddd D MMMM YYYY, HH:mm');
+        }
+
+        function updateBadges() {
+            const stats = getStats();
+            document.getElementById('dashboard-badge').textContent = stats.pendingOrders;
+            document.getElementById('bookings-badge').textContent = database.bookings.filter(b => b.status === 'pending').length;
+            document.getElementById('orders-badge').textContent = stats.pendingOrders;
+        }
+
+        function showNotification(message, type = 'success') {
+            const container = document.getElementById('notification-center');
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            
+            const colors = { success: '#198754', error: '#dc3545', warning: '#ffc107', info: '#0dcaf0' };
+            const icons = { success: 'fa-check-circle', error: 'fa-exclamation-circle', warning: 'fa-exclamation-triangle', info: 'fa-info-circle' };
+            
+            notification.style.borderLeftColor = colors[type];
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas ${icons[type]}" style="color: ${colors[type]};"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            container.appendChild(notification);
+            setTimeout(() => notification.remove(), 4000);
+        }
+
+        function showConfirm(message, onConfirm) {
+            document.getElementById('confirmMessage').textContent = message;
+            const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+            const confirmBtn = document.getElementById('confirmActionBtn');
+            
+            const newBtn = confirmBtn.cloneNode(true);
+            confirmBtn.parentNode.replaceChild(newBtn, confirmBtn);
+            
+            newBtn.addEventListener('click', function() {
+                onConfirm();
+                confirmModal.hide();
+            });
+            
+            confirmModal.show();
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('show');
+        }
+
+        function loadModule(module) {
+            currentModule = module;
+            
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.dataset.module === module) {
+                    item.classList.add('active');
+                }
+            });
+            
+            const titles = {
+                dashboard: 'Tableau de bord',
+                bookings: 'Gestion des réservations',
+                rooms: 'Gestion des chambres',
+                guests: 'Fiches clients',
+                orders: 'Commandes restaurant',
+                invoices: 'Facturation',
+                expenses: 'Dépenses',
+                stock: 'Gestion des stocks'
+            };
+            document.getElementById('page-title').textContent = titles[module] || 'Administration';
+            
+            if (window.innerWidth <= 992) {
+                document.getElementById('sidebar').classList.remove('show');
+            }
+            
+            document.getElementById('loadingOverlay').style.display = 'flex';
+            
+            setTimeout(() => {
+                document.getElementById('dashboard-content').innerHTML = renderModule(module);
+                
+                if (module === 'bookings' || module === 'orders' || module === 'guests' || module === 'stock' || module === 'expenses') {
+                    setTimeout(() => initDataTable(`#${module}-table`), 100);
+                }
+                
+                document.getElementById('loadingOverlay').style.display = 'none';
+            }, 300);
+        }
+
+        function renderModule(module) {
+            const stats = getStats();
+            
+            if (module === 'dashboard') {
+                return `
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-hotel"></i></div>
+                            <div class="stat-value">${stats.occupancyRate}%</div>
+                            <div class="stat-label">Taux d'occupation</div>
+                            <small>${stats.occupiedRooms}/${stats.totalRooms} chambres</small>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="stat-value">${(stats.totalRevenue / 1000000).toFixed(1)}M</div>
+                            <div class="stat-label">Chiffre d'affaires</div>
+                            <small>Hôtel + Restaurant</small>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-utensils"></i></div>
+                            <div class="stat-value">${stats.pendingOrders}</div>
+                            <div class="stat-label">Commandes en cours</div>
+                            <small>En attente/préparation</small>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                            <div class="stat-value">${stats.lowStock}</div>
+                            <div class="stat-label">Alertes stock</div>
+                            <small>Articles sous seuil</small>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="admin-card">
+                                <div class="card-header-custom">
+                                    <h2><i class="fas fa-calendar-check"></i> Dernières réservations</h2>
+                                    <button class="btn btn-sm btn-primary" onclick="loadModule('bookings')">Voir tout</button>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr><th>Client</th><th>Chambre</th><th>Dates</th><th>Statut</th></tr>
+                                        </thead>
+                                        <tbody>
+                                            ${database.bookings.slice(0, 5).map(b => `
+                                                <tr>
+                                                    <td data-label="Client">${b.guest}</td>
+                                                    <td data-label="Chambre">${b.room}</td>
+                                                    <td data-label="Dates">${moment(b.checkin).format('DD/MM')} - ${moment(b.checkout).format('DD/MM')}</td>
+                                                    <td data-label="Statut"><span class="badge ${b.status === 'confirmed' ? 'badge-success' : b.status === 'checked-in' ? 'badge-primary' : b.status === 'pending' ? 'badge-warning' : 'badge-secondary'}">${b.status}</span></td>
+                                                </tr>
+                                            `).join('')}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="admin-card">
+                                <div class="card-header-custom">
+                                    <h2><i class="fas fa-clock"></i> Commandes en attente</h2>
+                                    <button class="btn btn-sm btn-primary" onclick="loadModule('orders')">Voir tout</button>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr><th>Client</th><th>Table</th><th>Total</th><th>Statut</th></tr>
+                                        </thead>
+                                        <tbody>
+                                            ${database.orders.filter(o => o.status !== 'paid').slice(0, 5).map(o => `
+                                                <tr>
+                                                    <td data-label="Client">${o.guest}</td>
+                                                    <td data-label="Table">${o.table}</td>
+                                                    <td data-label="Total">${o.total.toLocaleString()} XOF</td>
+                                                    <td data-label="Statut"><span class="badge ${o.status === 'preparing' ? 'badge-warning' : 'badge-info'}">${o.status}</span></td>
+                                                </tr>
+                                            `).join('')}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            if (module === 'bookings') {
+                return `
+                    <div class="admin-card">
+                        <div class="card-header-custom">
+                            <h2><i class="fas fa-calendar-check"></i> Liste des réservations</h2>
+                            <div>
+                                <button class="btn btn-new me-2" onclick="openNewBookingModal()">
+                                    <i class="fas fa-plus"></i> Nouvelle réservation
+                                </button>
+                                <button class="btn btn-success btn-sm" onclick="exportToCSV('bookings')">
+                                    <i class="fas fa-download"></i> Exporter
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table" id="bookings-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Client</th>
+                                        <th>Chambre</th>
+                                        <th>Arrivée</th>
+                                        <th>Départ</th>
+                                        <th>Total</th>
+                                        <th>Statut</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${database.bookings.map(b => `
+                                        <tr>
+                                            <td data-label="ID"><strong>${b.id}</strong></td>
+                                            <td data-label="Client">${b.guest}<br><small>${b.phone}</small></td>
+                                            <td data-label="Chambre">${b.room}</td>
+                                            <td data-label="Arrivée">${moment(b.checkin).format('DD/MM/YYYY')}</td>
+                                            <td data-label="Départ">${moment(b.checkout).format('DD/MM/YYYY')}</td>
+                                            <td data-label="Total">${b.total.toLocaleString()} XOF</td>
+                                            <td data-label="Statut"><span class="badge ${b.status === 'confirmed' ? 'badge-success' : b.status === 'checked-in' ? 'badge-primary' : b.status === 'pending' ? 'badge-warning' : 'badge-secondary'}">${b.status}</span></td>
+                                            <td data-label="Actions">
+                                                <button class="btn btn-sm btn-info" onclick="showInvoice('${b.id}')" title="Facture"><i class="fas fa-file-invoice"></i></button>
+                                                ${b.status === 'pending' ? `<button class="btn btn-sm btn-success" onclick="confirmBooking('${b.id}')" title="Confirmer"><i class="fas fa-check"></i></button>` : ''}
+                                                ${b.status === 'confirmed' ? `<button class="btn btn-sm btn-primary" onclick="checkIn('${b.id}')" title="Check-in"><i class="fas fa-sign-in-alt"></i></button>` : ''}
+                                                ${b.status === 'checked-in' ? `<button class="btn btn-sm btn-warning" onclick="checkOut('${b.id}')" title="Check-out"><i class="fas fa-sign-out-alt"></i></button>` : ''}
+                                                <button class="btn btn-sm btn-danger" onclick="deleteBooking('${b.id}')" title="Supprimer"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            if (module === 'orders') {
+                return `
+                    <div class="admin-card">
+                        <div class="card-header-custom">
+                            <h2><i class="fas fa-utensils"></i> Commandes restaurant</h2>
+                            <div>
+                                <button class="btn btn-new me-2" onclick="openNewOrderModal()">
+                                    <i class="fas fa-plus"></i> Nouvelle commande
+                                </button>
+                                <button class="btn btn-success btn-sm" onclick="exportToCSV('orders')">
+                                    <i class="fas fa-download"></i> Exporter
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table" id="orders-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Client</th>
+                                        <th>Table</th>
+                                        <th>Articles</th>
+                                        <th>Total</th>
+                                        <th>Heure</th>
+                                        <th>Statut</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${database.orders.map(o => `
+                                        <tr>
+                                            <td data-label="ID"><strong>${o.id}</strong></td>
+                                            <td data-label="Client">${o.guest}</td>
+                                            <td data-label="Table">${o.table}</td>
+                                            <td data-label="Articles">${o.items.map(i => `${i.qty}x ${i.name}`).join('<br>')}</td>
+                                            <td data-label="Total">${o.total.toLocaleString()} XOF</td>
+                                            <td data-label="Heure">${o.time}</td>
+                                            <td data-label="Statut"><span class="badge ${o.status === 'paid' ? 'badge-success' : o.status === 'preparing' ? 'badge-warning' : 'badge-info'}">${o.status}</span></td>
+                                            <td data-label="Actions">
+                                                <button class="btn btn-sm btn-info" onclick="showOrderInvoice('${o.id}')" title="Facture"><i class="fas fa-file-invoice"></i></button>
+                                                <button class="btn btn-sm btn-success" onclick="updateOrderStatus('${o.id}')" title="Changer statut"><i class="fas fa-sync-alt"></i></button>
+                                                <button class="btn btn-sm btn-danger" onclick="deleteOrder('${o.id}')" title="Supprimer"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            if (module === 'rooms') {
+                return `
+                    <div class="admin-card">
+                        <div class="card-header-custom">
+                            <h2><i class="fas fa-door-open"></i> Chambres</h2>
+                            <button class="btn btn-new" onclick="openNewRoomModal()">
+                                <i class="fas fa-plus"></i> Nouvelle chambre
+                            </button>
+                        </div>
+                        <div class="row">
+                            ${database.rooms.map(r => `
+                                <div class="col-md-3 col-6 mb-3">
+                                    <div class="card ${r.status === 'available' ? 'border-success' : r.status === 'occupied' ? 'border-primary' : 'border-warning'}" style="border-width: 2px;">
+                                        <div class="card-body text-center">
+                                            <h5>Chambre ${r.number}</h5>
+                                            <p>${r.type}</p>
+                                            <span class="badge ${r.status === 'available' ? 'badge-success' : r.status === 'occupied' ? 'badge-primary' : 'badge-warning'}">${r.status}</span>
+                                            <p class="mt-2"><strong>${r.price.toLocaleString()} XOF</strong></p>
+                                            <small>${r.guest || ''}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            if (module === 'guests') {
+                return `
+                    <div class="admin-card">
+                        <div class="card-header-custom">
+                            <h2><i class="fas fa-users"></i> Clients</h2>
+                            <div>
+                                <button class="btn btn-new me-2" onclick="openNewGuestModal()">
+                                    <i class="fas fa-plus"></i> Nouveau client
+                                </button>
+                                <button class="btn btn-success btn-sm" onclick="exportToCSV('guests')">
+                                    <i class="fas fa-download"></i> Exporter
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table" id="guests-table">
+                                <thead>
+                                    <tr><th>ID</th><th>Nom</th><th>Contact</th><th>Séjours</th><th>Dépenses</th></tr>
+                                </thead>
+                                <tbody>
+                                    ${database.guests.map(g => `
+                                        <tr>
+                                            <td data-label="ID">${g.id}</td>
+                                            <td data-label="Nom">${g.name}</td>
+                                            <td data-label="Contact">${g.email}<br><small>${g.phone}</small></td>
+                                            <td data-label="Séjours">${g.stays}</td>
+                                            <td data-label="Dépenses">${g.totalSpent.toLocaleString()} XOF</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            if (module === 'stock') {
+                return `
+                    <div class="admin-card">
+                        <div class="card-header-custom">
+                            <h2><i class="fas fa-boxes"></i> Stock</h2>
+                            <div>
+                                <button class="btn btn-new me-2" onclick="openNewStockModal()">
+                                    <i class="fas fa-plus"></i> Nouvel article
+                                </button>
+                                <button class="btn btn-success btn-sm" onclick="exportToCSV('stock')">
+                                    <i class="fas fa-download"></i> Exporter
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table" id="stock-table">
+                                <thead>
+                                    <tr><th>Article</th><th>Catégorie</th><th>Quantité</th><th>Seuil</th><th>Expiration</th><th>Statut</th></tr>
+                                </thead>
+                                <tbody>
+                                    ${database.stock.map(s => {
+                                        const isLow = s.quantity <= s.threshold;
+                                        return `
+                                        <tr>
+                                            <td data-label="Article">${s.name}</td>
+                                            <td data-label="Catégorie">${s.category}</td>
+                                            <td data-label="Quantité">${s.quantity} ${s.unit}</td>
+                                            <td data-label="Seuil">${s.threshold} ${s.unit}</td>
+                                            <td data-label="Expiration">${moment(s.expiry).format('DD/MM/YYYY')}</td>
+                                            <td data-label="Statut">${isLow ? '<span class="badge badge-danger">Stock faible</span>' : '<span class="badge badge-success">OK</span>'}</td>
+                                        </tr>
+                                    `}).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            if (module === 'expenses') {
+                const totalPaid = database.expenses.filter(e => e.paid).reduce((s, e) => s + e.amount, 0);
+                const totalPending = database.expenses.filter(e => !e.paid).reduce((s, e) => s + e.amount, 0);
+                
+                return `
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                                <div class="stat-value">${(totalPaid / 1000).toFixed(0)}k XOF</div>
+                                <div class="stat-label">Dépenses payées</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                                <div class="stat-value">${(totalPending / 1000).toFixed(0)}k XOF</div>
+                                <div class="stat-label">En attente</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-card">
+                        <div class="card-header-custom">
+                            <h2><i class="fas fa-coins"></i> Dépenses</h2>
+                            <div>
+                                <button class="btn btn-new me-2" onclick="openNewExpenseModal()">
+                                    <i class="fas fa-plus"></i> Nouvelle dépense
+                                </button>
+                                <button class="btn btn-success btn-sm" onclick="exportToCSV('expenses')">
+                                    <i class="fas fa-download"></i> Exporter
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table" id="expenses-table">
+                                <thead>
+                                    <tr><th>Date</th><th>Catégorie</th><th>Description</th><th>Montant</th><th>Statut</th></tr>
+                                </thead>
+                                <tbody>
+                                    ${database.expenses.map(e => `
+                                        <tr>
+                                            <td data-label="Date">${moment(e.date).format('DD/MM/YYYY')}</td>
+                                            <td data-label="Catégorie">${e.category}</td>
+                                            <td data-label="Description">${e.description}</td>
+                                            <td data-label="Montant">${e.amount.toLocaleString()} XOF</td>
+                                            <td data-label="Statut"><span class="badge ${e.paid ? 'badge-success' : 'badge-warning'}">${e.paid ? 'Payée' : 'En attente'}</span></td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            if (module === 'invoices') {
+                const allInvoices = [
+                    ...database.bookings.map(b => ({ id: b.id, type: 'Hôtel', client: b.guest, date: b.checkout, amount: b.total, status: b.status === 'checked-out' ? 'payé' : 'en attente' })),
+                    ...database.orders.map(o => ({ id: o.id, type: 'Restaurant', client: o.guest, date: o.date, amount: o.total, status: o.status === 'paid' ? 'payé' : 'en attente' }))
+                ].sort((a, b) => moment(b.date).diff(moment(a.date)));
+                
+                return `
+                    <div class="admin-card">
+                        <div class="card-header-custom">
+                            <h2><i class="fas fa-file-invoice"></i> Factures</h2>
+                            <div>
+                                <button class="btn btn-new me-2" onclick="openNewInvoiceModal()">
+                                    <i class="fas fa-plus"></i> Nouvelle facture
+                                </button>
+                                <button class="btn btn-success btn-sm" onclick="exportToCSV('invoices')">
+                                    <i class="fas fa-download"></i> Exporter
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table" id="invoices-table">
+                                <thead>
+                                    <tr><th>N°</th><th>Type</th><th>Client</th><th>Date</th><th>Montant</th><th>Statut</th><th>Actions</th></tr>
+                                </thead>
+                                <tbody>
+                                    ${allInvoices.map(inv => `
+                                        <tr>
+                                            <td data-label="N°"><strong>INV-${inv.id}</strong></td>
+                                            <td data-label="Type"><span class="badge ${inv.type === 'Hôtel' ? 'badge-primary' : 'badge-warning'}">${inv.type}</span></td>
+                                            <td data-label="Client">${inv.client}</td>
+                                            <td data-label="Date">${moment(inv.date).format('DD/MM/YYYY')}</td>
+                                            <td data-label="Montant">${inv.amount.toLocaleString()} XOF</td>
+                                            <td data-label="Statut"><span class="badge ${inv.status === 'payé' ? 'badge-success' : 'badge-warning'}">${inv.status}</span></td>
+                                            <td data-label="Actions">
+                                                <button class="btn btn-sm btn-info" onclick="${inv.type === 'Hôtel' ? `showInvoice('${inv.id}')` : `showOrderInvoice('${inv.id}')`}" title="Voir"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-primary" onclick="${inv.type === 'Hôtel' ? `downloadInvoice('${inv.id}')` : `downloadOrderInvoice('${inv.id}')`}" title="PDF"><i class="fas fa-file-pdf"></i></button>
+                                            </td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            return '<div class="admin-card">Module en cours de développement</div>';
+        }
+
+        // ============================================
+        // FONCTIONS D'OUVERTURE DES MODAUX
+        // ============================================
+        function openNewBookingModal() {
+            document.getElementById('bookingGuest').value = '';
+            document.getElementById('bookingPhone').value = '';
+            document.getElementById('bookingEmail').value = '';
+            document.getElementById('bookingRoom').value = '';
+            document.getElementById('bookingCheckin').value = moment().format('YYYY-MM-DD');
+            document.getElementById('bookingCheckout').value = moment().add(2, 'days').format('YYYY-MM-DD');
+            document.getElementById('bookingAdults').value = '1';
+            document.getElementById('bookingChildren').value = '0';
+            document.getElementById('bookingTotal').value = '65000';
+            new bootstrap.Modal(document.getElementById('newBookingModal')).show();
+        }
+
+        function openNewOrderModal() {
+            document.getElementById('orderGuest').value = '';
+            document.getElementById('orderTable').value = '1';
+            document.getElementById('orderItems').innerHTML = `
+                <div class="row mb-2">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Article" value="Thieboudienne">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" class="form-control" placeholder="Qté" value="1">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" class="form-control" placeholder="Prix" value="12500">
+                    </div>
+                </div>
+            `;
+            new bootstrap.Modal(document.getElementById('newOrderModal')).show();
+        }
+
+        function openNewRoomModal() {
+            document.getElementById('roomNumber').value = '';
+            document.getElementById('roomType').value = 'Standard';
+            document.getElementById('roomPrice').value = '65000';
+            new bootstrap.Modal(document.getElementById('newRoomModal')).show();
+        }
+
+        function openNewGuestModal() {
+            document.getElementById('guestName').value = '';
+            document.getElementById('guestEmail').value = '';
+            document.getElementById('guestPhone').value = '';
+            new bootstrap.Modal(document.getElementById('newGuestModal')).show();
+        }
+
+        function openNewStockModal() {
+            document.getElementById('stockName').value = '';
+            document.getElementById('stockCategory').value = 'épicerie';
+            document.getElementById('stockQuantity').value = '1';
+            document.getElementById('stockUnit').value = 'kg';
+            document.getElementById('stockThreshold').value = '5';
+            document.getElementById('stockExpiry').value = moment().add(1, 'month').format('YYYY-MM-DD');
+            new bootstrap.Modal(document.getElementById('newStockModal')).show();
+        }
+
+        function openNewExpenseModal() {
+            document.getElementById('expenseDate').value = moment().format('YYYY-MM-DD');
+            document.getElementById('expenseCategory').value = 'électricité';
+            document.getElementById('expenseDescription').value = '';
+            document.getElementById('expenseAmount').value = '';
+            document.getElementById('expensePaid').value = 'true';
+            new bootstrap.Modal(document.getElementById('newExpenseModal')).show();
+        }
+
+        function openNewInvoiceModal() {
+            document.getElementById('invoiceClient').value = '';
+            document.getElementById('invoiceType').value = 'Hôtel';
+            document.getElementById('invoiceAmount').value = '';
+            new bootstrap.Modal(document.getElementById('newInvoiceModal')).show();
+        }
+
+        // ============================================
+        // FONCTIONS DE SAUVEGARDE
+        // ============================================
+        function saveNewBooking() {
+            const booking = {
+                id: 'BK' + Math.floor(Math.random() * 1000).toString().padStart(3, '0'),
+                guest: document.getElementById('bookingGuest').value,
+                phone: document.getElementById('bookingPhone').value,
+                email: document.getElementById('bookingEmail').value,
+                room: document.getElementById('bookingRoom').value,
+                roomNumber: parseInt(document.getElementById('bookingRoom').value.split(' ')[0]),
+                checkin: document.getElementById('bookingCheckin').value,
+                checkout: document.getElementById('bookingCheckout').value,
+                adults: parseInt(document.getElementById('bookingAdults').value),
+                children: parseInt(document.getElementById('bookingChildren').value),
+                total: parseInt(document.getElementById('bookingTotal').value),
+                status: 'pending'
+            };
+
+            if (!booking.guest || !booking.phone) {
+                showNotification('Veuillez remplir les champs obligatoires', 'error');
+                return;
+            }
+
+            database.bookings.push(booking);
+            localStorage.setItem('lawmarBookings', JSON.stringify(database.bookings));
+            bootstrap.Modal.getInstance(document.getElementById('newBookingModal')).hide();
+            loadModule('bookings');
+            showNotification('Réservation créée avec succès');
+        }
+
+        function saveNewOrder() {
+            const items = [];
+            const itemRows = document.querySelectorAll('#orderItems .row');
+            itemRows.forEach(row => {
+                const inputs = row.querySelectorAll('input');
+                items.push({
+                    name: inputs[0].value,
+                    qty: parseInt(inputs[1].value),
+                    price: parseInt(inputs[2].value)
+                });
+            });
+
+            const total = items.reduce((sum, item) => sum + (item.qty * item.price), 0);
+            const order = {
+                id: 'R' + Math.floor(Math.random() * 1000).toString().padStart(3, '0'),
+                guest: document.getElementById('orderGuest').value,
+                table: parseInt(document.getElementById('orderTable').value),
+                items: items,
+                total: total,
+                status: 'pending',
+                time: moment().format('HH:mm'),
+                date: moment().format('YYYY-MM-DD')
+            };
+
+            if (!order.guest || items.length === 0) {
+                showNotification('Veuillez remplir les informations', 'error');
+                return;
+            }
+
+            database.orders.push(order);
+            localStorage.setItem('restaurantOrders', JSON.stringify(database.orders));
+            bootstrap.Modal.getInstance(document.getElementById('newOrderModal')).hide();
+            loadModule('orders');
+            showNotification('Commande créée avec succès');
+        }
+
+        function saveNewRoom() {
+            const room = {
+                number: parseInt(document.getElementById('roomNumber').value),
+                type: document.getElementById('roomType').value,
+                price: parseInt(document.getElementById('roomPrice').value),
+                status: 'available'
+            };
+
+            if (!room.number || !room.price) {
+                showNotification('Veuillez remplir tous les champs', 'error');
+                return;
+            }
+
+            if (database.rooms.find(r => r.number === room.number)) {
+                showNotification('Ce numéro de chambre existe déjà', 'error');
+                return;
+            }
+
+            database.rooms.push(room);
+            bootstrap.Modal.getInstance(document.getElementById('newRoomModal')).hide();
+            loadModule('rooms');
+            showNotification('Chambre créée avec succès');
+        }
+
+        function saveNewGuest() {
+            const guest = {
+                id: 'G' + Math.floor(Math.random() * 1000).toString().padStart(3, '0'),
+                name: document.getElementById('guestName').value,
+                email: document.getElementById('guestEmail').value,
+                phone: document.getElementById('guestPhone').value,
+                stays: 0,
+                totalSpent: 0,
+                lastStay: moment().format('YYYY-MM-DD')
+            };
+
+            if (!guest.name) {
+                showNotification('Veuillez saisir le nom du client', 'error');
+                return;
+            }
+
+            database.guests.push(guest);
+            bootstrap.Modal.getInstance(document.getElementById('newGuestModal')).hide();
+            loadModule('guests');
+            showNotification('Client créé avec succès');
+        }
+
+        function saveNewStock() {
+            const stock = {
+                id: 'S' + Math.floor(Math.random() * 1000).toString().padStart(3, '0'),
+                name: document.getElementById('stockName').value,
+                category: document.getElementById('stockCategory').value,
+                quantity: parseInt(document.getElementById('stockQuantity').value),
+                unit: document.getElementById('stockUnit').value,
+                threshold: parseInt(document.getElementById('stockThreshold').value),
+                expiry: document.getElementById('stockExpiry').value
+            };
+
+            if (!stock.name || !stock.quantity) {
+                showNotification('Veuillez remplir tous les champs', 'error');
+                return;
+            }
+
+            database.stock.push(stock);
+            bootstrap.Modal.getInstance(document.getElementById('newStockModal')).hide();
+            loadModule('stock');
+            showNotification('Article ajouté avec succès');
+        }
+
+        function saveNewExpense() {
+            const expense = {
+                id: 'EX' + Math.floor(Math.random() * 1000).toString().padStart(3, '0'),
+                date: document.getElementById('expenseDate').value,
+                category: document.getElementById('expenseCategory').value,
+                description: document.getElementById('expenseDescription').value,
+                amount: parseInt(document.getElementById('expenseAmount').value),
+                paid: document.getElementById('expensePaid').value === 'true'
+            };
+
+            if (!expense.description || !expense.amount) {
+                showNotification('Veuillez remplir tous les champs', 'error');
+                return;
+            }
+
+            database.expenses.push(expense);
+            bootstrap.Modal.getInstance(document.getElementById('newExpenseModal')).hide();
+            loadModule('expenses');
+            showNotification('Dépense ajoutée avec succès');
+        }
+
+        function saveNewInvoice() {
+            const invoice = {
+                id: 'INV' + Math.floor(Math.random() * 1000).toString().padStart(3, '0'),
+                client: document.getElementById('invoiceClient').value,
+                type: document.getElementById('invoiceType').value,
+                amount: parseInt(document.getElementById('invoiceAmount').value),
+                date: moment().format('YYYY-MM-DD'),
+                status: 'en attente'
+            };
+
+            if (!invoice.client || !invoice.amount) {
+                showNotification('Veuillez remplir tous les champs', 'error');
+                return;
+            }
+
+            showNotification('Facture créée avec succès (mode démo)', 'success');
+            bootstrap.Modal.getInstance(document.getElementById('newInvoiceModal')).hide();
+        }
+
+        function addOrderItem() {
+            const container = document.getElementById('orderItems');
+            const newItem = document.createElement('div');
+            newItem.className = 'row mb-2';
+            newItem.innerHTML = `
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Article">
+                </div>
+                <div class="col-md-3">
+                    <input type="number" class="form-control" placeholder="Qté" value="1">
+                </div>
+                <div class="col-md-3">
+                    <input type="number" class="form-control" placeholder="Prix">
+                </div>
+            `;
+            container.appendChild(newItem);
+        }
+
+        // ============================================
+        // FONCTIONS DE GESTION DES FACTURES
+        // ============================================
+        function showInvoice(bookingId) {
+            const booking = database.bookings.find(b => b.id === bookingId);
+            if (!booking) return;
+
+            currentInvoice = { ...booking, number: `INV-${booking.id}` };
+            const nights = moment(booking.checkout).diff(moment(booking.checkin), 'days');
+            const pricePerNight = Math.round(booking.total / nights);
+            
+            const invoiceNumber = `FACT-${moment().format('YYYYMM')}-${booking.id}`;
+
+            document.getElementById('invoiceContent').innerHTML = `
+                <div class="invoice-pdf-mobile">
+                    <div class="invoice-header-mobile">
+                        <div class="company-info-mobile">
+                            <div class="company-logo-mobile">
+                                <i class="fas fa-utensils"></i> LAWMAR HÔTEL
+                            </div>
+                            <div class="company-contact-mobile">
+                                <strong>Hôtel & Restaurant</strong><br>
+                                Gandiol, Sénégal<br>
+                                <strong>Téléphone:</strong> +221 33 123 45 67<br>
+                                <strong>Email:</strong> contact@lawmar.sn<br>
+                                <strong>NIF:</strong> 1234567890
+                            </div>
+                        </div>
+                        <div class="invoice-title-mobile">
+                            <h1>FACTURE</h1>
+                            <div class="invoice-number-mobile">
+                                <strong>N°:</strong> ${invoiceNumber}
+                            </div>
+                            <div style="font-size: 11px;">
+                                <strong>Date:</strong> ${moment().format('DD/MM/YYYY HH:mm')}<br>
+                                <strong>Réservation:</strong> ${booking.id}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-details-mobile">
+                        <div class="client-info-mobile">
+                            <div class="section-title-mobile">INFORMATIONS CLIENT</div>
+                            <div style="font-size: 11px; line-height: 1.4;">
+                                <strong>${booking.guest}</strong><br>
+                                Tél: ${booking.phone}<br>
+                                Email: ${booking.email}<br>
+                            </div>
+                        </div>
+                        
+                        <div class="order-info-mobile">
+                            <div class="section-title-mobile">DÉTAILS DU SÉJOUR</div>
+                            <div style="font-size: 11px; line-height: 1.4;">
+                                <strong>Chambre:</strong> ${booking.room}<br>
+                                <strong>Arrivée:</strong> ${moment(booking.checkin).format('DD/MM/YYYY')}<br>
+                                <strong>Départ:</strong> ${moment(booking.checkout).format('DD/MM/YYYY')}<br>
+                                <strong>Nuits:</strong> ${nights} nuit(s)<br>
+                                <strong>Personnes:</strong> ${booking.adults} adulte(s) ${booking.children > 0 ? `, ${booking.children} enfant(s)` : ''}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-title-mobile">DÉTAILS DE FACTURATION</div>
+                    <table class="invoice-table-mobile">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>DESCRIPTION</th>
+                                <th class="text-center">PRIX UNIT.</th>
+                                <th class="text-center">QTÉ</th>
+                                <th class="text-right">MONTANT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Hébergement - ${booking.room}</td>
+                                <td class="text-center">${pricePerNight.toLocaleString()}</td>
+                                <td class="text-center">${nights}</td>
+                                <td class="text-right">${(pricePerNight * nights).toLocaleString()}</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Petit-déjeuner</td>
+                                <td class="text-center">5 000</td>
+                                <td class="text-center">${booking.adults + booking.children}</td>
+                                <td class="text-right">${((booking.adults + booking.children) * 5000).toLocaleString()}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr style="background: #f8f9fa;">
+                                <td colspan="4" class="text-right" style="font-weight: bold;">
+                                    Sous-total:
+                                </td>
+                                <td class="text-right" style="font-weight: bold;">
+                                    ${(booking.total - (booking.prepaid || 0)).toLocaleString()}
+                                </td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td colspan="4" class="text-right">
+                                    Acompte:
+                                </td>
+                                <td class="text-right" style="color: #28a745;">
+                                    ${(booking.prepaid || 0).toLocaleString()}
+                                </td>
+                            </tr>
+                            <tr style="background: #FFFDE7; border-top: 2px solid #0d6efd;">
+                                <td colspan="4" class="text-right" style="font-weight: bold; font-size: 12px;">
+                                    TOTAL À PAYER:
+                                </td>
+                                <td class="text-right" style="font-weight: bold; font-size: 13px; color: #0d6efd;">
+                                    ${booking.total.toLocaleString()} FCFA
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    
+                    <div class="conditions-mobile">
+                        <strong>Conditions de paiement:</strong><br>
+                        • Paiement à l'hôtel<br>
+                        • Accepté: Espèces, Carte bancaire, Mobile Money<br>
+                        • Cette facture tient lieu de reçu officiel<br>
+                        • TVA non applicable
+                    </div>
+                    
+                    <div class="stamp-mobile">
+                        <div style="font-size: 12px; font-weight: bold; color: #0d6efd;">
+                            <i class="fas fa-stamp"></i> PAYÉ
+                        </div>
+                        <div style="font-size: 10px; margin-top: 3px;">
+                            ${moment().format('DD/MM/YYYY')}
+                        </div>
+                        <div style="font-size: 9px; margin-top: 5px; color: #666;">
+                            Signature & Cachet
+                        </div>
+                    </div>
+                    
+                    <div class="footer-mobile">
+                        <p style="margin: 0 0 5px 0; font-size: 10px; font-weight: bold;">
+                            Merci pour votre séjour !
+                        </p>
+                        <p style="margin: 0;">
+                            Lawmar Hôtel & Restaurant - L'excellence sénégalaise<br>
+                            Tél: +221 33 123 45 67 | Email: contact@lawmar.sn
+                        </p>
+                        <p style="margin: 5px 0 0 0; color: #999;">
+                            Facture générée automatiquement • N° ${invoiceNumber}
+                        </p>
+                    </div>
+                </div>
+            `;
+            
+            new bootstrap.Modal(document.getElementById('invoiceModal')).show();
+        }
+
+        function showOrderInvoice(orderId) {
+            const order = database.orders.find(o => o.id === orderId);
+            if (!order) return;
+
+            currentInvoice = { ...order, number: `INV-${order.id}` };
+            const invoiceNumber = `FACT-${moment().format('YYYYMM')}-${order.id}`;
+
+            document.getElementById('invoiceContent').innerHTML = `
+                <div class="invoice-pdf-mobile">
+                    <div class="invoice-header-mobile">
+                        <div class="company-info-mobile">
+                            <div class="company-logo-mobile">
+                                <i class="fas fa-utensils"></i> LE TERANGA - LAWMAR
+                            </div>
+                            <div class="company-contact-mobile">
+                                <strong>Restaurant</strong><br>
+                                Gandiol, Sénégal<br>
+                                <strong>Téléphone:</strong> +221 33 123 45 68<br>
+                                <strong>Email:</strong> restaurant@lawmar.sn<br>
+                                <strong>NIF:</strong> 1234567890
+                            </div>
+                        </div>
+                        <div class="invoice-title-mobile">
+                            <h1>FACTURE RESTAURANT</h1>
+                            <div class="invoice-number-mobile">
+                                <strong>N°:</strong> ${invoiceNumber}
+                            </div>
+                            <div style="font-size: 11px;">
+                                <strong>Date:</strong> ${moment(order.date).format('DD/MM/YYYY')} à ${order.time}<br>
+                                <strong>Commande:</strong> ${order.id}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-details-mobile">
+                        <div class="client-info-mobile">
+                            <div class="section-title-mobile">INFORMATIONS CLIENT</div>
+                            <div style="font-size: 11px; line-height: 1.4;">
+                                <strong>${order.guest}</strong><br>
+                                Table: ${order.table}
+                            </div>
+                        </div>
+                        
+                        <div class="order-info-mobile">
+                            <div class="section-title-mobile">DÉTAILS COMMANDE</div>
+                            <div style="font-size: 11px; line-height: 1.4;">
+                                <strong>Date:</strong> ${moment(order.date).format('DD/MM/YYYY')}<br>
+                                <strong>Heure:</strong> ${order.time}<br>
+                                <strong>Statut:</strong> ${order.status}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-title-mobile">ARTICLES COMMANDÉS</div>
+                    <table class="invoice-table-mobile">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>ARTICLE</th>
+                                <th class="text-center">PRIX</th>
+                                <th class="text-center">QTE</th>
+                                <th class="text-right">MONTANT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${order.items.map((item, index) => `
+                                <tr>
+                                    <td>${index + 1}</td>
+                                    <td>${item.name}</td>
+                                    <td class="text-center">${item.price.toLocaleString()}</td>
+                                    <td class="text-center">${item.qty}</td>
+                                    <td class="text-right">${(item.price * item.qty).toLocaleString()}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                        <tfoot>
+                            <tr style="background: #f8f9fa;">
+                                <td colspan="4" class="text-right" style="font-weight: bold;">
+                                    Sous-total:
+                                </td>
+                                <td class="text-right" style="font-weight: bold;">
+                                    ${order.items.reduce((sum, item) => sum + (item.price * item.qty), 0).toLocaleString()}
+                                </td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td colspan="4" class="text-right">
+                                    Service:
+                                </td>
+                                <td class="text-right">
+                                    INCLUS
+                                </td>
+                            </tr>
+                            <tr style="background: #FFFDE7; border-top: 2px solid #0d6efd;">
+                                <td colspan="4" class="text-right" style="font-weight: bold; font-size: 12px;">
+                                    TOTAL À PAYER:
+                                </td>
+                                <td class="text-right" style="font-weight: bold; font-size: 13px; color: #0d6efd;">
+                                    ${order.total.toLocaleString()} FCFA
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    
+                    <div class="conditions-mobile">
+                        <strong>Conditions de paiement:</strong><br>
+                        • Service inclus<br>
+                        • Accepté: Espèces, Carte bancaire, Mobile Money<br>
+                        • Facture = Reçu officiel<br>
+                        • TVA non applicable
+                    </div>
+                    
+                    <div class="stamp-mobile">
+                        <div style="font-size: 12px; font-weight: bold; color: #0d6efd;">
+                            <i class="fas fa-stamp"></i> PAYÉ
+                        </div>
+                        <div style="font-size: 10px; margin-top: 3px;">
+                            ${moment().format('DD/MM/YYYY')}
+                        </div>
+                        <div style="font-size: 9px; margin-top: 5px; color: #666;">
+                            Signature & Cachet
+                        </div>
+                    </div>
+                    
+                    <div class="footer-mobile">
+                        <p style="margin: 0 0 5px 0; font-size: 10px; font-weight: bold;">
+                            Merci de votre visite !
+                        </p>
+                        <p style="margin: 0;">
+                            Le Teranga - Lawmar Hôtel & Restaurant<br>
+                            Tél: +221 33 123 45 68 | Email: restaurant@lawmar.sn
+                        </p>
+                        <p style="margin: 5px 0 0 0; color: #999;">
+                            Facture générée automatiquement • N° ${invoiceNumber}
+                        </p>
+                    </div>
+                </div>
+            `;
+            
+            new bootstrap.Modal(document.getElementById('invoiceModal')).show();
+        }
+
+        async function downloadInvoicePDF() {
+            if (!currentInvoice) {
+                showNotification('Aucune facture à télécharger', 'error');
+                return;
+            }
+
+            const element = document.querySelector('.invoice-pdf-mobile');
+            if (!element) {
+                showNotification('Élément facture non trouvé', 'error');
+                return;
+            }
+
+            document.getElementById('loadingOverlay').style.display = 'flex';
+
+            try {
+                await new Promise(resolve => setTimeout(resolve, 500));
+                
+                const canvas = await html2canvas(element, {
+                    scale: 3,
+                    backgroundColor: '#ffffff',
+                    logging: false,
+                    allowTaint: false,
+                    useCORS: true,
+                    windowWidth: 800
+                });
+
+                document.getElementById('loadingOverlay').style.display = 'none';
+                
+                const imgData = canvas.toDataURL('image/png');
+                
+                if (typeof window.jspdf === 'undefined' && typeof window.jsPDF === 'undefined') {
+                    throw new Error('jsPDF non chargé');
+                }
+                
+                const { jsPDF } = window.jspdf || { jsPDF: window.jsPDF };
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: 'a4'
+                });
+
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save(`facture-${currentInvoice.number || currentInvoice.id}.pdf`);
+
+                showNotification('PDF généré avec succès !', 'success');
+            } catch (error) {
+                console.error('Erreur détaillée PDF:', error);
+                document.getElementById('loadingOverlay').style.display = 'none';
+                showNotification('Erreur lors de la génération du PDF: ' + error.message, 'error');
+                
+                try {
+                    const canvas = await html2canvas(element, { scale: 2 });
+                    const imgData = canvas.toDataURL('image/png');
+                    const link = document.createElement('a');
+                    link.download = `facture-${currentInvoice.number || currentInvoice.id}.png`;
+                    link.href = imgData;
+                    link.click();
+                    showNotification('Facture téléchargée en PNG (fallback)', 'info');
+                } catch (e) {
+                    console.error('Fallback échoué:', e);
+                }
+            }
+        }
+
+        function downloadInvoice(bookingId) {
+            showInvoice(bookingId);
+            setTimeout(() => downloadInvoicePDF(), 800);
+        }
+
+        function downloadOrderInvoice(orderId) {
+            showOrderInvoice(orderId);
+            setTimeout(() => downloadInvoicePDF(), 800);
+        }
+
+        // Actions CRUD
+        function confirmBooking(id) {
+            const booking = database.bookings.find(b => b.id === id);
+            if (booking) {
+                booking.status = 'confirmed';
+                loadModule('bookings');
+                showNotification('Réservation confirmée');
+            }
+        }
+
+        function checkIn(id) {
+            const booking = database.bookings.find(b => b.id === id);
+            if (booking) {
+                booking.status = 'checked-in';
+                const room = database.rooms.find(r => r.number == booking.roomNumber);
+                if (room) {
+                    room.status = 'occupied';
+                    room.guest = booking.guest;
+                }
+                loadModule('bookings');
+                showNotification('Check-in effectué');
+            }
+        }
+
+        function checkOut(id) {
+            const booking = database.bookings.find(b => b.id === id);
+            if (booking) {
+                booking.status = 'checked-out';
+                const room = database.rooms.find(r => r.number == booking.roomNumber);
+                if (room) {
+                    room.status = 'available';
+                    room.guest = null;
+                }
+                loadModule('bookings');
+                showNotification('Check-out effectué');
+            }
+        }
+
+        function deleteBooking(id) {
+            showConfirm(`Supprimer la réservation ${id} ?`, () => {
+                const index = database.bookings.findIndex(b => b.id === id);
+                if (index !== -1) {
+                    database.bookings.splice(index, 1);
+                    localStorage.setItem('lawmarBookings', JSON.stringify(database.bookings));
+                    loadModule('bookings');
+                    updateBadges();
+                    showNotification('Réservation supprimée');
+                }
+            });
+        }
+
+        function updateOrderStatus(id) {
+            const order = database.orders.find(o => o.id === id);
+            if (order) {
+                if (order.status === 'pending') order.status = 'preparing';
+                else if (order.status === 'preparing') order.status = 'paid';
+                else order.status = 'pending';
+                
+                localStorage.setItem('restaurantOrders', JSON.stringify(database.orders));
+                loadModule('orders');
+                showNotification('Statut mis à jour');
+            }
+        }
+
+        function deleteOrder(id) {
+            showConfirm(`Supprimer la commande ${id} ?`, () => {
+                const index = database.orders.findIndex(o => o.id === id);
+                if (index !== -1) {
+                    database.orders.splice(index, 1);
+                    localStorage.setItem('restaurantOrders', JSON.stringify(database.orders));
+                    loadModule('orders');
+                    updateBadges();
+                    showNotification('Commande supprimée');
+                }
+            });
+        }
+
+        function exportToCSV(type) {
+            let data;
+            switch(type) {
+                case 'bookings': data = database.bookings; break;
+                case 'orders': data = database.orders; break;
+                case 'guests': data = database.guests; break;
+                case 'stock': data = database.stock; break;
+                case 'expenses': data = database.expenses; break;
+                case 'invoices': 
+                    data = [
+                        ...database.bookings.map(b => ({ type: 'Hôtel', ...b })),
+                        ...database.orders.map(o => ({ type: 'Restaurant', ...o }))
+                    ];
+                    break;
+                default: return;
+            }
+            
+            const headers = Object.keys(data[0] || {}).join(',');
+            const rows = data.map(obj => Object.values(obj).map(v => `"${v}"`).join(',')).join('\n');
+            const csv = headers + '\n' + rows;
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${type}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            showNotification('Export réussi');
+        }
+
+        function refreshData() {
+            document.getElementById('loadingOverlay').style.display = 'flex';
+            
+            setTimeout(() => {
+                loadData();
+                loadModule(currentModule);
+                document.getElementById('loadingOverlay').style.display = 'none';
+                showNotification('Données synchronisées');
+            }, 500);
+        }
+
+        // ============================================
+        // DATATABLES
+        // ============================================
+        function initDataTable(tableId) {
+            if ($(tableId).length && $.fn.DataTable) {
+                if ($(tableId).hasClass('dataTable')) {
+                    $(tableId).DataTable().destroy();
+                }
+                $(tableId).DataTable({
+                    language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/fr-FR.json' },
+                    pageLength: 10,
+                    responsive: true,
+                    order: [[0, 'desc']]
+                });
+            }
+        }
+
+        // Exposer les fonctions
+        window.handleLogin = handleLogin;
+        window.loadModule = loadModule;
+        window.toggleSidebar = toggleSidebar;
+        window.logout = logout;
+        window.refreshData = refreshData;
+        window.showInvoice = showInvoice;
+        window.showOrderInvoice = showOrderInvoice;
+        window.downloadInvoicePDF = downloadInvoicePDF;
+        window.downloadInvoice = downloadInvoice;
+        window.downloadOrderInvoice = downloadOrderInvoice;
+        window.confirmBooking = confirmBooking;
+        window.checkIn = checkIn;
+        window.checkOut = checkOut;
+        window.deleteBooking = deleteBooking;
+        window.updateOrderStatus = updateOrderStatus;
+        window.deleteOrder = deleteOrder;
+        window.exportToCSV = exportToCSV;
+        window.openNewBookingModal = openNewBookingModal;
+        window.openNewOrderModal = openNewOrderModal;
+        window.openNewRoomModal = openNewRoomModal;
+        window.openNewGuestModal = openNewGuestModal;
+        window.openNewStockModal = openNewStockModal;
+        window.openNewExpenseModal = openNewExpenseModal;
+        window.openNewInvoiceModal = openNewInvoiceModal;
+        window.saveNewBooking = saveNewBooking;
+        window.saveNewOrder = saveNewOrder;
+        window.saveNewRoom = saveNewRoom;
+        window.saveNewGuest = saveNewGuest;
+        window.saveNewStock = saveNewStock;
+        window.saveNewExpense = saveNewExpense;
+        window.saveNewInvoice = saveNewInvoice;
+        window.addOrderItem = addOrderItem;
+    </script>
+</body>
+</html>

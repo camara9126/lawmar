@@ -1,0 +1,428 @@
+{
+  "hotel": {
+    "name": "Lawmar Hotel & Restaurant",
+    "address": "123 Avenue des Champs-Élysées, 75008 Paris",
+    "phone": "+33 1 23 45 67 89",
+    "email": "contact@lawmar-hotel.com",
+    "website": "https://www.lawmar-hotel.com",
+    "description": "Hôtel 5 étoiles au cœur de Paris offrant luxe, confort et gastronomie d'exception depuis 1995.",
+    "amenities": [
+      "Wi-Fi gratuit",
+      "Piscine intérieure",
+      "Spa & centre de bien-être",
+      "Restaurant gastronomique",
+      "Room service 24h/24",
+      "Salles de conférence",
+      "Service de transfert",
+      "Fitness center",
+      "Parking privé",
+      "Animaux acceptés"
+    ],
+    "social": {
+      "facebook": "https://facebook.com/lawmarhotel",
+      "instagram": "https://instagram.com/lawmarhotel",
+      "twitter": "https://twitter.com/lawmarhotel",
+      "tripadvisor": "https://tripadvisor.com/lawmarhotel"
+    }
+  },
+  "rooms": [
+    {
+      "id": 1,
+      "type": "standard",
+      "name": "Chambre Standard",
+      "description": "Chambre élégante et confortable avec lit double, salle de bain en marbre et vue sur la cour intérieure. Parfaite pour les courts séjours.",
+      "price": 120,
+      "size": 25,
+      "capacity": 2,
+      "bedType": "Lit double 160x200",
+      "view": "Cour intérieure",
+      "amenities": [
+        "Wi-Fi gratuit",
+        "TV écran plat 42\"",
+        "Mini-bar",
+        "Climatisation",
+        "Coffre-fort",
+        "Sèche-cheveux",
+        "Articles de toilette premium",
+        "Thé/Café"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "deluxe",
+      "name": "Chambre Deluxe",
+      "description": "Chambre spacieuse avec lit king-size, espace salon, salle de bain avec baignoire et balcon privé offrant une vue sur la ville.",
+      "price": 180,
+      "size": 35,
+      "capacity": 2,
+      "bedType": "Lit king-size 180x200",
+      "view": "Vue ville",
+      "amenities": [
+        "Wi-Fi gratuit",
+        "TV écran plat 55\"",
+        "Mini-bar premium",
+        "Climatisation",
+        "Coffre-fort",
+        "Machine à café Nespresso",
+        "Bureau",
+        "Salle de bain marbre",
+        "Peignoir et pantoufles",
+        "Service de concierge"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1598928636316-3f7d15a1c601?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "suite",
+      "name": "Suite Lawmar",
+      "description": "Suite luxueuse avec séjour séparé, chambre avec lit king-size, salle de bain en marbre avec baignoire et douche à l'italienne, et vue panoramique.",
+      "price": 280,
+      "size": 50,
+      "capacity": 2,
+      "bedType": "Lit king-size 180x200",
+      "view": "Vue panoramique",
+      "amenities": [
+        "Wi-Fi gratuit",
+        "2 TV écran plat 65\"",
+        "Mini-bar entièrement stocké",
+        "Climatisation individuelle",
+        "Coffre-fort grand format",
+        "Machine à café Nespresso",
+        "Espace bureau",
+        "Canapé convertible",
+        "Salle de bain double vasque",
+        "Service de majordome"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "presidentielle",
+      "name": "Suite Présidentielle",
+      "description": "Suite d'exception sur deux niveaux avec deux chambres, trois salles de bain, salon spacieux, salle à manger, bureau et terrasse privée avec vue imprenable sur Paris.",
+      "price": 550,
+      "size": 120,
+      "capacity": 4,
+      "bedType": "2 Lits king-size 200x200",
+      "view": "Vue panoramique sur Paris",
+      "amenities": [
+        "Wi-Fi fibre gratuit",
+        "3 TV écran plat 75\"",
+        "Mini-bar entièrement stocké",
+        "Climatisation centrale",
+        "Coffre-fort de luxe",
+        "Machine à café Nespresso",
+        "Bureau exécutif",
+        "Salon de 40m²",
+        "Salle à manger",
+        "Terrasse privée",
+        "Jacuzzi sur terrasse",
+        "Service de majordome 24h/24",
+        "Parking privé inclus",
+        "Transfert limousine"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      ]
+    }
+  ],
+  "restaurant": {
+    "name": "Le Restaurant Lawmar",
+    "chef": "Alexandre Moreau",
+    "cuisine": "Française contemporaine",
+    "description": "Restaurant gastronomique étoilé proposant une cuisine française revisitée avec des produits de saison issus des meilleurs producteurs.",
+    "hours": {
+      "weekdays": {
+        "lunch": "12:00 - 14:30",
+        "dinner": "19:30 - 22:30"
+      },
+      "weekend": {
+        "lunch": "12:00 - 15:00",
+        "dinner": "19:00 - 23:00"
+      },
+      "sundayDinner": "Fermé"
+    },
+    "ambiance": [
+      "Décoration élégante et contemporaine",
+      "Service attentif et discret",
+      "Terrasse avec vue sur les jardins",
+      "Cave à vins de 500 références",
+      "Salon privatif pour événements"
+    ]
+  },
+  "services": [
+    {
+      "id": 1,
+      "name": "Spa & Bien-être",
+      "description": "Centre de bien-être de 800m² avec piscine, hammam, sauna et cabines de soins.",
+      "icon": "fas fa-spa",
+      "hours": "9:00 - 21:00",
+      "details": {
+        "soins": ["Massages", "Soins du visage", "Enveloppements", "Rituels bien-être"],
+        "equipements": ["Piscine chauffée", "Hammam", "Sauna", "Jacuzzi", "Solarium"],
+        "tarifs": ["Massage 60min: 90€", "Forfait journée: 250€"]
+      }
+    },
+    {
+      "id": 2,
+      "name": "Salles de conférence",
+      "description": "Espaces modulables pour événements professionnels jusqu'à 200 personnes.",
+      "icon": "fas fa-chalkboard-teacher",
+      "hours": "Sur réservation",
+      "details": {
+        "salles": ["Salle Élysée (50 pers.)", "Grand Salon (200 pers.)", "Salle Directoire (20 pers.)"],
+        "equipements": ["Vidéoprojecteurs", "Wi-Fi fibre", "Régie technique", "Service traiteur"],
+        "tarifs": ["À partir de 450€/jour"]
+      }
+    },
+    {
+      "id": 3,
+      "name": "Transfert aéroport",
+      "description": "Service de navette privée depuis les aéroports parisiens.",
+      "icon": "fas fa-shuttle-van",
+      "hours": "24h/24",
+      "details": {
+        "destinations": ["CDG: 85€", "Orly: 75€", "Gare du Nord: 65€"],
+        "vehicules": ["Mercedes Classe E", "Mercedes Classe S", "Van 8 places"],
+        "inclus": ["Accueil avec pancarte", "Wi-Fi à bord", "Eau minérale"]
+      }
+    },
+    {
+      "id": 4,
+      "name": "Piscine intérieure",
+      "description": "Piscine chauffée à 28°C avec jacuzzi et solarium, ouverte toute l'année.",
+      "icon": "fas fa-swimming-pool",
+      "hours": "7:00 - 22:00",
+      "details": {
+        "dimensions": "15m x 6m",
+        "temperature": "28°C constante",
+        "equipements": ["Nage à contre-courant", "Jacuzzi", "Transats chauffants", "Bar de piscine"]
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "author": "Marie Dubois",
+      "rating": 5,
+      "comment": "Séjour exceptionnel ! Le service est impeccable, la chambre magnifique et le restaurant gastronomique est à ne pas manquer. Nous reviendrons !",
+      "date": "2023-06-15",
+      "roomType": "Suite",
+      "tripType": "Romantique",
+      "avatar": "https://randomuser.me/api/portraits/women/32.jpg"
+    },
+    {
+      "id": 2,
+      "author": "Thomas Martin",
+      "rating": 4,
+      "comment": "Excellent hôtel pour un voyage d'affaires. Les salles de conférence sont bien équipées et le personnel très attentionné. Le room service est rapide et de qualité.",
+      "date": "2023-05-22",
+      "roomType": "Chambre Deluxe",
+      "tripType": "Affaires",
+      "avatar": "https://randomuser.me/api/portraits/men/54.jpg"
+    },
+    {
+      "id": 3,
+      "author": "Sophie Leroy",
+      "rating": 5,
+      "comment": "Nous avons passé un weekend romantique inoubliable. La suite avec jacuzzi est magnifique et le petit-déjeuner au lit était parfait. Le spa est un vrai havre de paix.",
+      "date": "2023-05-10",
+      "roomType": "Suite Présidentielle",
+      "tripType": "Romantique",
+      "avatar": "https://randomuser.me/api/portraits/women/44.jpg"
+    },
+    {
+      "id": 4,
+      "author": "Pierre Lambert",
+      "rating": 5,
+      "comment": "Service de transfert impeccable, chambre spacieuse et propre, restaurant excellent. Le personnel est aux petits soins. Je recommande vivement !",
+      "date": "2023-04-28",
+      "roomType": "Chambre Standard",
+      "tripType": "Familial",
+      "avatar": "https://randomuser.me/api/portraits/men/67.jpg"
+    }
+  ],
+  "specialOffers": [
+    {
+      "id": 1,
+      "title": "Weekend Romantique",
+      "description": "2 nuits en suite de luxe avec petit-déjeuner au lit et dîner gastronomique",
+      "originalPrice": 450,
+      "discountedPrice": 360,
+      "discount": 20,
+      "validity": "2023-12-31",
+      "includes": [
+        "2 nuits en suite",
+        "Petit-déjeuner au lit",
+        "Dîner gastronomique pour 2",
+        "Accès spa",
+        "Check-out tardif"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Séjour Détente",
+      "description": "3 nuits avec accès illimité au spa et massages relaxants inclus",
+      "originalPrice": 620,
+      "discountedPrice": 527,
+      "discount": 15,
+      "validity": "2023-12-31",
+      "includes": [
+        "3 nuits en chambre deluxe",
+        "Accès illimité au spa",
+        "Massage 60min par personne",
+        "Petit-déjeuner buffet",
+        "Thérapie par l'eau"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Forfait Affaires",
+      "description": "Chambre + petit-déjeuner + accès salle de conférence + transfert aéroport",
+      "originalPrice": 220,
+      "discountedPrice": 185,
+      "discount": 16,
+      "validity": "2023-12-31",
+      "includes": [
+        "Chambre standard",
+        "Petit-déjeuner continental",
+        "Accès salle de réunion 4h",
+        "Transfert aéroport aller",
+        "Wi-Fi haute vitesse"
+      ]
+    }
+  ],
+  "menu": {
+    "categories": [
+      {
+        "name": "Entrées",
+        "items": [
+          {
+            "name": "Foie gras mi-cuit",
+            "description": "Foie gras de canard des Landes, figues confites, pain d'épices maison",
+            "price": 24,
+            "allergens": ["lait"],
+            "chefRecommendation": true
+          },
+          {
+            "name": "Tartare de saumon sauvage",
+            "description": "Avocat, citron vert, aneth, crème de wasabi",
+            "price": 22,
+            "allergens": ["poisson", "soja"],
+            "chefRecommendation": false
+          },
+          {
+            "name": "Salade Lawmar",
+            "description": "Mesclun, chèvre chaud au miel, noix de Grenoble, vinaigrette au miel",
+            "price": 18,
+            "allergens": ["lait", "fruits à coque"],
+            "chefRecommendation": false
+          }
+        ]
+      },
+      {
+        "name": "Plats Principaux",
+        "items": [
+          {
+            "name": "Filet de bœuf Black Angus",
+            "description": "Sauce au poivre vert, gratin dauphinois, légumes de saison",
+            "price": 38,
+            "allergens": ["lait"],
+            "chefRecommendation": true
+          },
+          {
+            "name": "Bar de ligne rôti",
+            "description": "Risotto aux asperges vertes, émulsion au citron confit",
+            "price": 32,
+            "allergens": ["poisson", "lait"],
+            "chefRecommendation": false
+          },
+          {
+            "name": "Carré d'agneau de Sisteron",
+            "description": "Herbes de Provence, ratatouille niçoise, jus réduit au romarin",
+            "price": 36,
+            "allergens": [],
+            "chefRecommendation": true
+          }
+        ]
+      },
+      {
+        "name": "Desserts",
+        "items": [
+          {
+            "name": "Soufflé au chocolat Grand Cru",
+            "description": "Glace vanille de Madagascar",
+            "price": 16,
+            "allergens": ["lait", "œufs"],
+            "chefRecommendation": true
+          },
+          {
+            "name": "Tarte fine aux pommes caramélisées",
+            "description": "Sorbet calvados, crème anglaise",
+            "price": 14,
+            "allergens": ["lait", "gluten"],
+            "chefRecommendation": false
+          },
+          {
+            "name": "Assiette de fromages affinés",
+            "description": "Sélection du maître fromager, confiture de figues, noix",
+            "price": 18,
+            "allergens": ["lait", "fruits à coque"],
+            "chefRecommendation": false
+          }
+        ]
+      }
+    ],
+    "wineList": {
+      "rouges": [
+        {"name": "Château Margaux 2015", "region": "Bordeaux", "price": "180"},
+        {"name": "Romanée-Conti 2010", "region": "Bourgogne", "price": "950"},
+        {"name": "Châteauneuf-du-Pape 2018", "region": "Rhône", "price": "65"}
+      ],
+      "blancs": [
+        {"name": "Montrachet 2017", "region": "Bourgogne", "price": "320"},
+        {"name": "Sancerre 2021", "region": "Loire", "price": "48"},
+        {"name": "Chablis Premier Cru 2019", "region": "Bourgogne", "price": "72"}
+      ]
+    }
+  },
+  "gallery": {
+    "categories": [
+      {
+        "name": "Chambres & Suites",
+        "images": [
+          {"url": "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "caption": "Suite Présidentielle"},
+          {"url": "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "caption": "Chambre Deluxe"},
+          {"url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "caption": "Chambre Standard"}
+        ]
+      },
+      {
+        "name": "Restaurant",
+        "images": [
+          {"url": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "caption": "Salle à manger principale"},
+          {"url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "caption": "Bar Lounge"},
+          {"url": "https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "caption": "Terrasse restaurant"}
+        ]
+      },
+      {
+        "name": "Spa & Piscine",
+        "images": [
+          {"url": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "caption": "Espace Spa"},
+          {"url": "https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "caption": "Piscine intérieure"},
+          {"url": "https://images.unsplash.com/photo-1540555700478-4be2893be1c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "caption": "Cabine de massage"}
+        ]
+      }
+    ]
+  }
+}

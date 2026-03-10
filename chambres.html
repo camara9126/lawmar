@@ -1,0 +1,2301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chambres & Suites - Lawmar Les Résidences - Gandiol 🇸🇳</title>
+    
+    <!-- ===== STYLES EXTERNES ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== VARIABLES CSS - IDENTIQUES À LA PAGE ACCUEIL ===== */
+        :root {
+            --primary-color: #025ba5;
+            --secondary-color: #e0e0e0;
+            --accent-color: #c53030;
+            --dark-color: #2d3748;
+            --light-color: #f7fafc;
+            --light-green: #f0fff4;
+            --yellow-color: #FFD700;
+            --transition: all 0.3s ease;
+            --indigo: #1E3A5F;
+            --sable: #F4EDE4;
+            --vert: #2F5D50;
+        }
+
+        /* ===== RESET CSS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            padding-top: 80px;
+            background-color: var(--sable);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .section-padding {
+            padding: 40px 0;
+        }
+
+        /* ===== BOUTONS ===== */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 8px 20px;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #024a84;
+            border-color: #024a84;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white !important;
+            border-color: #25D366;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+            border-color: #1da851;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+
+        /* ===== NAVIGATION - IDENTIQUE À LA PAGE D'ACCUEIL (SANS CERCLE) ===== */
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 5px 0;
+            min-height: 70px;
+        }
+
+        .navbar .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            padding: 0;
+            margin-left: -20px; /* Décalage vers la gauche comme sur l'accueil */
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-image {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            background: transparent;
+            border: none; /* SUPPRESSION DU CADRE */
+            border-radius: 0; /* SUPPRESSION DU CADRE ARRONDI */
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hotel-name {
+            color: var(--primary-color) !important;
+            font-size: 1.4rem;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .hotel-subtitle {
+            color: var(--dark-color) !important;
+            font-size: 0.75rem;
+            font-weight: 300;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--primary-color) !important;
+            font-weight: 500;
+            padding: 6px 10px !important;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--indigo) !important;
+            border-bottom: 2px solid var(--vert);
+        }
+
+        .btn-reservation {
+            background-color: transparent !important;
+            color: var(--primary-color) !important;
+            border: 2px solid var(--primary-color) !important;
+            border-radius: 5px;
+            font-weight: 600;
+            padding: 6px 15px !important;
+            transition: var(--transition);
+        }
+
+        .btn-reservation:hover {
+            background-color: var(--primary-color) !important;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+
+        .dropdown-menu {
+            background-color: white;
+            border: 1px solid var(--secondary-color);
+        }
+
+        .dropdown-item {
+            color: var(--primary-color) !important;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--light-color);
+            color: var(--indigo) !important;
+        }
+
+        /* ===== HERO ===== */
+        .room-hero {
+            background: url('images/lawmar.jpeg') no-repeat center center;
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: center;
+            margin-top: 0;
+            position: relative;
+        }
+
+        .room-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            color: white;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-subtitle {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .location-badge {
+            display: inline-block;
+            background-color: var(--indigo);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            border: 1px solid var(--sable);
+            animation: fadeIn 1s ease 0.6s both;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ===== EN-TÊTE DE SECTION ===== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--vert);
+        }
+
+        .section-header p {
+            color: var(--dark-color);
+            font-size: 0.95rem;
+            max-width: 700px;
+            margin: 10px auto 0;
+            opacity: 0.8;
+        }
+
+        /* ===== NOUVELLE SECTION INTRODUCTION DÉTAILLÉE ===== */
+        .intro-offre {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border: 1px solid var(--sable);
+        }
+        .intro-offre h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .intro-offre h4 {
+            color: var(--vert);
+            font-size: 1.2rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .intro-offre ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .intro-offre ul li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .intro-offre ul li i {
+            color: var(--vert);
+            position: absolute;
+            left: 0;
+            top: 3px;
+            width: 18px;
+        }
+        .emails-synchro {
+            background-color: var(--sable);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 25px;
+        }
+        .emails-synchro p {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        .emails-synchro strong {
+            color: var(--primary-color);
+        }
+        .regles-sejour {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0 10px;
+        }
+        .regle-item {
+            background: var(--light-color);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--indigo);
+            border: 1px solid var(--vert);
+        }
+        .regle-item i {
+            margin-right: 5px;
+            color: var(--vert);
+        }
+
+        /* ===== FILTRES ===== */
+        .filter-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+            border: 1px solid var(--sable);
+        }
+
+        .filter-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* ===== CARTES DE CHAMBRES ===== */
+        .room-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+            transition: var(--transition);
+            border: 1px solid var(--sable);
+        }
+
+        .room-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .room-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            min-height: 240px;
+            max-height: 240px;
+            background-color: var(--sable);
+        }
+
+        .room-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .room-card:hover .room-image-wrapper img {
+            transform: scale(1.05);
+        }
+
+        /* Badges */
+        .room-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .room-badge.economique { background: var(--indigo); color: white; }
+        .room-badge.confort { background: var(--vert); color: white; }
+        .room-badge.luxe { background: var(--accent-color); color: white; }
+        .room-badge.prestige { background: #1a365d; color: white; }
+
+        .room-view-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--indigo);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            z-index: 2;
+        }
+
+        .room-view-badge i {
+            margin-right: 3px;
+        }
+
+        .room-content {
+            padding: 18px;
+        }
+
+        .room-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+        }
+
+        .room-description {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            opacity: 0.8;
+        }
+
+        .room-price {
+            background: linear-gradient(135deg, var(--yellow-color), #e6c200);
+            color: var(--indigo);
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 8px 0;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+        }
+
+        .room-price small {
+            font-size: 0.65rem;
+            font-weight: normal;
+            display: block;
+            color: var(--indigo);
+            opacity: 0.7;
+        }
+
+        .room-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+            margin: 10px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px;
+            background: rgba(47, 93, 80, 0.05);
+            border-radius: 5px;
+        }
+
+        .feature-icon {
+            color: var(--vert);
+            font-size: 0.8rem;
+            width: 16px;
+        }
+
+        .feature-text {
+            font-size: 0.75rem;
+            color: var(--dark-color);
+        }
+
+        .amenities-list {
+            list-style: none;
+            padding: 0;
+            margin: 8px 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3px;
+        }
+
+        .amenities-list li {
+            padding: 3px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.7rem;
+            border-bottom: 1px dashed var(--sable);
+            color: var(--dark-color);
+        }
+
+        .amenities-list i {
+            color: var(--vert);
+            width: 14px;
+            font-size: 0.7rem;
+        }
+
+        .review-badge {
+            background: var(--sable);
+            border-left: 3px solid var(--vert);
+            padding: 8px;
+            border-radius: 5px;
+            margin: 8px 0;
+        }
+
+        .stars {
+            color: #ffc107;
+            margin-bottom: 3px;
+            font-size: 0.7rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 3px;
+            font-size: 0.7rem;
+            color: var(--dark-color);
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--vert);
+            font-size: 0.7rem;
+        }
+
+        /* ===== CARROUSEL ===== */
+        .carousel-indicators button {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin: 0 2px;
+            background-color: var(--primary-color);
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 25px;
+            height: 25px;
+            opacity: 0.5;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .carousel-control-prev { left: 5px; }
+        .carousel-control-next { right: 5px; }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            opacity: 1;
+            background: var(--vert);
+        }
+
+        /* ===== TABLEAU COMPARATIF ===== */
+        .comparison-section {
+            background: var(--sable);
+            padding: 30px 0;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            font-size: 0.8rem;
+        }
+
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .comparison-table td {
+            padding: 6px 8px;
+            vertical-align: middle;
+            text-align: center;
+            border-bottom: 1px solid var(--sable);
+            color: var(--dark-color);
+        }
+
+        .feature-yes { color: var(--vert); font-weight: bold; }
+        .feature-no { color: #dc3545; }
+
+        /* ===== FAQ ===== */
+        .faq-section {
+            padding: 30px 0;
+            background-color: white;
+        }
+
+        .accordion-item {
+            border: none;
+            margin-bottom: 8px;
+            border-radius: 8px !important;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid var(--sable);
+        }
+
+        .accordion-button {
+            font-weight: 600;
+            color: var(--primary-color);
+            background-color: white;
+            padding: 12px;
+            font-size: 0.85rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: var(--sable);
+            color: var(--primary-color);
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: var(--vert);
+        }
+
+        .accordion-body {
+            padding: 12px;
+            font-size: 0.8rem;
+            color: var(--dark-color);
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: var(--primary-color);
+            padding: 40px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-title { 
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .cta-text { 
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        /* ===== FOOTER MODIFIÉ (blanc avec écritures bleues) ===== */
+        .footer {
+            background-color: white !important;
+            color: var(--primary-color);
+            padding: 30px 0 20px;
+            font-size: 0.9rem;
+            border-top: 2px solid var(--primary-color);
+            box-shadow: 0 -5px 15px rgba(2, 91, 165, 0.05);
+        }
+
+        .footer-about h3 {
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-links h4,
+        .footer-contact h4,
+        .footer-newsletter h4 {
+            color: var(--primary-color) !important;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a {
+            color: var(--primary-color) !important;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--indigo) !important;
+            padding-left: 5px;
+            border-left: 2px solid var(--vert);
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            color: var(--primary-color) !important;
+        }
+
+        .footer-contact i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .footer-contact i:hover {
+            color: var(--indigo);
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background-color: var(--primary-color);
+            color: white !important;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--indigo);
+            transform: translateY(-3px);
+        }
+
+        .footer-newsletter .input-group {
+            margin-top: 10px;
+        }
+
+        .footer-newsletter .input-group input {
+            border: 1px solid var(--primary-color);
+            color: var(--dark-color);
+        }
+
+        .footer-newsletter .input-group input:focus {
+            border-color: var(--vert);
+            box-shadow: 0 0 0 0.2rem rgba(47, 93, 80, 0.25);
+        }
+
+        .footer-newsletter .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .footer-newsletter .btn-primary:hover {
+            background-color: var(--indigo);
+            border-color: var(--indigo);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(2, 91, 165, 0.2);
+            padding-top: 15px;
+            margin-top: 20px;
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--indigo);
+            text-decoration: underline;
+        }
+
+        .footer-logo-image {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border: none !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+        }
+
+        /* Emails professionnels dans footer */
+        .emails-pro {
+            margin-top: 15px;
+            font-size: 0.85rem;
+        }
+        .emails-pro a {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .emails-pro a:hover {
+            color: var(--indigo);
+            text-decoration: underline;
+        }
+        .sync-note {
+            font-size: 0.75rem;
+            color: var(--dark-color);
+            opacity: 0.7;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* ===== RESPONSIVE - IDENTIQUE À LA PAGE D'ACCUEIL ===== */
+        @media (max-width: 991px) {
+            .navbar .container {
+                position: static;
+            }
+            
+            .navbar-brand {
+                margin-left: 0;
+            }
+            
+            .navbar-collapse {
+                background-color: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                margin-top: 10px;
+            }
+            
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 10px 15px !important;
+                width: 100%;
+                text-align: left;
+            }
+            
+            .btn-reservation {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                margin-top: 5px;
+            }
+            
+            .dropdown-menu {
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body { 
+                padding-top: 70px; 
+            }
+            
+            .navbar {
+                padding: 4px 0 !important;
+                min-height: 60px;
+            }
+            
+            .navbar-brand {
+                margin-left: 0;
+            }
+            
+            .logo-image {
+                width: 38px;
+                height: 38px;
+            }
+            
+            .hotel-name {
+                font-size: 1.2rem !important;
+            }
+            
+            .hotel-subtitle {
+                font-size: 0.65rem !important;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 8px 15px !important;
+            }
+            
+            .room-hero { height: 280px; }
+            .hero-title { font-size: 1.6rem; }
+            .room-image-wrapper { min-height: 180px; }
+            
+            .footer {
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+                display: flex;
+            }
+            
+            .footer-logo-image {
+                width: 38px;
+                height: 38px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body { 
+                padding-top: 65px; 
+            }
+            
+            .navbar { 
+                min-height: 55px; 
+            }
+            
+            .room-hero { 
+                height: 240px; 
+            }
+            
+            .hero-title { 
+                font-size: 1.4rem; 
+            }
+            
+            .logo-image { 
+                width: 32px; 
+                height: 32px; 
+            }
+            
+            .hotel-name { 
+                font-size: 1.1rem !important; 
+            }
+            
+            .footer-logo-image {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            body { 
+                padding-top: 60px; 
+            }
+            
+            .navbar { 
+                min-height: 50px; 
+            }
+            
+            .room-hero { 
+                height: 200px; 
+            }
+            
+            .logo-image { 
+                width: 28px; 
+                height: 28px; 
+            }
+            
+            .hotel-name { 
+                font-size: 1rem !important; 
+            }
+            
+            .footer-logo-image {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION - IDENTIQUE À LA PAGE D'ACCUEIL (SANS CERCLE) ===== -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-container">
+                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border: none; border-radius: 0; background: transparent; width: 45px; height: 45px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
+                    <div class="brand-text">
+                        <h1 class="hotel-name" id="hotel-name">LAWMAR</h1>
+                        <span class="hotel-subtitle" id="hotel-subtitle">
+                            <span class="senegal-flag-icon">🇸🇳</span> Les Résidences du Lawmar - Tassinère
+                        </span>
+                    </div>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" id="nav-home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Residences.html" id="nav-residences">Lawmar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chambres.html" id="nav-hebergements">Hébergements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="restauration.html" id="nav-restauration">Restauration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html" id="nav-services">Services</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="galerie.html" id="nav-galerie">Galerie</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html" id="nav-contact">Contact</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="admin.html" id="nav-admin">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal" id="nav-reserver">Réserver</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-globe"></i> <span id="current-lang">FR</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('fr'); return false;">Français</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en'); return false;">English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <header class="room-hero">
+        <div class="container hero-content">
+            <h1 class="hero-title" id="hero-title">Chambres & Suites</h1>
+            <p class="hero-subtitle" id="hero-subtitle">Confort sobre et élégant inspiré par la nature environnante</p>
+            <div class="location-badge" id="location-badge">
+                <i class="fas fa-map-marker-alt"></i> Tassinère, Gandiol - Saint-Louis 🇸🇳
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== INTRODUCTION DÉTAILLÉE DE L'OFFRE (MISE À JOUR) ===== -->
+    <section class="container" style="margin-top: 30px;">
+        <div class="intro-offre">
+            <h3 id="intro-title">Nos hébergements : confort et authenticité</h3>
+            <p id="intro-subtitle" style="text-align: center; margin-bottom: 25px;">Nos chambres allient confort moderne et inspiration naturelle. Chaque chambre porte le nom d'un village du Gandiol, rendant hommage à notre territoire.</p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <h4 id="intro-lake"><i class="fas fa-sun" style="color: var(--yellow-color);"></i> Chambres Vue Lac</h4>
+                    <p id="intro-lake-desc">Lumineuses et paisibles, elles offrent une vue imprenable sur le lac Doutti et ses reflets changeants au coucher du soleil.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4 id="intro-river"><i class="fas fa-water" style="color: var(--primary-color);"></i> Chambres Vue Fleuve</h4>
+                    <p id="intro-river-desc">Spacieuses et confortables, elles vous plongent dans l'atmosphère apaisante du fleuve Sénégal.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4 id="intro-suites"><i class="fas fa-door-open" style="color: var(--vert);"></i> Suites</h4>
+                    <p id="intro-suites-desc">Idéales pour les familles ou séjours prolongés, nos suites offrent espace et intimité.</p>
+                </div>
+            </div>
+
+            <h4 id="intro-amenities-title" style="margin-top: 30px;">Équipements inclus dans toutes nos chambres :</h4>
+            <ul style="columns: 2; -webkit-columns: 2; -moz-columns: 2;" id="intro-amenities-list">
+                <li><i class="fas fa-check-circle"></i> <span id="amenity1">Climatisation</span></li>
+                <li><i class="fas fa-check-circle"></i> <span id="amenity2">Wi-Fi haut débit</span></li>
+                <li><i class="fas fa-check-circle"></i> <span id="amenity3">Salle de bain privative</span></li>
+                <li><i class="fas fa-check-circle"></i> <span id="amenity4">Literie confortable</span></li>
+                <li><i class="fas fa-check-circle"></i> <span id="amenity5">Eau chaude 24h/24</span></li>
+                <li><i class="fas fa-check-circle"></i> <span id="amenity6">Service d'entretien quotidien</span></li>
+            </ul>
+
+            <div class="regles-sejour">
+                <span class="regle-item"><i class="fas fa-sign-in-alt"></i> <span id="checkin-time">Check-in : à partir de 14h</span></span>
+                <span class="regle-item"><i class="fas fa-sign-out-alt"></i> <span id="checkout-time">Check-out : avant 12h</span></span>
+            </div>
+
+            <!-- Emails professionnels avec mention de synchro -->
+            <div class="emails-synchro">
+                <p><i class="fas fa-envelope-open-text" style="color: var(--primary-color);"></i> <strong id="emails-title">Nos adresses pour vos demandes :</strong></p>
+                <p><a href="mailto:contact@residenceslawmar.com" id="email1">contact@residenceslawmar.com</a>  |  <a href="mailto:reservation@residencelawmar.com" id="email2">reservation@residencelawmar.com</a>  |  <a href="mailto:residencelawmar@gmail.com" id="email3">residencelawmar@gmail.com</a></p>
+                <p class="small" style="margin-top: 8px; font-style: italic;" id="email-sync"><i class="fas fa-sync-alt"></i> Objectif : chaque message reçu sur l'une de ces adresses est automatiquement disponible dans les trois boîtes mail pour une réponse rapide.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FILTRES ===== -->
+    <section class="container">
+        <div class="filter-card">
+            <div class="filter-title">
+                <i class="fas fa-sliders-h"></i>
+                <h5 class="mb-0" id="filter-title">Filtrer les chambres</h5>
+            </div>
+            <div class="row g-2">
+                <div class="col-md-3 col-6">
+                    <select class="form-select form-select-sm" id="filter-type" onchange="filterRooms()" style="font-size: 0.8rem; padding: 5px 10px;">
+                        <option value="all" id="filter-type-all">Type</option>
+                        <option value="economique" id="filter-type-standard">Standard</option>
+                        <option value="confort" id="filter-type-confort">Confort</option>
+                        <option value="luxe" id="filter-type-superieure">Supérieure</option>
+                        <option value="prestige" id="filter-type-familiale">Familiale</option>
+                    </select>
+                </div>
+                <div class="col-md-3 col-6">
+                    <select class="form-select form-select-sm" id="filter-price" onchange="filterRooms()" style="font-size: 0.8rem; padding: 5px 10px;">
+                        <option value="all" id="filter-price-all">Prix</option>
+                        <option value="30000" id="filter-price-30k">-30k XOF</option>
+                        <option value="40000" id="filter-price-40k">-40k XOF</option>
+                        <option value="50000" id="filter-price-50k">-50k XOF</option>
+                        <option value="60000" id="filter-price-60k">-60k XOF</option>
+                    </select>
+                </div>
+                <div class="col-md-3 col-6">
+                    <select class="form-select form-select-sm" id="filter-view" onchange="filterRooms()" style="font-size: 0.8rem; padding: 5px 10px;">
+                        <option value="all" id="filter-view-all">Vue</option>
+                        <option value="jardin" id="filter-view-garden">Jardin</option>
+                        <option value="piscine" id="filter-view-pool">Piscine</option>
+                        <option value="fleuve" id="filter-view-river">Fleuve</option>
+                    </select>
+                </div>
+                <div class="col-md-3 col-6">
+                    <select class="form-select form-select-sm" id="filter-capacity" onchange="filterRooms()" style="font-size: 0.8rem; padding: 5px 10px;">
+                        <option value="all" id="filter-capacity-all">Capacité</option>
+                        <option value="2" id="filter-capacity-2">2 pers</option>
+                        <option value="3" id="filter-capacity-3">3 pers</option>
+                        <option value="4" id="filter-capacity-4">4 pers</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LISTE DES CHAMBRES ===== -->
+    <section class="container" id="rooms-list">
+
+        <!-- CHAMBRE MPAL - Standard côté lac -->
+        <div class="room-card" data-type="economique" data-price="25000" data-view="jardin" data-capacity="2">
+            <div class="row g-0">
+                <div class="col-lg-5">
+                    <div class="room-image-wrapper">
+                        <div id="carouselMpal" class="carousel slide h-100" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselMpal" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#carouselMpal" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carouselMpal" data-bs-slide-to="2"></button>
+                            </div>
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active h-100">
+                                    <img src="images/cham1.jpeg" class="d-block w-100 h-100" alt="Chambre Mpal" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                                </div>
+                                <div class="carousel-item h-100">
+                                    <img src="images/chamb2.jpeg" alt="Salle de bain" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                                </div>
+                                <div class="carousel-item h-100">
+                                    <img src="images/cham1.jpeg" class="d-block w-100 h-100" alt="Décoration" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMpal" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselMpal" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                        </div>
+                        <span class="room-badge economique" id="badge-standard">Standard</span>
+                        <span class="room-view-badge" id="view-garden"><i class="fas fa-water"></i> Côté Lac</span>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="room-content">
+                        <h2 class="room-title" id="room-mpal-title">Chambre Mpal</h2>
+                        <div class="room-village"><i class="fas fa-map-marker-alt"></i> <span id="room-mpal-village">Village de Mpal</span></div>
+                        <p class="room-description" id="room-mpal-desc">Confortable et chaleureuse avec vue sur le lac Doutti. Idéale pour un séjour authentique.</p>
+                        
+                        <div class="room-price">
+                            25 000 FCFA <small>/nuit - petit-déjeuner inclus</small>
+                        </div>
+                        
+                        <div class="room-features">
+                            <div class="feature-item"><i class="fas fa-ruler-combined feature-icon"></i><span class="feature-text" id="size-20">18 m²</span></div>
+                            <div class="feature-item"><i class="fas fa-user-friends feature-icon"></i><span class="feature-text" id="capacity-2">2 personnes</span></div>
+                            <div class="feature-item"><i class="fas fa-wifi feature-icon"></i><span class="feature-text">Wi-Fi fibre</span></div>
+                            <div class="feature-item"><i class="fas fa-snowflake feature-icon"></i><span class="feature-text" id="ac">Climatisation</span></div>
+                        </div>
+                        
+                        <ul class="amenities-list">
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-tv">TV écran plat</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-bathroom">Salle de bain privée</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-water">Eau chaude</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-balcony">Balcon vue lac</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-safe">Coffre-fort</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-shower">Douche</span></li>
+                        </ul>
+                        
+                        <div class="review-badge">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.3</div>
+                            <p class="review-text" id="review-mpal">"Chambre confortable avec vue sur le lac, très bon rapport qualité-prix"</p>
+                            <div class="review-author" id="review-mpal-author">- Marie D.</div>
+                        </div>
+                        
+                        <div class="d-flex gap-1 flex-wrap">
+                            <button class="btn btn-primary btn-sm" onclick="bookRoom('mpal')" id="btn-book"><i class="fas fa-calendar-check"></i> <span id="btn-book-text">Réserver</span></button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="openGallery('mpal')" id="btn-photos"><i class="fas fa-images"></i> <span id="btn-photos-text">Photos</span></button>
+                            <button class="btn btn-whatsapp btn-sm" onclick="bookRoomViaWhatsApp('mpal')"><i class="fab fa-whatsapp"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHAMBRE MOUIT - Confort côté fleuve -->
+        <div class="room-card" data-type="confort" data-price="30000" data-view="fleuve" data-capacity="2">
+            <div class="row g-0">
+                <div class="col-lg-5 order-lg-2">
+                    <div class="room-image-wrapper">
+                        <div id="carouselMouit" class="carousel slide h-100" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselMouit" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#carouselMouit" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carouselMouit" data-bs-slide-to="2"></button>
+                            </div>
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active h-100"><img src="images/cham.jpeg" class="d-block w-100 h-100" alt="Chambre Mouit"></div>
+                                <div class="carousel-item h-100"><img src="images/cham01.jpeg" class="d-block w-100 h-100" alt="Balcon"></div>
+                                <div class="carousel-item h-100"><img src="images/chamb2.jpeg" class="d-block w-100 h-100" alt="Salle de bain"></div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMouit" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselMouit" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                        </div>
+                        <span class="room-badge confort" id="badge-confort">Confort</span>
+                        <span class="room-view-badge" id="view-pool"><i class="fas fa-water"></i> Côté Fleuve</span>
+                    </div>
+                </div>
+                <div class="col-lg-7 order-lg-1">
+                    <div class="room-content">
+                        <h2 class="room-title" id="room-mouit-title">Chambre Mouit</h2>
+                        <div class="room-village"><i class="fas fa-map-marker-alt"></i> <span id="room-mouit-village">Village de Mouit</span></div>
+                        <p class="room-description" id="room-mouit-desc">Spacieuse avec balcon privé offrant une vue panoramique sur le fleuve Sénégal.</p>
+                       
+                        <div class="room-price">
+                            30 000 FCFA <small>/nuit - petit-déjeuner inclus</small>
+                        </div>
+                        
+                        <div class="room-features">
+                            <div class="feature-item"><i class="fas fa-ruler-combined"></i><span class="feature-text" id="size-28">18 m²</span></div>
+                            <div class="feature-item"><i class="fas fa-user-friends"></i><span class="feature-text">2 personnes</span></div>
+                            <div class="feature-item"><i class="fas fa-wind"></i><span class="feature-text" id="balcony">Balcon privé</span></div>
+                            <div class="feature-item"><i class="fas fa-snowflake"></i><span class="feature-text" id="ac">Climatisation</span></div>
+                        </div>
+                        
+                        <ul class="amenities-list">
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-tv-40">TV 40"</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-bath">Salle de bain</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-robe">Eau chaude</span></li>
+                            <li><i class="fas fa-check-circle"></i> Vue fleuve</li>
+                            <li><i class="fas fa-check-circle"></i> Coffre-fort</li>
+                            <li><i class="fas fa-check-circle"></i> Wi-Fi fibre</li>
+                        </ul>
+                        
+                        <div class="review-badge">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.8</div>
+                            <p class="review-text" id="review-mouit">"Vue magnifique sur le fleuve, coucher de soleil inoubliable"</p>
+                            <div class="review-author" id="review-mouit-author">- Pierre L.</div>
+                        </div>
+                        
+                        <div class="d-flex gap-1 flex-wrap">
+                            <button class="btn btn-primary btn-sm" onclick="bookRoom('mouit')"><i class="fas fa-calendar-check"></i> Réserver</button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="openGallery('mouit')"><i class="fas fa-images"></i> Photos</button>
+                            <button class="btn btn-whatsapp btn-sm" onclick="bookRoomViaWhatsApp('mouit')"><i class="fab fa-whatsapp"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUITE NDIEBENE - Suite familiale -->
+        <div class="room-card" data-type="prestige" data-price="40000" data-view="fleuve" data-capacity="4">
+            <div class="row g-0">
+                <div class="col-lg-5">
+                    <div class="room-image-wrapper">
+                        <div id="carouselNdiebene" class="carousel slide h-100" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselNdiebene" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#carouselNdiebene" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carouselNdiebene" data-bs-slide-to="2"></button>
+                            </div>
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active h-100"><img src="images/chamb2.jpeg" class="d-block w-100 h-100" alt="Suite Ndiebene"></div>
+                                <div class="carousel-item h-100"><img src="images/chamb2.jpeg" class="d-block w-100 h-100" alt="Salon"></div>
+                                <div class="carousel-item h-100"><img src="images/vuesurmer.jpeg" class="d-block w-100 h-100" alt="Vue"></div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselNdiebene" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselNdiebene" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                        </div>
+                        <span class="room-badge prestige" id="badge-suite">Suite</span>
+                        <span class="room-view-badge" id="view-river"><i class="fas fa-water"></i> Vue fleuve</span>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="room-content">
+                        <h2 class="room-title" id="room-ndiebene-title">Suite Ndiébène</h2>
+                        <div class="room-village"><i class="fas fa-map-marker-alt"></i> <span id="room-ndiebene-village">Village de Ndiébène Gandiol</span></div>
+                        <p class="room-description" id="room-ndiebene-desc">Suite spacieuse avec vue sur le fleuve, idéale pour les familles. Espace salon séparé.</p>
+                        
+                        <div class="room-price">
+                            40 000 FCFA <small>/nuit - petit-déjeuner inclus</small>
+                        </div>
+                        
+                        <div class="room-features">
+                            <div class="feature-item"><i class="fas fa-ruler-combined"></i><span class="feature-text" id="size-45">18 m²</span></div>
+                            <div class="feature-item"><i class="fas fa-user-friends"></i><span class="feature-text" id="capacity-4">4 personnes</span></div>
+                            <div class="feature-item"><i class="fas fa-wind"></i><span class="feature-text" id="terrace">Terrasse</span></div>
+                            <div class="feature-item"><i class="fas fa-couch"></i><span class="feature-text" id="living">Coin salon</span></div>
+                        </div>
+                        
+                        <ul class="amenities-list">
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-tv-50">TV 50"</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-minibar">Mini-bar</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-coffee">Machine à café</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-hairdryer">Sèche-cheveux</span></li>
+                            <li><i class="fas fa-check-circle"></i> Vue fleuve</li>
+                            <li><i class="fas fa-check-circle"></i> Peignoirs</li>
+                        </ul>
+                        
+                        <div class="review-badge">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.9</div>
+                            <p class="review-text" id="review-ndiebene">"Suite exceptionnelle, parfaite pour une famille"</p>
+                            <div class="review-author" id="review-ndiebene-author">- Aminata S.</div>
+                        </div>
+                        
+                        <div class="d-flex gap-1 flex-wrap">
+                            <button class="btn btn-primary btn-sm" onclick="bookRoom('ndiebene')">Réserver</button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="openGallery('ndiebene')">Photos</button>
+                            <button class="btn btn-whatsapp btn-sm" onclick="bookRoomViaWhatsApp('ndiebene')"><i class="fab fa-whatsapp"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUITE TASSINÈRE - Suite prestige -->
+        <div class="room-card" data-type="prestige" data-price="45000" data-view="jardin" data-capacity="5">
+            <div class="row g-0">
+                <div class="col-lg-5 order-lg-2">
+                    <div class="room-image-wrapper">
+                        <div id="carouselTassine`re" class="carousel slide h-100" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselTassine`re" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#carouselTassine`re" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#carouselTassine`re" data-bs-slide-to="2"></button>
+                                <button type="button" data-bs-target="#carouselTassine`re" data-bs-slide-to="3"></button>
+                            </div>
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active h-100"><img src="images/cham.jpeg" class="d-block w-100 h-100" alt="Suite Tassinère"></div>
+                                <div class="carousel-item h-100"><img src="images/cham02.jpeg" class="d-block w-100 h-100" alt="Salon"></div>
+                                <div class="carousel-item h-100"><img src="images/chambre.jpeg" class="d-block w-100 h-100" alt="Chambre"></div>
+                                <div class="carousel-item h-100"><img src="images/cham1.jpeg" class="d-block w-100 h-100" alt="Salle de bain"></div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTassine`re" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselTassine`re" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                        </div>
+                        <span class="room-badge prestige">Suite Prestige</span>
+                        <span class="room-view-badge" id="view-garden2"><i class="fas fa-tree"></i> Vue jardin</span>
+                    </div>
+                </div>
+                <div class="col-lg-7 order-lg-1">
+                    <div class="room-content">
+                        <h2 class="room-title" id="room-tassine`re-title">Suite Tassinère</h2>
+                        <div class="room-village"><i class="fas fa-map-marker-alt"></i> <span id="room-tassine`re-village">Village de Tassinère</span></div>
+                        <p class="room-description" id="room-tassine`re-desc">Grande suite familiale avec deux chambres communicantes, idéale pour les familles nombreuses.</p>
+                        
+                        <div class="room-price">
+                            40 000 FCFA <small>/nuit - petit-déjeuner inclus</small>
+                        </div>
+                        
+                        <div class="room-features">
+                            <div class="feature-item"><i class="fas fa-ruler-combined"></i><span class="feature-text" id="size-60">18 m²</span></div>
+                            <div class="feature-item"><i class="fas fa-user-friends"></i><span class="feature-text" id="capacity-5">4-5 personnes</span></div>
+                            <div class="feature-item"><i class="fas fa-umbrella-beach"></i><span class="feature-text" id="terrace2">Grande terrasse</span></div>
+                            <div class="feature-item"><i class="fas fa-door-open"></i><span class="feature-text" id="bedrooms">2 chambres</span></div>
+                        </div>
+                        
+                        <ul class="amenities-list">
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-2tv">2 TV</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-fridge">Réfrigérateur</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-shower2">Douche italienne</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span id="amenity-garden">Vue jardin</span></li>
+                            <li><i class="fas fa-check-circle"></i> Salon spacieux</li>
+                            <li><i class="fas fa-check-circle"></i> Climatisation multiple</li>
+                        </ul>
+                        
+                        <div class="review-badge">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.7</div>
+                            <p class="review-text" id="review-tassine`re">"Parfait pour une famille nombreuse, très spacieux et calme"</p>
+                            <div class="review-author" id="review-tassine`re-author">- Famille Diouf</div>
+                        </div>
+                        
+                        <div class="d-flex gap-1 flex-wrap">
+                            <button class="btn btn-primary btn-sm" onclick="bookRoom('tassine`re')">Réserver</button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="openGallery('tassine`re')">Photos</button>
+                            <button class="btn btn-whatsapp btn-sm" onclick="bookRoomViaWhatsApp('tassine`re')"><i class="fab fa-whatsapp"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message aucun résultat -->
+    <div id="no-results" class="container text-center py-4" style="display: none;">
+        <i class="fas fa-search fa-3x text-muted mb-2"></i>
+        <h4 id="no-results-title">Aucune chambre trouvée</h4>
+        <p class="text-muted small" id="no-results-text">Essayez de modifier vos filtres pour voir plus de résultats.</p>
+        <button class="btn btn-primary btn-sm" onclick="resetFilters()" id="reset-filters-btn">Réinitialiser les filtres</button>
+    </div>
+
+    <!-- ===== TABLEAU COMPARATIF ===== -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="comparison-title">Comparatif des chambres</h2>
+                <p id="comparison-subtitle">Choisissez l'hébergement qui correspond parfaitement à vos besoins</p>
+            </div>
+            <div class="table-responsive">
+                <table class="table comparison-table">
+                    <thead>
+                        <tr>
+                            <th id="table-features">Caractéristiques</th>
+                            <th id="table-mpal">Mpal</th>
+                            <th id="table-mouit">Mouit</th>
+                            <th id="table-ndiebene">Ndiébène</th>
+                            <th id="table-tassine`re">Tassinère</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td id="table-price"><strong>Prix/nuit (PDJ inclus)</strong></td><td><strong>25 000 XOF</strong></td><td><strong>30 000 XOF</strong></td><td><strong>40 000 XOF</strong></td><td><strong>45 000 XOF</strong></td></tr>
+                        <tr><td id="table-size">Superficie</td><td>18 m²</td><td>18 m²</td><td>18 m²</td><td>18 m²</td></tr>
+                        <tr><td id="table-capacity">Capacité</td><td>2 pers</td><td>2 pers</td><td>4 pers</td><td>4-5 pers</td></tr>
+                        <tr><td id="table-view">Vue</td><td>Lac</td><td>Fleuve</td><td>Fleuve</td><td>Jardin</td></tr>
+                        <tr><td id="table-balcony">Balcon/Terrasse</td><td><i class="fas fa-check feature-yes"></i> Balcon</td><td><i class="fas fa-check feature-yes"></i> Balcon</td><td><i class="fas fa-check feature-yes"></i> Terrasse</td><td><i class="fas fa-check feature-yes"></i> Grande terrasse</td></tr>
+                        <tr><td id="table-tv">TV</td><td>32"</td><td>40"</td><td>50"</td><td>2 x 40"</td></tr>
+                        <tr><td id="table-ac">Climatisation</td><td><i class="fas fa-check feature-yes"></i> Oui</td><td><i class="fas fa-check feature-yes"></i> Oui</td><td><i class="fas fa-check feature-yes"></i> Oui</td><td><i class="fas fa-check feature-yes"></i> Oui</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="faq-title">Questions fréquentes</h2>
+                <p id="faq-subtitle">Tout ce que vous devez savoir sur nos chambres</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    <span id="faq1-question">Petit-déjeuner inclus ?</span>
+                                </button>
+                            </h3>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" id="faq1-answer">
+                                    Oui, buffet sénégalais et continental de 7h à 10h inclus dans le prix de la chambre.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    <span id="faq2-question">Heures d'arrivée/départ ?</span>
+                                </button>
+                            </h3>
+                            <div id="faq2" class="accordion-collapse collapse">
+                                <div class="accordion-body" id="faq2-answer">
+                                    Check-in à partir de 14h, check-out jusqu'à 12h. Possibilité de late check-out selon disponibilité.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    <span id="faq3-question">Piscine accessible ?</span>
+                                </button>
+                            </h3>
+                            <div id="faq3" class="accordion-collapse collapse">
+                                <div class="accordion-body" id="faq3-answer">
+                                    Oui, la piscine est accessible à tous les résidents de 8h à 20h. Serviettes fournies.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    <span id="faq4-question">Quels sont les moyens de paiement ?</span>
+                                </button>
+                            </h3>
+                            <div id="faq4" class="accordion-collapse collapse">
+                                <div class="accordion-body" id="faq4-answer">
+                                    Nous acceptons les espèces (XOF), Wave, Orange Money et cartes bancaires.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title" id="cta-title">Offre spéciale séjour</h2>
+            <p class="cta-text" id="cta-text">Réservez 3 nuits et bénéficiez d'une réduction de 10% sur votre séjour.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#bookingModal" style="background-color: var(--yellow-color); border-color: var(--yellow-color); color: var(--indigo);" id="cta-book">
+                    <i class="fas fa-gift"></i> <span id="cta-book-text">Réserver</span>
+                </a>
+                <a href="#" class="btn btn-outline-light btn-sm" onclick="bookRoomViaWhatsApp('offre')" id="cta-contact">
+                    <i class="fab fa-whatsapp"></i> <span id="cta-contact-text">Contact</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MODAL DE RÉSERVATION ===== -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: var(--indigo); color: white;">
+                    <h5 class="modal-title" id="bookingModalLabel">
+                        <i class="fas fa-calendar-check me-2"></i> <span id="modal-title">Réserver votre séjour</span>
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info mb-3 p-2" style="font-size: 0.9rem; background-color: var(--sable); border-color: var(--vert); color: var(--indigo);">
+                        <i class="fas fa-info-circle me-2"></i> 
+                        <span id="modal-selected-room">Chambre sélectionnée</span> : <strong id="modal-room-display">Chambre Mpal</strong>
+                    </div>
+                    
+                    <form id="bookingForm" onsubmit="submitBooking(event)">
+                        <input type="hidden" id="selected-room" name="room" value="Chambre Mpal">
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-2">
+                                <label for="checkin" class="form-label small fw-bold" id="modal-checkin">Date d'arrivée *</label>
+                                <input type="date" class="form-control form-control-sm" id="checkin" name="checkin" required>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label for="checkout" class="form-label small fw-bold" id="modal-checkout">Date de départ *</label>
+                                <input type="date" class="form-control form-control-sm" id="checkout" name="checkout" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <label for="adults" class="form-label small fw-bold" id="modal-adults">Adultes *</label>
+                                <select class="form-select form-select-sm" id="adults" name="adults" required>
+                                    <option value="1">1</option>
+                                    <option value="2" selected>2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <label for="children" class="form-label small fw-bold" id="modal-children">Enfants</label>
+                                <select class="form-select form-select-sm" id="children" name="children">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <label for="children-ages" class="form-label small fw-bold" id="modal-children-ages">Âges enfants</label>
+                                <input type="text" class="form-control form-control-sm" id="children-ages" placeholder="Ex: 3,5,8">
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-2">
+                                <label for="name" class="form-label small fw-bold" id="modal-name">Nom complet *</label>
+                                <input type="text" class="form-control form-control-sm" id="name" name="name" required>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <!-- Champ email supprimé -->
+                            </div>
+                        </div>
+                        
+                        <div class="mb-2">
+                            <label for="phone" class="form-label small fw-bold" id="modal-phone">Téléphone (WhatsApp) *</label>
+                            <input type="tel" class="form-control form-control-sm" id="phone" name="phone" required placeholder="+221 77 123 45 67">
+                        </div>
+                        
+                        <div class="mb-2">
+                            <label for="message" class="form-label small fw-bold" id="modal-message">Message</label>
+                            <textarea class="form-control form-control-sm" id="message" name="message" rows="2" placeholder="Demandes spéciales..."></textarea>
+                        </div>
+                        
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="terms" required>
+                            <label class="form-check-label small" for="terms" id="modal-terms">J'accepte les CGV</label>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-sm" id="modal-submit">
+                                <i class="fab fa-whatsapp me-1"></i> <span id="modal-submit-text">Envoyer via WhatsApp</span>
+                            </button>
+                            <small class="text-muted text-center mt-1 small" id="modal-response">Réponse sous 24h</small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL CONNEXION ADMIN ===== -->
+    <div class="modal fade" id="adminLoginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: var(--indigo);">
+                    <h5 class="modal-title text-white" id="admin-title">Connexion personnel</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="admin-login-form">
+                        <div class="mb-3">
+                            <label for="admin-email" class="form-label small" id="admin-email-label">Email</label>
+                            <input type="email" class="form-control form-control-sm" id="admin-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="admin-password" class="form-label small" id="admin-password-label">Mot de passe</label>
+                            <input type="password" class="form-control form-control-sm" id="admin-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 btn-sm" id="admin-login-btn">Se connecter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER MODIFIÉ (blanc avec écritures bleues) ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-about">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="footer-logo-image" style="border: none; border-radius: 0; background: transparent; width: 45px; height: 45px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
+                            <h3>LAWMAR <span class="senegal-flag-icon ms-2">🇸🇳</span></h3>
+                        </div>
+                        <p id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
+                        <div class="social-links">
+                            <a href="https://facebook.com/lawmar.gandiol" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="https://instagram.com/lawmar.gandiol" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://tiktok.com/@lawmar.gandiol" target="_blank"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://wa.me/221779952020" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h4 id="footer-nav">Navigation</h4>
+                        <ul>
+                            <li><a href="index.html" id="footer-home">Accueil</a></li>
+                            <li><a href="chambres.html" id="footer-rooms">Chambres</a></li>
+                            <li><a href="restauration.html" id="footer-restaurant">Restauration</a></li>
+                            <li><a href="services.html" id="footer-services">Services</a></li>
+                            <li><a href="experiences.html" id="footer-experiences">Expériences</a></li>
+                            <li><a href="galerie.html" id="footer-gallery">Galerie</a></li>
+                            <li><a href="contact.html" id="footer-contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-contact">
+                        <h4 id="footer-contact-title">Contact - Gandiol</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> <span id="footer-address">Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳</span></p>
+                        <p><i class="fas fa-phone"></i> +221 77 995 20 20</p>
+                        <p><i class="fas fa-phone"></i> +221 77 291 72 15</p>
+                        <p><i class="fab fa-whatsapp"></i> <span id="footer-whatsapp">WhatsApp: +221 77 995 20 20</span></p>
+                        
+                        <!-- Emails professionnels -->
+                        <div class="emails-pro">
+                            <a href="mailto:contact@residenceslawmar.com"><i class="fas fa-envelope"></i> contact@residenceslawmar.com</a><br>
+                            <a href="mailto:reservation@residencelawmar.com"><i class="fas fa-envelope"></i> reservation@residencelawmar.com</a><br>
+                            <a href="mailto:residencelawmar@gmail.com"><i class="fas fa-envelope"></i> residencelawmar@gmail.com</a>
+                            <div class="sync-note" id="footer-sync-note">
+                                <i class="fas fa-sync-alt"></i> Objectif : tout message reçu sur l'une de ces adresses est accessible dans les trois boîtes.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-newsletter">
+                        <h4 id="footer-newsletter-title">Newsletter</h4>
+                        <p id="footer-newsletter-text">Recevez nos actualités de Gandiol</p>
+                        <form id="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Votre email" id="newsletter-input">
+                                <button class="btn btn-primary" type="submit" id="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </form>
+                        <div class="mt-2">
+                            <small id="footer-biospere"><i class="fas fa-info-circle"></i> Réserve de biosphère</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lawmar Hôtel Les Résidences - Gandiol. <span id="footer-rights">Tous droits réservés.</span> | 
+                   <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
+                   <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal" id="footer-admin">Accès personnel</a> | 
+                   <strong>BCM GROUPE 2026</strong> | <a href="https://bcmgroupe.com" target="_blank">bcmgroupe.com</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const WHATSAPP_NUMBER = "221779952020";
+        
+        // Dictionnaire de traduction (gardé identique à l'original)
+        const translations = {
+            fr: {
+                // Navigation
+                'hotel-name': 'LAWMAR',
+                'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
+                'nav-home': 'Accueil',
+                'nav-residences': 'Résidences',
+                'nav-hebergements': 'Hébergements',
+                'nav-restauration': 'Restauration',
+                'nav-services': 'Services',
+                'nav-experiences': 'Expériences',
+                'nav-galerie': 'Galerie',
+                'nav-contact': 'Contact',
+                'nav-reserver': 'Réserver',
+                'current-lang': 'FR',
+                
+                // Hero
+                'hero-title': 'Chambres & Suites',
+                'hero-subtitle': 'Confort sobre et élégant inspiré par la nature environnante',
+                'location-badge': 'Tassinère, Gandiol - Saint-Louis 🇸🇳',
+                
+                // Introduction
+                'intro-title': 'Nos hébergements : confort et authenticité',
+                'intro-subtitle': 'Nos chambres allient confort moderne et inspiration naturelle. Chaque chambre porte le nom d\'un village du Gandiol, rendant hommage à notre territoire.',
+                'intro-lake': 'Chambres Vue Lac',
+                'intro-lake-desc': 'Lumineuses et paisibles, elles offrent une vue imprenable sur le lac Doutti et ses reflets changeants au coucher du soleil.',
+                'intro-river': 'Chambres Vue Fleuve',
+                'intro-river-desc': 'Spacieuses et confortables, elles vous plongent dans l\'atmosphère apaisante du fleuve Sénégal.',
+                'intro-suites': 'Suites',
+                'intro-suites-desc': 'Idéales pour les familles ou séjours prolongés, nos suites offrent espace et intimité.',
+                'intro-amenities-title': 'Équipements inclus dans toutes nos chambres :',
+                'amenity1': 'Climatisation',
+                'amenity2': 'Wi-Fi haut débit',
+                'amenity3': 'Salle de bain privative',
+                'amenity4': 'Literie confortable',
+                'amenity5': 'Eau chaude 24h/24',
+                'amenity6': 'Service d\'entretien quotidien',
+                'checkin-time': 'Check-in : à partir de 14h',
+                'checkout-time': 'Check-out : avant 12h',
+                'emails-title': 'Nos adresses pour vos demandes :',
+                'email-sync': 'Objectif : chaque message reçu sur l\'une de ces adresses est automatiquement disponible dans les trois boîtes mail pour une réponse rapide.',
+                
+                // Filtres
+                'filter-title': 'Filtrer les chambres',
+                'filter-type-all': 'Type',
+                'filter-type-standard': 'Standard',
+                'filter-type-confort': 'Confort',
+                'filter-type-superieure': 'Supérieure',
+                'filter-type-familiale': 'Familiale',
+                'filter-price-all': 'Prix',
+                'filter-price-30k': '-30k XOF',
+                'filter-price-40k': '-40k XOF',
+                'filter-price-50k': '-50k XOF',
+                'filter-price-60k': '-60k XOF',
+                'filter-view-all': 'Vue',
+                'filter-view-garden': 'Jardin',
+                'filter-view-pool': 'Piscine',
+                'filter-view-river': 'Fleuve',
+                'filter-capacity-all': 'Capacité',
+                'filter-capacity-2': '2 pers',
+                'filter-capacity-3': '3 pers',
+                'filter-capacity-4': '4 pers',
+                
+                // Chambres
+                'badge-standard': 'Standard',
+                'view-garden': 'Côté Lac',
+                'room-mpal-title': 'Chambre Mpal',
+                'room-mpal-village': 'Village de Mpal',
+                'room-mpal-desc': 'Confortable et chaleureuse avec vue sur le lac Doutti. Idéale pour un séjour authentique.',
+                'size-20': '20 m²',
+                'capacity-2': '2 personnes',
+                'ac': 'Climatisation',
+                'amenity-tv': 'TV écran plat',
+                'amenity-bathroom': 'Salle de bain privée',
+                'amenity-water': 'Eau chaude',
+                'amenity-balcony': 'Balcon vue lac',
+                'amenity-safe': 'Coffre-fort',
+                'amenity-shower': 'Douche',
+                'review-mpal': '"Chambre confortable avec vue sur le lac, très bon rapport qualité-prix"',
+                'review-mpal-author': '- Marie D.',
+                'btn-book-text': 'Réserver',
+                'btn-photos-text': 'Photos',
+                
+                'badge-confort': 'Confort',
+                'view-pool': 'Côté Fleuve',
+                'room-mouit-title': 'Chambre Mouit',
+                'room-mouit-village': 'Village de Mouit',
+                'room-mouit-desc': 'Spacieuse avec balcon privé offrant une vue panoramique sur le fleuve Sénégal.',
+                'size-28': '28 m²',
+                'balcony': 'Balcon privé',
+                'amenity-tv-40': 'TV 40"',
+                'review-mouit': '"Vue magnifique sur le fleuve, coucher de soleil inoubliable"',
+                'review-mouit-author': '- Pierre L.',
+                
+                'badge-suite': 'Suite',
+                'view-river': 'Vue fleuve',
+                'room-ndiebene-title': 'Suite Ndiébène',
+                'room-ndiebene-village': 'Village de Ndiébène Gandiol',
+                'room-ndiebene-desc': 'Suite spacieuse avec vue sur le fleuve, idéale pour les familles. Espace salon séparé.',
+                'size-45': '45 m²',
+                'capacity-4': '4 personnes',
+                'terrace': 'Terrasse',
+                'living': 'Coin salon',
+                'amenity-tv-50': 'TV 50"',
+                'amenity-minibar': 'Mini-bar',
+                'amenity-coffee': 'Machine à café',
+                'amenity-hairdryer': 'Sèche-cheveux',
+                'review-ndiebene': '"Suite exceptionnelle, parfaite pour une famille"',
+                'review-ndiebene-author': '- Aminata S.',
+                
+                'view-garden2': 'Vue jardin',
+                'room-tassine`re-title': 'Suite Tassinère',
+                'room-tassine`re-village': 'Village de Tassinère',
+                'room-tassine`re-desc': 'Grande suite familiale avec deux chambres communicantes, idéale pour les familles nombreuses.',
+                'size-60': '60 m²',
+                'capacity-5': '4-5 personnes',
+                'terrace2': 'Grande terrasse',
+                'bedrooms': '2 chambres',
+                'amenity-2tv': '2 TV',
+                'amenity-fridge': 'Réfrigérateur',
+                'amenity-shower2': 'Douche italienne',
+                'amenity-garden': 'Vue jardin',
+                'review-tassine`re': '"Parfait pour une famille nombreuse, très spacieux et calme"',
+                'review-tassine`re-author': '- Famille Diouf',
+                
+                // No results
+                'no-results-title': 'Aucune chambre trouvée',
+                'no-results-text': 'Essayez de modifier vos filtres pour voir plus de résultats.',
+                'reset-filters-btn': 'Réinitialiser les filtres',
+                
+                // Comparaison
+                'comparison-title': 'Comparatif des chambres',
+                'comparison-subtitle': 'Choisissez l\'hébergement qui correspond parfaitement à vos besoins',
+                'table-features': 'Caractéristiques',
+                'table-mpal': 'Mpal',
+                'table-mouit': 'Mouit',
+                'table-ndiebene': 'Ndiébène',
+                'table-tassine`re': 'Tassinère',
+                'table-price': 'Prix/nuit (PDJ inclus)',
+                'table-size': 'Superficie',
+                'table-capacity': 'Capacité',
+                'table-view': 'Vue',
+                'table-balcony': 'Balcon/Terrasse',
+                'table-tv': 'TV',
+                'table-ac': 'Climatisation',
+                
+                // FAQ
+                'faq-title': 'Questions fréquentes',
+                'faq-subtitle': 'Tout ce que vous devez savoir sur nos chambres',
+                'faq1-question': 'Petit-déjeuner inclus ?',
+                'faq1-answer': 'Oui, buffet sénégalais et continental de 7h à 10h inclus dans le prix de la chambre.',
+                'faq2-question': 'Heures d\'arrivée/départ ?',
+                'faq2-answer': 'Check-in à partir de 14h, check-out jusqu\'à 12h. Possibilité de late check-out selon disponibilité.',
+                'faq3-question': 'Piscine accessible ?',
+                'faq3-answer': 'Oui, la piscine est accessible à tous les résidents de 8h à 20h. Serviettes fournies.',
+                'faq4-question': 'Quels sont les moyens de paiement ?',
+                'faq4-answer': 'Nous acceptons les espèces (XOF), Wave, Orange Money et cartes bancaires.',
+                
+                // CTA
+                'cta-title': 'Offre spéciale séjour',
+                'cta-text': 'Réservez 3 nuits et bénéficiez d\'une réduction de 10% sur votre séjour.',
+                'cta-book-text': 'Réserver',
+                'cta-contact-text': 'Contact',
+                
+                // Modal réservation
+                'modal-title': 'Réserver votre séjour',
+                'modal-selected-room': 'Chambre sélectionnée',
+                'modal-checkin': 'Date d\'arrivée *',
+                'modal-checkout': 'Date de départ *',
+                'modal-adults': 'Adultes *',
+                'modal-children': 'Enfants',
+                'modal-children-ages': 'Âges enfants',
+                'modal-name': 'Nom complet *',
+                'modal-email': 'Email *',
+                'modal-phone': 'Téléphone (WhatsApp) *',
+                'modal-message': 'Message',
+                'modal-terms': 'J\'accepte les CGV',
+                'modal-submit-text': 'Envoyer via WhatsApp',
+                'modal-response': 'Réponse sous 24h',
+                
+                // Admin
+                'admin-title': 'Connexion personnel',
+                'admin-email-label': 'Email',
+                'admin-password-label': 'Mot de passe',
+                'admin-login-btn': 'Se connecter',
+                
+                // Footer
+                'footer-about': 'Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.',
+                'footer-nav': 'Navigation',
+                'footer-home': 'Accueil',
+                'footer-rooms': 'Chambres',
+                'footer-restaurant': 'Restauration',
+                'footer-services': 'Services',
+                'footer-experiences': 'Expériences',
+                'footer-gallery': 'Galerie',
+                'footer-contact': 'Contact',
+                'footer-contact-title': 'Contact - Gandiol',
+                'footer-address': 'Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳',
+                'footer-whatsapp': 'WhatsApp: +221 77 995 20 20',
+                'footer-sync-note': 'Objectif : tout message reçu sur l\'une de ces adresses est accessible dans les trois boîtes.',
+                'footer-newsletter-title': 'Newsletter',
+                'footer-newsletter-text': 'Recevez nos actualités de Gandiol',
+                'newsletter-input': 'Votre email',
+                'footer-biospere': 'Réserve de biosphère',
+                'footer-rights': 'Tous droits réservés.',
+                'footer-admin': 'Accès personnel'
+            },
+            en: {
+                // Version anglaise simplifiée pour la démo
+                'hotel-name': 'LAWMAR',
+                'hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
+                'nav-home': 'Home',
+                'nav-residences': 'Residences',
+                'nav-hebergements': 'Accommodation',
+                'nav-restauration': 'Restaurant',
+                'nav-services': 'Services',
+                'nav-experiences': 'Experiences',
+                'nav-galerie': 'Gallery',
+                'nav-contact': 'Contact',
+                'nav-reserver': 'Book now',
+                'current-lang': 'EN',
+                'hero-title': 'Rooms & Suites',
+                'hero-subtitle': 'Sober and elegant comfort inspired by the surrounding nature',
+                'location-badge': 'Tassinère, Gandiol - Saint-Louis 🇸🇳'
+            }
+        };
+
+        function changeLanguage(lang) {
+            // Mettre à jour le texte de tous les éléments avec id
+            for (let key in translations[lang]) {
+                let element = document.getElementById(key);
+                if (element) {
+                    if (key === 'footer-address' || key.includes('desc') || key.includes('answer')) {
+                        element.innerHTML = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            }
+            
+            // Mettre à jour les attributs placeholder
+            let newsletterInput = document.getElementById('newsletter-input');
+            if (newsletterInput) {
+                newsletterInput.placeholder = translations[lang]['newsletter-input'] || 'Votre email';
+            }
+            
+            // Mettre à jour l'attribut lang de la page
+            document.documentElement.lang = lang;
+            
+            // Mettre à jour le texte du bouton de langue actuel
+            let currentLang = document.getElementById('current-lang');
+            if (currentLang) {
+                currentLang.textContent = translations[lang]['current-lang'];
+            }
+            
+            console.log('Langue changée en ' + lang);
+        }
+
+        function filterRooms() {
+            const type = document.getElementById('filter-type').value;
+            const price = document.getElementById('filter-price').value;
+            const view = document.getElementById('filter-view').value;
+            const capacity = document.getElementById('filter-capacity').value;
+
+            let visible = 0;
+            document.querySelectorAll('.room-card').forEach(room => {
+                let ok = true;
+                if (type !== 'all' && room.dataset.type !== type) ok = false;
+                if (price !== 'all' && parseInt(room.dataset.price) > parseInt(price)) ok = false;
+                if (view !== 'all' && room.dataset.view !== view) ok = false;
+                if (capacity !== 'all' && parseInt(room.dataset.capacity) < parseInt(capacity)) ok = false;
+                
+                room.style.display = ok ? 'block' : 'none';
+                if (ok) visible++;
+            });
+            
+            document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+        }
+
+        function resetFilters() {
+            document.getElementById('filter-type').value = 'all';
+            document.getElementById('filter-price').value = 'all';
+            document.getElementById('filter-view').value = 'all';
+            document.getElementById('filter-capacity').value = 'all';
+            filterRooms();
+        }
+
+        function bookRoom(room) {
+            const roomNames = {
+                'mpal': 'Chambre Mpal - Côté Lac',
+                'mouit': 'Chambre Mouit - Côté Fleuve',
+                'ndiebene': 'Suite Ndiébène',
+                'tassinère': 'Suite Tassinère'
+            };
+            
+            document.getElementById('selected-room').value = roomNames[room] || room;
+            document.getElementById('modal-room-display').textContent = roomNames[room] || room;
+            
+            const modal = new bootstrap.Modal(document.getElementById('bookingModal'));
+            modal.show();
+        }
+
+        function openGallery(room) {
+            alert(`Galerie ${room} - Fonctionnalité à implémenter`);
+        }
+
+        function bookRoomViaWhatsApp(room) {
+            const roomNames = {
+                'mpal': 'la Chambre Mpal côté lac',
+                'mouit': 'la Chambre Mouit côté fleuve',
+                'ndiebene': 'la Suite Ndiébène',
+                'tassinère': 'la Suite Tassinère',
+                'offre': "l'offre spéciale"
+            };
+            
+            const message = `Bonjour Lawmar, je souhaite réserver ${roomNames[room] || room}.`;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function submitBooking(event) {
+            event.preventDefault();
+            
+            const formData = {
+                room: document.getElementById('selected-room').value,
+                checkin: document.getElementById('checkin').value,
+                checkout: document.getElementById('checkout').value,
+                adults: document.getElementById('adults').value,
+                children: document.getElementById('children').value,
+                childrenAges: document.getElementById('children-ages').value,
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+            
+            if (!formData.checkin || !formData.checkout || !formData.name || !formData.phone) {
+                alert('Veuillez remplir tous les champs obligatoires');
+                return;
+            }
+            
+            const formatDate = (dateStr) => {
+                const date = new Date(dateStr);
+                return date.toLocaleDateString('fr-FR');
+            };
+            
+            const start = new Date(formData.checkin);
+            const end = new Date(formData.checkout);
+            const nights = Math.round((end - start) / (1000 * 60 * 60 * 24));
+            
+            // Prix par nuit selon la chambre
+            const roomPrices = {
+                'Chambre Mpal - Côté Lac': 25000,
+                'Chambre Mouit - Côté Fleuve': 30000,
+                'Suite Ndiébène': 40000,
+                'Suite Tassinère': 45000
+            };
+            const roomName = formData.room;
+            const pricePerNight = roomPrices[roomName] || 30000;
+            const total = pricePerNight * nights;
+            
+            const whatsappMessage = `*NOUVELLE RÉSERVATION LAWMAR*
+━━━━━━━━━━━━━━━━━━
+🏨 Chambre: ${formData.room}
+📅 Arrivée: ${formatDate(formData.checkin)}
+📅 Départ: ${formatDate(formData.checkout)}
+🌙 Nuits: ${nights}
+💰 Total: ${total.toLocaleString()} XOF (${pricePerNight.toLocaleString()} XOF/nuit)
+👥 Adultes: ${formData.adults}
+👶 Enfants: ${formData.children} ${formData.childrenAges ? `(${formData.childrenAges} ans)` : ''}
+━━━━━━━━━━━━━━━━━━
+👤 Nom: ${formData.name}
+📞 Téléphone: ${formData.phone}
+━━━━━━━━━━━━━━━━━━
+💬 Message: ${formData.message || 'Aucun'}`;
+            
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+            
+            bootstrap.Modal.getInstance(document.getElementById('bookingModal')).hide();
+            alert('✓ Demande envoyée ! Vous serez contacté sous 24h.');
+            document.getElementById('bookingForm').reset();
+        }
+
+        window.addEventListener('load', function() {
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            
+            const formatDate = (date) => {
+                return date.toISOString().split('T')[0];
+            };
+            
+            if (document.getElementById('checkin')) {
+                document.getElementById('checkin').value = formatDate(today);
+                document.getElementById('checkin').min = formatDate(today);
+            }
+            if (document.getElementById('checkout')) {
+                document.getElementById('checkout').value = formatDate(tomorrow);
+                document.getElementById('checkout').min = formatDate(tomorrow);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkin = document.getElementById('checkin');
+            const checkout = document.getElementById('checkout');
+            
+            if (checkin && checkout) {
+                checkin.addEventListener('change', function() {
+                    checkout.min = this.value;
+                    if (checkout.value < this.value) {
+                        const nextDay = new Date(this.value);
+                        nextDay.setDate(nextDay.getDate() + 1);
+                        checkout.value = nextDay.toISOString().split('T')[0];
+                    }
+                });
+            }
+
+            // Formulaire admin
+            document.getElementById('admin-login-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Connexion réussie !');
+                bootstrap.Modal.getInstance(document.getElementById('adminLoginModal')).hide();
+            });
+
+            // Formulaire newsletter
+            document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Merci pour votre inscription !');
+                this.reset();
+            });
+        });
+    </script>
+    
+    <!-- ===== SCRIPT DE SAUVEGARDE DES RÉSERVATIONS ===== -->
+    <script>
+        // Sauvegarde des réservations dans localStorage
+        const originalSubmitBooking = window.submitBooking;
+        window.submitBooking = function(event) {
+            event.preventDefault();
+            
+            // Calcul du prix total (simulé)
+            const checkin = new Date(document.getElementById('checkin').value);
+            const checkout = new Date(document.getElementById('checkout').value);
+            const nights = Math.round((checkout - checkin) / (1000 * 60 * 60 * 24));
+            
+            // Prix par nuit selon la chambre
+            const roomPrices = {
+                'Chambre Mpal - Côté Lac': 25000,
+                'Chambre Mouit - Côté Fleuve': 30000,
+                'Suite Ndiébène': 40000,
+                'Suite Tassinère': 45000
+            };
+            const roomName = document.getElementById('selected-room').value;
+            const pricePerNight = roomPrices[roomName] || 30000;
+            const total = pricePerNight * nights;
+            
+            const bookingData = {
+                id: 'BK' + Date.now().toString().slice(-6),
+                guest: document.getElementById('name').value,
+                room: roomName,
+                roomNumber: 'À venir',
+                checkin: document.getElementById('checkin').value,
+                checkout: document.getElementById('checkout').value,
+                adults: parseInt(document.getElementById('adults').value),
+                children: parseInt(document.getElementById('children').value),
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value,
+                status: 'pending',
+                total: total,
+                nights: nights,
+                prepaid: 0,
+                date: new Date().toISOString()
+            };
+            
+            // Récupérer les réservations existantes
+            let bookings = JSON.parse(localStorage.getItem('lawmarBookings') || '[]');
+            bookings.push(bookingData);
+            localStorage.setItem('lawmarBookings', JSON.stringify(bookings));
+            
+            // Appeler la fonction originale si elle existe
+            if (typeof originalSubmitBooking === 'function') {
+                originalSubmitBooking(event);
+            } else {
+                // Fallback si la fonction originale n'existe pas
+                const formatDate = (dateStr) => {
+                    const date = new Date(dateStr);
+                    return date.toLocaleDateString('fr-FR');
+                };
+                
+                const whatsappMessage = `*NOUVELLE RÉSERVATION LAWMAR*
+━━━━━━━━━━━━━━━━━━
+🏨 Chambre: ${bookingData.room}
+📅 Arrivée: ${formatDate(bookingData.checkin)}
+📅 Départ: ${formatDate(bookingData.checkout)}
+🌙 Nuits: ${nights}
+💰 Total: ${total.toLocaleString()} XOF
+━━━━━━━━━━━━━━━━━━
+👤 Nom: ${bookingData.guest}
+📞 Téléphone: ${bookingData.phone}
+━━━━━━━━━━━━━━━━━━
+💬 Message: ${bookingData.message || 'Aucun'}`;
+                
+                window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+                
+                bootstrap.Modal.getInstance(document.getElementById('bookingModal')).hide();
+                alert('✅ Réservation enregistrée ! Elle apparaîtra dans le panneau d\'administration.');
+                document.getElementById('bookingForm').reset();
+            }
+        };
+    </script>
+</body>
+</html>

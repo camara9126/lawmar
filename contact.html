@@ -1,0 +1,2675 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Contact & Accès - Les Résidences du Lawmar - Gandiol 🇸🇳</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ===== STYLES GÉNÉRAUX ===== */
+        :root {
+            --primary-color: #025ba5;
+            --secondary-color: #e0e0e0;
+            --accent-color: #c53030;
+            --dark-color: #2d3748;
+            --light-color: #f7fafc;
+            --yellow-color: #FFD700;
+            --light-green: #f0fff4;
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+            --box-shadow: 0 3px 10px rgba(2, 91, 165, 0.08);
+            --box-shadow-hover: 0 10px 25px rgba(2, 91, 165, 0.15);
+            --indigo: #1E3A5F;
+            --sable: #F4EDE4;
+            --vert: #2F5D50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            padding-top: 80px;
+            background-color: #f8fbff;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .section-padding {
+            padding: 40px 0;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 8px 18px;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            border-radius: var(--border-radius);
+        }
+
+        .btn-primary:hover {
+            background-color: #024a84;
+            border-color: #024a84;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(2, 91, 165, 0.3);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            border-radius: var(--border-radius);
+        }
+
+        .btn-outline-primary:hover,
+        .btn-outline-primary.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-warning {
+            background-color: var(--yellow-color);
+            border-color: var(--yellow-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 6px 14px;
+            font-size: 0.85rem;
+        }
+        
+        .btn-warning:hover {
+            background-color: #e6c200;
+            border-color: #e6c200;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* ===== BOUTON RÉSERVER - STYLE OUTLINE (SANS FOND JAUNE) ===== */
+        .btn-reservation {
+            background-color: transparent !important;
+            color: var(--primary-color) !important;
+            border: 2px solid var(--primary-color) !important;
+            border-radius: 5px;
+            font-weight: 600;
+            padding: 6px 18px !important;
+            transition: var(--transition);
+        }
+
+        .btn-reservation:hover {
+            background-color: var(--primary-color) !important;
+            color: white !important;
+            transform: translateY(-2px);
+            border-bottom: 2px solid var(--primary-color) !important;
+        }
+        
+        .btn-admin {
+            background-color: #6c757d !important;
+            color: white !important;
+            border-radius: 5px;
+            font-weight: 600;
+            padding: 6px 18px !important;
+            border: none;
+        }
+        
+        .btn-admin:hover {
+            background-color: #5a6268 !important;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+
+        /* ===== NAVBAR STYLE ===== */
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 5px 0;
+            min-height: 70px;
+        }
+
+        .navbar .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            padding: 0;
+            margin-left: -20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-image {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hotel-name {
+            color: var(--primary-color) !important;
+            font-size: 1.4rem;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .hotel-subtitle {
+            color: var(--dark-color) !important;
+            font-size: 0.75rem;
+            font-weight: 300;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--primary-color) !important;
+            font-weight: 500;
+            padding: 6px 10px !important;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--indigo) !important;
+            border-bottom: 2px solid var(--vert);
+        }
+
+        .dropdown-menu {
+            background-color: white;
+            border: 1px solid var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 8px 0;
+            margin-top: 5px;
+            min-width: 220px;
+        }
+
+        .dropdown-item {
+            color: var(--primary-color) !important;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--primary-color) !important;
+            color: white !important;
+            padding-left: 25px;
+        }
+
+        .dropdown-item i {
+            width: 20px;
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+
+        .dropdown-item:hover i {
+            color: white !important;
+        }
+
+        /* ===== HEADER ===== */
+        .contact-hero {
+            background: url('images/lawmar.jpeg') no-repeat center center;
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: center;
+            padding-bottom: 40px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            color: white;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .location-badge {
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .senegal-flag-icon {
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        /* ===== PRIX XOF STYLISÉ ===== */
+        .price-display {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        
+        .price-display::after {
+            content: " XOF";
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.75rem;
+            margin-left: 3px;
+        }
+
+        /* ===== STYLES SPÉCIFIQUES CONTACT ===== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: var(--vert);
+        }
+
+        .section-header p {
+            color: #4a5568;
+            font-size: 0.95rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            border-top: 4px solid var(--primary-color);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(2, 91, 165, 0.02), transparent);
+            z-index: 0;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .contact-card > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--light-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .contact-card:hover .contact-icon {
+            background-color: var(--vert);
+            color: white;
+            transform: rotate(5deg) scale(1.05);
+            border-color: white;
+        }
+        
+        .contact-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .contact-card p {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .map-container {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 350px;
+            margin-bottom: 20px;
+            box-shadow: var(--box-shadow);
+            border: 4px solid white;
+        }
+        
+        .department-contact {
+            background: var(--light-green);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .department-contact:hover {
+            transform: translateX(5px);
+            box-shadow: var(--box-shadow);
+            border-left-color: var(--vert);
+        }
+        
+        .department-contact h5 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+        
+        .department-contact h5 i {
+            color: var(--vert);
+            margin-right: 8px;
+        }
+        
+        .department-contact p {
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+        
+        .opening-hours {
+            background: linear-gradient(135deg, var(--primary-color), #024a84);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 25px 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .opening-hours h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            padding-bottom: 12px;
+        }
+        
+        .opening-hours h4 i {
+            color: var(--yellow-color);
+            margin-right: 8px;
+        }
+        
+        .hour-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+        
+        .hour-item:last-child {
+            border-bottom: none;
+        }
+        
+        .hour-item span:first-child {
+            font-weight: 600;
+        }
+        
+        .hour-item.checkin-rule {
+            background-color: rgba(255, 215, 0, 0.15);
+            border-left: 4px solid var(--yellow-color);
+            padding-left: 12px;
+            padding-right: 12px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+        
+        .hour-item.checkin-rule span {
+            font-weight: 700;
+        }
+        
+        .hour-item.checkin-rule span:first-child {
+            color: var(--yellow-color);
+        }
+        
+        .emergency-contact {
+            background: #fff9e6;
+            border: 1px solid var(--yellow-color);
+            border-radius: var(--border-radius);
+            padding: 20px 25px;
+            margin: 15px 0;
+            border-left: 6px solid var(--yellow-color);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .emergency-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .emergency-contact h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .emergency-contact h4 i {
+            color: var(--yellow-color);
+            margin-right: 8px;
+        }
+        
+        .social-contact {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        
+        .social-contact a {
+            width: 40px;
+            height: 40px;
+            background: var(--light-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .social-contact a:hover {
+            background: var(--vert);
+            color: white;
+            transform: translateY(-5px) scale(1.1);
+            border-color: white;
+        }
+        
+        .payment-methods {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(47, 93, 80, 0.3);
+        }
+        
+        .payment-methods h5 {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--vert);
+            padding-bottom: 8px;
+        }
+        
+        .payment-methods h5 i {
+            color: var(--vert);
+            margin-right: 8px;
+        }
+        
+        .payment-icon {
+            font-size: 1.6rem;
+            margin: 0 10px;
+        }
+        
+        .whatsapp-contact {
+            background: #25D366;
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 20px 15px;
+            text-align: center;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-contact h5 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: white;
+        }
+        
+        .whatsapp-contact p {
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+        
+        .whatsapp-contact .btn-light {
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            background-color: white;
+            border-color: white;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-contact .btn-light:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .access-item {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-left: 5px solid var(--primary-color);
+            height: 100%;
+        }
+        
+        .access-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+            border-left-color: var(--vert);
+        }
+        
+        .access-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .access-item h4 i {
+            color: var(--vert);
+            margin-right: 10px;
+        }
+        
+        .access-item p {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .contact-banner {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #024a84 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            box-shadow: var(--box-shadow);
+            border-left: 6px solid var(--vert);
+        }
+        
+        .contact-banner i {
+            color: var(--yellow-color);
+            margin-right: 8px;
+        }
+
+        .professional-emails {
+            background-color: var(--light-green);
+            border-left: 4px solid var(--primary-color);
+            padding: 12px;
+            border-radius: var(--border-radius);
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .professional-emails p {
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+        }
+        .professional-emails a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .professional-emails a:hover {
+            color: var(--vert);
+            text-decoration: underline;
+        }
+        .sync-note {
+            font-size: 0.75rem;
+            color: var(--dark-color);
+            opacity: 0.7;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* ===== FORMULAIRE ===== */
+        .contact-card.form-card {
+            padding: 25px;
+        }
+        
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .contact-card h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--vert);
+        }
+        
+        .form-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .form-control, .form-select {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            border-radius: var(--border-radius);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(2, 91, 165, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* ===== CARROUSEL AVIS CLIENTS ===== */
+        .reviews-carousel {
+            position: relative;
+            padding: 15px 0 40px;
+        }
+        
+        .review-slide {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto;
+            border: 1px solid rgba(2, 91, 165, 0.1);
+            transition: var(--transition);
+        }
+        
+        .review-slide:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .review-avatar-round {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 15px;
+            border: 4px solid var(--vert);
+            position: relative;
+        }
+        
+        .review-avatar-round img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .review-stars-round {
+            color: #ffb400;
+            font-size: 1.2rem;
+            margin: 8px 0;
+        }
+        
+        .review-text {
+            font-style: italic;
+            color: #555;
+            margin: 15px 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .review-author {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 3px;
+            font-size: 1rem;
+        }
+        
+        .review-origin {
+            color: #666;
+            font-size: 0.85rem;
+        }
+        
+        .carousel-indicators {
+            bottom: -20px;
+        }
+        
+        .carousel-indicators button {
+            background-color: var(--primary-color) !important;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 5px;
+            opacity: 0.5;
+            transition: var(--transition);
+        }
+        
+        .carousel-indicators button.active {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+        
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+            opacity: 0.9;
+        }
+        
+        .carousel-control-prev {
+            left: -30px;
+        }
+        
+        .carousel-control-next {
+            right: -30px;
+        }
+        
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            padding: 12px;
+            background-size: 60%;
+            transition: var(--transition);
+        }
+        
+        .carousel-control-prev-icon:hover,
+        .carousel-control-next-icon:hover {
+            background-color: var(--vert);
+            transform: scale(1.1);
+        }
+
+        /* ===== CARTES ===== */
+        .card {
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            margin-bottom: 15px;
+            height: 100%;
+            border-top: 3px solid var(--primary-color);
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow-hover);
+            border-top-color: var(--vert);
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .card-body h5 {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+        
+        .card-body h5 i {
+            color: var(--vert);
+            margin-right: 8px;
+        }
+        
+        .card-body p {
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: white !important;
+            color: var(--primary-color);
+            padding: 30px 0 15px;
+            font-size: 0.85rem;
+            margin-top: 40px;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+        }
+
+        .footer-about h3 {
+            color: var(--primary-color) !important;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .footer-links h4,
+        .footer-contact h4,
+        .footer-newsletter h4 {
+            color: var(--primary-color) !important;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a {
+            color: var(--primary-color) !important;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.85rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--vert) !important;
+            padding-left: 5px;
+            border-left: 2px solid var(--vert);
+        }
+
+        .footer-contact p {
+            margin-bottom: 8px;
+            color: var(--primary-color) !important;
+            font-size: 0.85rem;
+        }
+
+        .footer-contact i {
+            color: var(--vert);
+            margin-right: 8px;
+            width: 18px;
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background-color: var(--light-green);
+            color: var(--primary-color);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 8px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--vert);
+            color: white !important;
+            transform: translateY(-3px);
+        }
+
+        .footer-newsletter .input-group {
+            margin-top: 10px;
+        }
+        
+        .footer-newsletter .input-group input {
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+            border: 1px solid var(--secondary-color);
+            color: var(--dark-color);
+        }
+        
+        .footer-newsletter .input-group input:focus {
+            border-color: var(--primary-color);
+            box-shadow: none;
+        }
+        
+        .footer-newsletter .input-group button {
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .footer-newsletter .input-group button:hover {
+            background-color: var(--vert);
+            border-color: var(--vert);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--secondary-color);
+            padding-top: 15px;
+            margin-top: 20px;
+            text-align: center;
+            color: var(--primary-color) !important;
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-color) !important;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--vert) !important;
+            text-decoration: underline;
+        }
+
+        .footer-logo-image {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border: none !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+        }
+
+        /* ===== MODAL ===== */
+        .modal-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+        }
+
+        .modal-title {
+            color: var(--yellow-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .btn-close {
+            filter: invert(1);
+            opacity: 0.9;
+            transition: var(--transition);
+        }
+        
+        .btn-close:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+
+        /* ===== NOTIFICATION TOAST ===== */
+        .notification-toast {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: white;
+            border-radius: 8px;
+            padding: 12px 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border-left: 5px solid var(--accent-color);
+            z-index: 9999;
+            max-width: 300px;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 991px) {
+            .navbar .container {
+                position: static;
+            }
+            
+            .navbar-brand {
+                margin-left: 0;
+            }
+            
+            .navbar-collapse {
+                background-color: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                margin-top: 10px;
+            }
+            
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 10px 15px !important;
+                width: 100%;
+                text-align: left;
+            }
+            
+            .btn-reservation {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                margin-top: 5px;
+            }
+            
+            .dropdown-menu {
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .navbar {
+                padding: 4px 0 !important;
+                min-height: 60px;
+            }
+            
+            .logo-image {
+                width: 38px;
+                height: 38px;
+            }
+            
+            .hotel-name {
+                font-size: 1.2rem !important;
+            }
+            
+            .hotel-subtitle {
+                font-size: 0.65rem !important;
+            }
+            
+            .contact-hero {
+                height: 280px !important;
+                padding-bottom: 30px !important;
+            }
+            
+            .hero-title {
+                font-size: 1.6rem !important;
+                color: white !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem !important;
+                padding: 0 10px;
+                color: white !important;
+            }
+            
+            .location-badge {
+                font-size: 0.75rem !important;
+                padding: 5px 12px !important;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                color: white !important;
+                background-color: rgba(0,0,0,0.7) !important;
+            }
+            
+            .contact-card, .access-item {
+                padding: 20px;
+            }
+            
+            .contact-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+            
+            .map-container {
+                height: 250px;
+            }
+            
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-header p {
+                font-size: 0.9rem;
+                padding: 0 15px;
+            }
+            
+            .footer {
+                text-align: center;
+            }
+            
+            .footer .social-links {
+                justify-content: center;
+                display: flex;
+            }
+            
+            .footer-newsletter .input-group {
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .carousel-control-prev,
+            .carousel-control-next {
+                display: none;
+            }
+            
+            .review-slide {
+                padding: 20px;
+            }
+            
+            .review-avatar-round {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .review-text {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            body {
+                padding-top: 65px;
+            }
+            
+            .navbar {
+                min-height: 55px;
+            }
+            
+            .logo-image {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .hotel-name {
+                font-size: 1.1rem !important;
+            }
+            
+            .contact-hero {
+                height: 240px !important;
+                padding-bottom: 25px !important;
+            }
+            
+            .hero-title {
+                font-size: 1.4rem !important;
+                color: white !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.8rem !important;
+                padding: 0 10px;
+                color: white !important;
+            }
+            
+            .location-badge {
+                font-size: 0.7rem !important;
+                padding: 4px 10px !important;
+                width: 95%;
+                color: white !important;
+                background-color: rgba(0,0,0,0.7) !important;
+            }
+            
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .section-padding {
+                padding: 25px 0;
+            }
+            
+            .section-header {
+                margin-bottom: 25px;
+            }
+            
+            .section-header h2 {
+                font-size: 1.3rem;
+            }
+            
+            .section-header h2:after {
+                width: 50px;
+                height: 2px;
+            }
+            
+            .section-header p {
+                font-size: 0.85rem;
+                padding: 0 15px;
+            }
+            
+            .map-container {
+                height: 200px;
+            }
+            
+            .contact-card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .contact-card h4 {
+                font-size: 1.1rem;
+            }
+            
+            .contact-card p {
+                font-size: 0.85rem;
+            }
+            
+            .hour-item {
+                font-size: 0.85rem;
+            }
+            
+            .emergency-contact {
+                padding: 15px;
+            }
+            
+            .btn-whatsapp, .btn-primary, .btn-outline-primary {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .review-avatar-round {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .review-stars-round {
+                font-size: 1rem;
+            }
+            
+            .review-text {
+                font-size: 0.85rem;
+            }
+            
+            .review-author {
+                font-size: 0.95rem;
+            }
+            
+            .footer-logo-image {
+                width: 38px;
+                height: 38px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVIGATION IDENTIQUE AUX AUTRES PAGES ===== -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-container">
+                    <!-- Logo officiel avec fallback -->
+                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border-radius: 0; border: none; background: transparent; width: 50px; height: 50px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.borderRadius='0'; this.style.border='none';">
+                    <div class="brand-text">
+                        <h1 class="hotel-name" id="nav-hotel-name">LAWMAR</h1>
+                        <span class="hotel-subtitle" id="nav-hotel-subtitle">
+                            <span class="senegal-flag-icon">🇸🇳</span> Les Résidences du Lawmar - Tassinère
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" id="nav-home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="residences.html" id="nav-residences">Résidences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="restauration.html" id="nav-restaurant">Restauration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chambres.html" id="nav-hebergements">Hébergements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html" id="nav-services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galerie.html" id="nav-gallery">Galerie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html" id="nav-contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html" id="nav-admin">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal" id="nav-book">Réserver</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-globe"></i> <span id="current-lang">FR</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('fr'); return false;">Français</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en'); return false;">English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HEADER ===== -->
+    <header class="contact-hero">
+        <div class="hero-content">
+            <h1 class="hero-title" id="hero-title">Contact & Accès <span class="senegal-flag-icon">🇸🇳</span></h1>
+            <p class="hero-subtitle" id="hero-subtitle">Nous sommes à votre écoute au village de Tassinère, aux portes de la Langue de Barbarie</p>
+            <div class="location-badge" id="location-badge">
+                <i class="fas fa-map-pin me-2"></i> Village de Tassinère, Commune de Ndiébène Gandiol, Saint-Louis
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== BANNIÈRE CONTACT GANDIOL ===== -->
+    <section style="padding: 15px 0 0;">
+        <div class="container">
+            <div class="contact-banner" id="contact-banner">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <i class="fas fa-map-marker-alt fa-lg"></i> 
+                        <strong><span id="banner-hotel">Les Résidences du Lawmar</span></strong> - <span id="banner-address">Village de Tassinère, Commune de Ndiébène Gandiol, Saint-Louis, Sénégal</span>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-2 mt-md-0">
+                        <i class="fas fa-phone-alt"></i> +221 77 995 20 20 
+                        <span class="mx-2">|</span>
+                        <i class="fab fa-whatsapp" style="color: var(--yellow-color);"></i> +221 77 995 20 20
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COORDONNÉES - GANDIOL ===== -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="coordinates-title">Coordonnées - Gandiol <span class="senegal-flag-icon">🇸🇳</span></h2>
+                <p id="coordinates-subtitle">Plusieurs moyens pour nous joindre aux Résidences du Lawmar</p>
+            </div>
+            
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4 id="card-address-title">Notre Adresse</h4>
+                        <p class="mb-3" id="card-address">
+                            <strong>Les Résidences du Lawmar</strong><br>
+                            Village de Tassinère<br>
+                            Commune de Ndiébène Gandiol<br>
+                            Saint-Louis, Sénégal 🇸🇳
+                        </p>
+                        <button class="btn btn-outline-primary btn-sm" onclick="openMap()" id="card-address-btn">
+                            <i class="fas fa-directions me-2"></i> Itinéraire
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h4 id="card-phone-title">Téléphone & WhatsApp</h4>
+                        <p class="mb-1"><strong id="card-reservations">Réservations / Accueil:</strong></p>
+                        <p class="mb-2 fw-bold" style="font-size: 1rem;">+221 77 995 20 20</p>
+                        <p class="mb-1"><strong id="card-management">Direction:</strong></p>
+                        <p class="mb-3">+221 77 291 72 15</p>
+                        
+                        <div class="whatsapp-contact mt-2">
+                            <i class="fab fa-whatsapp fa-2x mb-1"></i>
+                            <h5 id="card-wa-title">WhatsApp 24h/24</h5>
+                            <p class="mb-1 fw-bold">+221 77 995 20 20</p>
+                            <button class="btn btn-light btn-sm" onclick="openWhatsApp()" id="card-wa-btn">
+                                <i class="fab fa-whatsapp me-2"></i> Écrire sur WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4 id="card-email-title">Email</h4>
+                        <p class="mb-1"><strong id="card-email-reservations">Réservations / Info:</strong></p>
+                        <p class="mb-2">residencelawmar@gmail.com</p>
+                        <p class="mb-1"><strong id="card-email-management">Direction:</strong></p>
+                        <p class="mb-3">diopelhadji11@gmail.com</p>
+                        
+                        <!-- EMAILS PROFESSIONNELS -->
+                        <div class="professional-emails text-start">
+                            <p><i class="fas fa-envelope-open-text"></i> <strong id="professional-emails-title">Emails professionnels :</strong></p>
+                            <p><a href="mailto:contact@residenceslawmar.com" id="email1">contact@residenceslawmar.com</a></p>
+                            <p><a href="mailto:reservation@residencelawmar.com" id="email2">reservation@residencelawmar.com</a></p>
+                            <p><a href="mailto:residencelawmar@gmail.com" id="email3">residencelawmar@gmail.com</a></p>
+                            <div class="sync-note" id="sync-note">
+                                <i class="fas fa-sync-alt"></i> Objectif : tout message reçu sur l'une de ces adresses est accessible dans les trois boîtes.
+                            </div>
+                        </div>
+                        
+                        <div class="social-contact justify-content-center mt-3">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                            <a href="https://wa.me/221779952020" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CARTE & FORMULAIRE - GANDIOL ===== -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-lg-8">
+                    <!-- Carte Gandiol -->
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15349.67156807006!2d-16.519272613815616!3d15.887163155240756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xeeaaacadc972157%3A0x4f00169541d1d16f!2sTassin%C3%A8re!5e0!3m2!1sfr!2ssn!4v1772054944022!5m2!1sfr!2ssn" 
+                                width="100%" 
+                                height="350" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Carte de Gandiol - Saint-Louis">
+                        </iframe>
+                    </div>
+                    
+                    <!-- Formulaire de Contact -->
+                    <div class="contact-card form-card">
+                        <h3 id="form-title">Envoyez-nous un message <span class="senegal-flag-icon">🇸🇳</span></h3>
+                        <form id="contact-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="contact-name" class="form-label" id="form-name">Nom complet *</label>
+                                    <input type="text" class="form-control" id="contact-name" required placeholder="Votre nom">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="contact-email" class="form-label" id="form-email">Email *</label>
+                                    <input type="email" class="form-control" id="contact-email" required placeholder="votre@email.com">
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="contact-phone" class="form-label" id="form-phone">Téléphone / WhatsApp</label>
+                                    <input type="tel" class="form-control" id="contact-phone" placeholder="+221 77 XXX XX XX">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="contact-subject" class="form-label" id="form-subject">Sujet *</label>
+                                    <select class="form-select" id="contact-subject" required>
+                                        <option value="" selected disabled id="form-subject-placeholder">Choisir un sujet</option>
+                                        <option value="reservation" id="form-subject-reservation">Réservation</option>
+                                        <option value="information" id="form-subject-info">Demande d'information</option>
+                                        <option value="restaurant" id="form-subject-restaurant">Restaurant Le Teranga</option>
+                                        <option value="excursion" id="form-subject-excursion">Excursion - Langue de Barbarie</option>
+                                        <option value="transfert" id="form-subject-transfer">Transfert aéroport</option>
+                                        <option value="autre" id="form-subject-other">Autre</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="contact-message" class="form-label" id="form-message">Message *</label>
+                                <textarea class="form-control" id="contact-message" rows="4" required placeholder="Votre message..."></textarea>
+                            </div>
+                            
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="contact-newsletter">
+                                <label class="form-check-label" for="contact-newsletter" id="form-newsletter">
+                                    Je souhaite m'abonner à la newsletter du Lawmar Gandiol
+                                </label>
+                            </div>
+                            
+                            <div class="d-flex gap-2">
+                                <button type="submit" class="btn btn-primary" id="form-submit">
+                                    <i class="fas fa-paper-plane me-2"></i> Envoyer le message
+                                </button>
+                                <button type="button" class="btn btn-whatsapp" onclick="sendMessageViaWhatsApp()" id="form-wa">
+                                    <i class="fab fa-whatsapp me-2"></i> WhatsApp
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <!-- Horaires - Gandiol AVEC RÈGLE CHECK-IN/CHECK-OUT -->
+                    <div class="opening-hours">
+                        <h4 id="hours-title"><i class="fas fa-clock"></i> Horaires d'ouverture</h4>
+                        
+                        <!-- RÈGLE CHECK-IN/CHECK-OUT -->
+                        <div class="hour-item checkin-rule">
+                            <span><strong id="hours-checkin-label">Règles :</strong></span>
+                            <span id="hours-checkin-time">Check-in 14h – Check-out 12h</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Contacts par Départements -->
+                    <div class="mb-4">
+                        <h4 style="font-size: 1.1rem; color: var(--primary-color); margin-bottom: 15px; border-bottom: 2px solid var(--vert); padding-bottom: 8px;" id="direct-contacts-title">
+                            <i class="fas fa-users me-2"></i> Contacts directs
+                        </h4>
+                        
+                        <div class="department-contact">
+                            <h5><i class="fas fa-bed"></i> <span id="dept-reservations">Réservations & Accueil</span></h5>
+                            <p class="mb-1"><i class="fas fa-phone-alt me-2" style="color: var(--vert);"></i> +221 77 995 20 20</p>
+                            <p class="mb-0 small"><i class="fas fa-envelope me-2" style="color: var(--vert);"></i> residencelawmar@gmail.com</p>
+                        </div>
+                        
+                        <div class="department-contact">
+                            <h5><i class="fas fa-utensils"></i> <span id="dept-restaurant">Restaurant Le Teranga</span></h5>
+                            <p class="mb-1"><i class="fas fa-phone-alt me-2" style="color: var(--vert);"></i> +221 77 995 20 20</p>
+                            <p class="mb-0 small"><i class="fas fa-clock me-2" style="color: var(--vert);"></i> <span id="dept-restaurant-hours">Service de 12h à 22h30</span></p>
+                        </div>
+                        
+                        <div class="department-contact">
+                            <h5><i class="fas fa-compass"></i> <span id="dept-excursions">Excursions & Activités</span></h5>
+                            <p class="mb-1"><i class="fas fa-phone-alt me-2" style="color: var(--vert);"></i> +221 77 291 72 15</p>
+                            <p class="mb-0 small"><i class="fas fa-envelope me-2" style="color: var(--vert);"></i> diopelhadji11@gmail.com</p>
+                        </div>
+                        
+                        <div class="department-contact">
+                            <h5><i class="fas fa-car"></i> <span id="dept-transfers">Transferts & Conciergerie</span></h5>
+                            <p class="mb-1"><i class="fas fa-phone-alt me-2" style="color: var(--vert);"></i> +221 77 995 20 20</p>
+                            <p class="mb-0 small"><i class="fab fa-whatsapp me-2" style="color: var(--vert);"></i> <span id="dept-transfers-available">Disponible 24h/24</span></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Moyens de Paiement -->
+                    <div class="payment-methods">
+                        <h5><i class="fas fa-credit-card"></i> <span id="payment-title">Moyens de Paiement</span></h5>
+                        <div class="text-center">
+                            <div class="mb-3">
+                                <span class="badge px-3 py-2" style="background-color: var(--primary-color); color: white; font-size: 0.85rem;">
+                                    <i class="fas fa-money-bill-wave me-2"></i> <span id="payment-currency">XOF (Franc CFA)</span>
+                                </span>
+                            </div>
+                            <div class="mb-3 d-flex justify-content-around align-items-center">
+                                <div>
+                                    <i class="fas fa-mobile-alt payment-icon" style="color: #00B2A9;"></i>
+                                    <div><small class="fw-bold">Wave</small></div>
+                                </div>
+                                <div>
+                                    <i class="fas fa-mobile-alt payment-icon" style="color: #FF6600;"></i>
+                                    <div><small class="fw-bold">Orange Money</small></div>
+                                </div>
+                                <div>
+                                    <i class="fas fa-credit-card payment-icon" style="color: #025ba5;"></i>
+                                    <div><small class="fw-bold">Carte</small></div>
+                                </div>
+                                <div>
+                                    <i class="fas fa-money-bill-wave payment-icon" style="color: #38a169;"></i>
+                                    <div><small class="fw-bold">Espèces</small></div>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <small class="text-muted" id="payment-note"><i class="fas fa-check-circle" style="color: var(--vert);"></i> Tous les paiements sont acceptés</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ACCÈS - GANDIOL ===== -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="access-title">Comment venir à Gandiol <span class="senegal-flag-icon">🇸🇳</span></h2>
+                <p id="access-subtitle">Rejoindre Les Résidences du Lawmar au village de Tassinère</p>
+            </div>
+            
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-3">
+                    <div class="access-item">
+                        <h4><i class="fas fa-plane"></i> <span id="access-plane">En Avion</span></h4>
+                        <p><i class="fas fa-check-circle me-2" style="color: var(--vert);"></i> <strong id="access-airport-xls">Aéroport de Saint-Louis (XLS):</strong> <span id="access-airport-xls-time">25 min en voiture</span></p>
+                        <p><i class="fas fa-check-circle me-2" style="color: var(--vert);"></i> <strong id="access-airport-dss">Aéroport Blaise Diagne (DSS):</strong> <span id="access-airport-dss-time">3h de route</span></p>
+                        <p><i class="fas fa-check-circle me-2" style="color: var(--vert);"></i> <strong id="access-transfer">Transfert privé:</strong> <span id="access-transfer-reservation">sur réservation</span></p>
+                        <div class="mt-3">
+                            <span class="price-display" style="font-size: 0.85rem;">25,000</span>
+                            <small class="text-muted" id="access-price-per">/ trajet</small>
+                            <button class="btn btn-sm btn-outline-primary ms-2" onclick="bookService('transfer-aeroport')" id="access-book-btn">
+                                <i class="fas fa-car me-1"></i> <span>Réserver</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="access-item">
+                        <h4><i class="fas fa-car"></i> <span id="access-car">En Voiture</span></h4>
+                        <p><i class="fas fa-check-circle me-2" style="color: var(--vert);"></i> <strong id="access-from-stlouis">Depuis Saint-Louis:</strong> <span id="access-from-stlouis-time">25 min via Gandiol</span></p>
+                        <p><i class="fas fa-check-circle me-2" style="color: var(--vert);"></i> <strong id="access-parking">Parking privé:</strong> <span id="access-parking-free">gratuit et sécurisé</span></p>
+                        <p><i class="fas fa-check-circle me-2" style="color: var(--vert);"></i> <strong id="access-rental">Location:</strong> <span id="access-rental-available">service disponible</span></p>
+                        <small class="text-muted" id="access-gps">GPS sur demande</small>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="access-item">
+                        <h4><i class="fas fa-bus"></i> <span id="access-transport">En Transport</span></h4>
+                        <p><i class="fas fa-check-circle me-2" style="color: var(--vert);"></i> <strong id="access-taxi">Taxi:</strong> <span id="access-taxi-time">20 min depuis Saint-Louis</span></p>
+                        <p><i class="fas fa-check-circle me-2" style="color: var(--vert);"></i> <strong id="access-bus">Bus/Taxi-brousse:</strong> <span id="access-bus-stop">Arrêt Ndiébène</span></p>
+                        <p><i class="fas fa-check-circle me-2" style="color: var(--vert);"></i> <strong id="access-shuttle">Navette hôtel:</strong> <span id="access-shuttle-request">sur demande</span></p>
+                        <div class="mt-3">
+                            <span class="price-display" style="font-size: 0.85rem;">15,000</span>
+                            <small class="text-muted" id="access-taxi-price">/ taxi</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="access-item">
+                        <h4><i class="fas fa-ship"></i> <span id="access-pirogue">En Pirogue</span></h4>
+                        <p><i class="fas fa-check-circle me-2" style="color: var(--vert);"></i> <strong id="access-from-langue">Depuis Langue de Barbarie:</strong> <span id="access-from-langue-time">5 min</span></p>
+                        <p><i class="fas fa-check-circle me-2" style="color: var(--vert);"></i> <strong id="access-excursions">Excursions:</strong> <span id="access-excursions-departure">départ du ponton</span></p>
+                        <p><i class="fas fa-check-circle me-2" style="color: var(--vert);"></i> <strong id="access-crossing">Transfert:</strong> <span id="access-crossing-direct">traversée directe</span></p>
+                        <button class="btn btn-sm btn-outline-primary mt-2" onclick="bookService('excursion-pirogue')" id="access-pirogue-btn">
+                            <i class="fas fa-ship me-1"></i> <span>Réserver</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT D'URGENCE & INFOS PRATIQUES ===== -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="emergency-contact">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h4 id="emergency-title"><i class="fas fa-exclamation-triangle"></i> Contact d'Urgence 24h/24</h4>
+                        <p class="mb-1 fs-5" id="emergency-text">Pour toute urgence, contactez notre réception</p>
+                        <p class="mb-0"><strong><i class="fas fa-phone-alt me-2"></i> +221 77 995 20 20</strong> <span id="emergency-available">(disponible 24h/24)</span></p>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                        <a href="tel:+221779952020" class="btn btn-warning btn-lg" id="emergency-btn">
+                            <i class="fas fa-phone-alt me-2"></i> Appeler
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Infos Pratiques -->
+            <div class="row mt-4 g-3">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5><i class="fas fa-language"></i> <span id="info-languages-title">Langues Parlées</span></h5>
+                            <p class="mb-2" id="info-languages">Français, Anglais, Wolof</p>
+                            <div class="mt-2">
+                                <span class="badge me-1" style="background-color: var(--primary-color); color: white;">FR</span>
+                                <span class="badge bg-secondary me-1">EN</span>
+                                <span class="badge" style="background-color: var(--yellow-color); color: var(--primary-color);">WO</span>
+                            </div>
+                            <small class="text-muted d-block mt-3" id="info-languages-note">Personnel multilingue à votre service</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5><i class="fas fa-money-bill-wave"></i> <span id="info-currency-title">Devise & Change</span></h5>
+                            <p class="mb-1"><strong id="info-currency">Franc CFA (XOF)</strong></p>
+                            <p class="mb-0" id="info-currency-rate">Taux du jour sur demande</p>
+                            <div class="mt-3">
+                                <span class="badge" style="background-color: var(--vert); color: white;">
+                                    <i class="fas fa-exchange-alt me-1"></i> <span id="info-exchange">Change disponible</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5><i class="fas fa-plug"></i> <span id="info-electricity-title">Électricité & Wifi</span></h5>
+                            <p class="mb-1" id="info-electricity">220V - Prises européennes</p>
+                            <p class="mb-0" id="info-wifi">WiFi haut débit gratuit</p>
+                            <div class="mt-3">
+                                <span class="badge bg-success" id="info-wifi-badge">
+                                    <i class="fas fa-wifi me-1"></i> Fibre optique
+                                </span>
+                                <span class="badge bg-info ms-1" id="info-adapters">
+                                    Adaptateurs fournis
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION AVIS CLIENTS ===== -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="reviews-title">Ils nous ont fait confiance <span class="senegal-flag-icon">🇸🇳</span></h2>
+                <p id="reviews-subtitle">La qualité de notre service selon nos voyageurs à Gandiol</p>
+            </div>
+            
+            <div id="reviewsCarousel" class="carousel slide reviews-carousel" data-bs-ride="carousel">
+                <div class="carousel-inner" id="reviews-container">
+                    <!-- Les avis seront chargés dynamiquement -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden" id="carousel-prev">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden" id="carousel-next">Suivant</span>
+                </button>
+                <div class="carousel-indicators">
+                    <!-- Les indicateurs seront générés dynamiquement -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MODAL RÉSERVATION ===== -->
+    <div class="modal fade" id="bookingModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">
+                        <i class="fas fa-calendar-alt me-2"></i> Réservation en ligne - Gandiol
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-3">
+                    <form id="booking-form">
+                        <!-- Règle check-in/check-out dans le modal -->
+                        <div class="alert alert-warning small p-2 mb-3">
+                            <i class="fas fa-info-circle me-1"></i>
+                            <strong>Règles :</strong> Check-in 14h – Check-out 12h
+                        </div>
+                        
+                        <div class="mb-2">
+                            <label class="form-label small fw-bold" id="modal-checkin">Date d'arrivée *</label>
+                            <input type="date" class="form-control form-control-sm" required>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label small fw-bold" id="modal-checkout">Date de départ *</label>
+                            <input type="date" class="form-control form-control-sm" required>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <label class="form-label small fw-bold" id="modal-adults">Adultes</label>
+                                <select class="form-select form-select-sm">
+                                    <option>1</option>
+                                    <option selected>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label small fw-bold" id="modal-children">Enfants</label>
+                                <select class="form-select form-select-sm">
+                                    <option selected>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold" id="modal-room-type">Type de chambre</label>
+                            <select class="form-select form-select-sm">
+                                <option id="modal-room-standard">Chambre Standard</option>
+                                <option id="modal-room-deluxe">Chambre Deluxe</option>
+                                <option id="modal-room-suite">Suite Vue</option>
+                                <option id="modal-room-family">Suite Familiale</option>
+                            </select>
+                        </div>
+                        <div class="alert alert-info small mb-3" id="modal-note">
+                            <i class="fas fa-info-circle me-2"></i> Un conseiller vous recontactera sous 24h pour confirmer.
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 btn-sm" id="modal-submit">
+                            <i class="fas fa-check-circle me-2"></i> Confirmer la réservation
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL CONNEXION ADMIN ===== -->
+    <div class="modal fade" id="adminLoginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="admin-title">Connexion personnel</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="admin-login-form">
+                        <div class="mb-2">
+                            <label for="admin-email" class="form-label small" id="admin-email-label">Email</label>
+                            <input type="email" class="form-control form-control-sm" id="admin-email" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="admin-password" class="form-label small" id="admin-password-label">Mot de passe</label>
+                            <input type="password" class="form-control form-control-sm" id="admin-password" required>
+                        </div>
+                        <div class="mb-2">
+                            <select class="form-select form-select-sm" id="admin-role">
+                                <option value="reception" id="admin-role-reception">Réceptionniste</option>
+                                <option value="serveur" id="admin-role-serveur">Serveur</option>
+                                <option value="cuisine" id="admin-role-cuisine">Cuisine</option>
+                                <option value="guide" id="admin-role-guide">Guide touristique</option>
+                                <option value="manager" id="admin-role-manager">Manager</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 btn-sm" id="admin-login-btn">Se connecter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-about">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="footer-logo-image" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
+                            <h3>LAWMAR</h3>
+                        </div>
+                        <p id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol, aux portes de la Langue de Barbarie.</p>
+                        <div class="social-links">
+                            <a href="https://facebook.com/lawmar.gandiol" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com/lawmar.gandiol" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://tiktok.com/@lawmar.gandiol" target="_blank"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://wa.me/221779952020" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h4 id="footer-nav">Navigation</h4>
+                        <ul>
+                            <li><a href="index.html" id="footer-home">Accueil</a></li>
+                            <li><a href="residences.html" id="footer-residences">Résidences</a></li>
+                            <li><a href="restauration.html" id="footer-restaurant">Restauration</a></li>
+                            <li><a href="chambres.html" id="footer-hebergements">Hébergements</a></li>
+                            <li><a href="services.html" id="footer-services">Services</a></li>
+                            <li><a href="galerie.html" id="footer-gallery">Galerie</a></li>
+                            <li><a href="contact.html" id="footer-contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-contact">
+                        <h4 id="footer-contact-title">Contact - Gandiol</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> <span id="footer-address">Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳</span></p>
+                        <p><i class="fas fa-phone-alt"></i> +221 77 995 20 20</p>
+                        <p><i class="fas fa-phone-alt"></i> +221 77 291 72 15</p>
+                        
+                        <!-- EMAILS PROFESSIONNELS DANS FOOTER -->
+                        <div class="professional-emails mt-2">
+                            <p><a href="mailto:contact@residenceslawmar.com">contact@residenceslawmar.com</a></p>
+                            <p><a href="mailto:reservation@residencelawmar.com">reservation@residencelawmar.com</a></p>
+                            <p><a href="mailto:residencelawmar@gmail.com">residencelawmar@gmail.com</a></p>
+                            <div class="sync-note" id="footer-sync-note">
+                                <i class="fas fa-sync-alt"></i> Objectif : synchro des 3 boîtes
+                            </div>
+                        </div>
+                        
+                        <p class="mt-2"><i class="fab fa-whatsapp"></i> WhatsApp: +221 77 995 20 20</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-newsletter">
+                        <h4 id="footer-newsletter-title">Newsletter</h4>
+                        <p id="footer-newsletter-text">Recevez nos offres spéciales et actualités de Gandiol</p>
+                        <form id="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Votre email" id="footer-email-input" required>
+                                <button class="btn btn-primary" type="submit" id="footer-submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                        <div class="mt-2">
+                            <small id="footer-biosphere"><i class="fas fa-info-circle me-1"></i> Réserve de la Langue de Barbarie</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lawmar Hôtel Les Résidences - Gandiol. <span id="footer-rights">Tous droits réservés.</span> | 
+                   <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
+                   <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal" id="footer-admin">Accès personnel</a> | 
+                   <strong>BCM GROUPE 2026</strong> | <a href="https://bcmgroupe.com" target="_blank">bcmgroupe.com</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ============================================
+        // CONTACT & ACCÈS - LES RÉSIDENCES DU LAWMAR
+        // AVEC TRADUCTION FR/EN
+        // ============================================
+        
+        // Numéro WhatsApp de l'hôtel
+        const WHATSAPP_NUMBER = "221779952020";
+        let currentLang = 'fr';
+        
+        // Données des avis clients
+        const contactReviews = [
+            {
+                nom_fr: "Marie Diouf",
+                nom_en: "Marie Diouf",
+                note: 5,
+                commentaire_fr: "Accueil exceptionnel aux Résidences du Lawmar ! Le personnel est aux petits soins, disponible et souriant. Le cadre est magnifique, je recommande vivement.",
+                commentaire_en: "Exceptional welcome at Les Résidences du Lawmar! The staff is very caring, available and smiling. The setting is magnificent, I highly recommend.",
+                date: "15/01/2024",
+                avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+                origine_fr: "Dakar",
+                origine_en: "Dakar"
+            },
+            {
+                nom_fr: "Pierre Martin",
+                nom_en: "Pierre Martin",
+                note: 5,
+                commentaire_fr: "Service impeccable du début à la fin. La réservation a été très fluide et l'équipe nous a même organisé un transfert depuis l'aéroport. Professionnalisme et teranga !",
+                commentaire_en: "Impeccable service from start to finish. The booking was very smooth and the team even arranged a transfer from the airport. Professionalism and teranga!",
+                date: "08/01/2024",
+                avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+                origine_fr: "France",
+                origine_en: "France"
+            },
+            {
+                nom_fr: "Aminata Ba",
+                nom_en: "Aminata Ba",
+                note: 4,
+                commentaire_fr: "Très bonne communication avant et pendant le séjour. Réactivité par WhatsApp et email. Les excursions organisées étaient parfaites.",
+                commentaire_en: "Very good communication before and during the stay. Responsiveness by WhatsApp and email. The organized excursions were perfect.",
+                date: "28/12/2023",
+                avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+                origine_fr: "Saint-Louis",
+                origine_en: "Saint-Louis"
+            }
+        ];
+
+        // Traductions
+        const translations = {
+            fr: {
+                // Navigation
+                'nav-hotel-name': 'LAWMAR',
+                'nav-hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
+                'nav-home': 'Accueil',
+                'nav-residences': 'Résidences',
+                'nav-restaurant': 'Restauration',
+                'nav-hebergements': 'Hébergements',
+                'nav-services': 'Services',
+                'nav-gallery': 'Galerie',
+                'nav-contact': 'Contact',
+                'nav-admin': 'Admin',
+                'nav-book': 'Réserver',
+                'current-lang': 'FR',
+                
+                // Hero
+                'hero-title': 'Contact & Accès 🇸🇳',
+                'hero-subtitle': 'Nous sommes à votre écoute au village de Tassinère, aux portes de la Langue de Barbarie',
+                'location-badge': 'Village de Tassinère, Commune de Ndiébène Gandiol, Saint-Louis',
+                
+                // Banner
+                'banner-hotel': 'Les Résidences du Lawmar',
+                'banner-address': 'Village de Tassinère, Commune de Ndiébène Gandiol, Saint-Louis, Sénégal',
+                
+                // Coordinates
+                'coordinates-title': 'Coordonnées - Gandiol 🇸🇳',
+                'coordinates-subtitle': 'Plusieurs moyens pour nous joindre aux Résidences du Lawmar',
+                'card-address-title': 'Notre Adresse',
+                'card-address': '<strong>Les Résidences du Lawmar</strong><br>Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳',
+                'card-address-btn': 'Itinéraire',
+                'card-phone-title': 'Téléphone & WhatsApp',
+                'card-reservations': 'Réservations / Accueil:',
+                'card-management': 'Direction:',
+                'card-wa-title': 'WhatsApp 24h/24',
+                'card-wa-btn': 'Écrire sur WhatsApp',
+                'card-email-title': 'Email',
+                'card-email-reservations': 'Réservations / Info:',
+                'card-email-management': 'Direction:',
+                'professional-emails-title': 'Emails professionnels :',
+                'email1': 'contact@residenceslawmar.com',
+                'email2': 'reservation@residencelawmar.com',
+                'email3': 'residencelawmar@gmail.com',
+                'sync-note': 'Objectif : tout message reçu sur l\'une de ces adresses est accessible dans les trois boîtes.',
+                
+                // Form
+                'form-title': 'Envoyez-nous un message 🇸🇳',
+                'form-name': 'Nom complet *',
+                'form-email': 'Email *',
+                'form-phone': 'Téléphone / WhatsApp',
+                'form-subject': 'Sujet *',
+                'form-subject-placeholder': 'Choisir un sujet',
+                'form-subject-reservation': 'Réservation',
+                'form-subject-info': 'Demande d\'information',
+                'form-subject-restaurant': 'Restaurant Le Teranga',
+                'form-subject-excursion': 'Excursion - Langue de Barbarie',
+                'form-subject-transfer': 'Transfert aéroport',
+                'form-subject-other': 'Autre',
+                'form-message': 'Message *',
+                'form-newsletter': 'Je souhaite m\'abonner à la newsletter du Lawmar Gandiol',
+                'form-submit': 'Envoyer le message',
+                'form-wa': 'WhatsApp',
+                
+                // Hours (sans Réception)
+                'hours-title': 'Horaires d\'ouverture',
+                'hours-checkin-label': 'Règles :',
+                'hours-checkin-time': 'Check-in 14h – Check-out 12h',
+                
+                // Direct contacts
+                'direct-contacts-title': 'Contacts directs',
+                'dept-reservations': 'Réservations & Accueil',
+                'dept-restaurant': 'Restaurant Le Teranga',
+                'dept-restaurant-hours': 'Service de 12h à 22h30',
+                'dept-excursions': 'Excursions & Activités',
+                'dept-transfers': 'Transferts & Conciergerie',
+                'dept-transfers-available': 'Disponible 24h/24',
+                
+                // Payment
+                'payment-title': 'Moyens de Paiement',
+                'payment-currency': 'XOF (Franc CFA)',
+                'payment-note': 'Tous les paiements sont acceptés',
+                
+                // Access
+                'access-title': 'Comment venir à Gandiol 🇸🇳',
+                'access-subtitle': 'Rejoindre Les Résidences du Lawmar au village de Tassinère',
+                'access-plane': 'En Avion',
+                'access-airport-xls': 'Aéroport de Saint-Louis (XLS):',
+                'access-airport-xls-time': '25 min en voiture',
+                'access-airport-dss': 'Aéroport Blaise Diagne (DSS):',
+                'access-airport-dss-time': '3h de route',
+                'access-transfer': 'Transfert privé:',
+                'access-transfer-reservation': 'sur réservation',
+                'access-price-per': '/ trajet',
+                'access-book-btn': 'Réserver',
+                'access-car': 'En Voiture',
+                'access-from-stlouis': 'Depuis Saint-Louis:',
+                'access-from-stlouis-time': '25 min via Gandiol',
+                'access-parking': 'Parking privé:',
+                'access-parking-free': 'gratuit et sécurisé',
+                'access-rental': 'Location:',
+                'access-rental-available': 'service disponible',
+                'access-gps': 'GPS sur demande',
+                'access-transport': 'En Transport',
+                'access-taxi': 'Taxi:',
+                'access-taxi-time': '20 min depuis Saint-Louis',
+                'access-bus': 'Bus/Taxi-brousse:',
+                'access-bus-stop': 'Arrêt Ndiébène',
+                'access-shuttle': 'Navette hôtel:',
+                'access-shuttle-request': 'sur demande',
+                'access-taxi-price': '/ taxi',
+                'access-pirogue': 'En Pirogue',
+                'access-from-langue': 'Depuis Langue de Barbarie:',
+                'access-from-langue-time': '5 min',
+                'access-excursions': 'Excursions:',
+                'access-excursions-departure': 'départ du ponton',
+                'access-crossing': 'Transfert:',
+                'access-crossing-direct': 'traversée directe',
+                'access-pirogue-btn': 'Réserver',
+                
+                // Emergency
+                'emergency-title': 'Contact d\'Urgence 24h/24',
+                'emergency-text': 'Pour toute urgence, contactez notre réception',
+                'emergency-available': '(disponible 24h/24)',
+                'emergency-btn': 'Appeler',
+                
+                // Info pratiques
+                'info-languages-title': 'Langues Parlées',
+                'info-languages': 'Français, Anglais, Wolof',
+                'info-languages-note': 'Personnel multilingue à votre service',
+                'info-currency-title': 'Devise & Change',
+                'info-currency': 'Franc CFA (XOF)',
+                'info-currency-rate': 'Taux du jour sur demande',
+                'info-exchange': 'Change disponible',
+                'info-electricity-title': 'Électricité & Wifi',
+                'info-electricity': '220V - Prises européennes',
+                'info-wifi': 'WiFi haut débit gratuit',
+                'info-wifi-badge': 'Fibre optique',
+                'info-adapters': 'Adaptateurs fournis',
+                
+                // Reviews
+                'reviews-title': 'Ils nous ont fait confiance 🇸🇳',
+                'reviews-subtitle': 'La qualité de notre service selon nos voyageurs à Gandiol',
+                'carousel-prev': 'Précédent',
+                'carousel-next': 'Suivant',
+                
+                // Modal booking
+                'modal-title': 'Réservation en ligne - Gandiol',
+                'modal-checkin': 'Date d\'arrivée *',
+                'modal-checkout': 'Date de départ *',
+                'modal-adults': 'Adultes',
+                'modal-children': 'Enfants',
+                'modal-room-type': 'Type de chambre',
+                'modal-room-standard': 'Chambre Standard',
+                'modal-room-deluxe': 'Chambre Deluxe',
+                'modal-room-suite': 'Suite Vue',
+                'modal-room-family': 'Suite Familiale',
+                'modal-note': 'Un conseiller vous recontactera sous 24h pour confirmer.',
+                'modal-submit': 'Confirmer la réservation',
+                
+                // Admin modal
+                'admin-title': 'Connexion personnel',
+                'admin-email-label': 'Email',
+                'admin-password-label': 'Mot de passe',
+                'admin-role-reception': 'Réceptionniste',
+                'admin-role-serveur': 'Serveur',
+                'admin-role-cuisine': 'Cuisine',
+                'admin-role-guide': 'Guide touristique',
+                'admin-role-manager': 'Manager',
+                'admin-login-btn': 'Se connecter',
+                
+                // Footer
+                'footer-about': 'Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol, aux portes de la Langue de Barbarie.',
+                'footer-nav': 'Navigation',
+                'footer-home': 'Accueil',
+                'footer-residences': 'Résidences',
+                'footer-restaurant': 'Restauration',
+                'footer-hebergements': 'Hébergements',
+                'footer-services': 'Services',
+                'footer-gallery': 'Galerie',
+                'footer-contact': 'Contact',
+                'footer-contact-title': 'Contact - Gandiol',
+                'footer-address': 'Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳',
+                'footer-sync-note': 'Objectif : synchro des 3 boîtes',
+                'footer-newsletter-title': 'Newsletter',
+                'footer-newsletter-text': 'Recevez nos offres spéciales et actualités de Gandiol',
+                'footer-email-input': 'Votre email',
+                'footer-submit': 'Envoyer',
+                'footer-biosphere': 'Réserve de la Langue de Barbarie',
+                'footer-rights': 'Tous droits réservés.',
+                'footer-admin': 'Accès personnel'
+            },
+            en: {
+                // Navigation
+                'nav-hotel-name': 'LAWMAR',
+                'nav-hotel-subtitle': 'Les Résidences du Lawmar - Tassinère',
+                'nav-home': 'Home',
+                'nav-residences': 'Residences',
+                'nav-restaurant': 'Restaurant',
+                'nav-hebergements': 'Accommodations',
+                'nav-services': 'Services',
+                'nav-gallery': 'Gallery',
+                'nav-contact': 'Contact',
+                'nav-admin': 'Admin',
+                'nav-book': 'Book now',
+                'current-lang': 'EN',
+                
+                // Hero
+                'hero-title': 'Contact & Access 🇸🇳',
+                'hero-subtitle': 'We are at your service in Tassinère village, at the gates of the Langue de Barbarie',
+                'location-badge': 'Tassinère Village, Ndiébène Gandiol Commune, Saint-Louis',
+                
+                // Banner
+                'banner-hotel': 'Les Résidences du Lawmar',
+                'banner-address': 'Tassinère Village, Ndiébène Gandiol Commune, Saint-Louis, Senegal',
+                
+                // Coordinates
+                'coordinates-title': 'Contact - Gandiol 🇸🇳',
+                'coordinates-subtitle': 'Several ways to reach us at Les Résidences du Lawmar',
+                'card-address-title': 'Our Address',
+                'card-address': '<strong>Les Résidences du Lawmar</strong><br>Tassinère Village<br>Ndiébène Gandiol Commune<br>Saint-Louis, Senegal 🇸🇳',
+                'card-address-btn': 'Directions',
+                'card-phone-title': 'Phone & WhatsApp',
+                'card-reservations': 'Reservations / Reception:',
+                'card-management': 'Management:',
+                'card-wa-title': 'WhatsApp 24/7',
+                'card-wa-btn': 'Write on WhatsApp',
+                'card-email-title': 'Email',
+                'card-email-reservations': 'Reservations / Info:',
+                'card-email-management': 'Management:',
+                'professional-emails-title': 'Professional emails:',
+                'email1': 'contact@residenceslawmar.com',
+                'email2': 'reservation@residencelawmar.com',
+                'email3': 'residencelawmar@gmail.com',
+                'sync-note': 'Goal: any message received on one of these addresses is accessible in all three mailboxes.',
+                
+                // Form
+                'form-title': 'Send us a message 🇸🇳',
+                'form-name': 'Full name *',
+                'form-email': 'Email *',
+                'form-phone': 'Phone / WhatsApp',
+                'form-subject': 'Subject *',
+                'form-subject-placeholder': 'Choose a subject',
+                'form-subject-reservation': 'Reservation',
+                'form-subject-info': 'Information request',
+                'form-subject-restaurant': 'Le Teranga Restaurant',
+                'form-subject-excursion': 'Excursion - Langue de Barbarie',
+                'form-subject-transfer': 'Airport transfer',
+                'form-subject-other': 'Other',
+                'form-message': 'Message *',
+                'form-newsletter': 'I wish to subscribe to the Lawmar Gandiol newsletter',
+                'form-submit': 'Send message',
+                'form-wa': 'WhatsApp',
+                
+                // Hours (without Reception)
+                'hours-title': 'Opening Hours',
+                'hours-checkin-label': 'Rules:',
+                'hours-checkin-time': 'Check-in 2 PM – Check-out 12 PM',
+                
+                // Direct contacts
+                'direct-contacts-title': 'Direct Contacts',
+                'dept-reservations': 'Reservations & Reception',
+                'dept-restaurant': 'Le Teranga Restaurant',
+                'dept-restaurant-hours': 'Service from 12 PM to 10:30 PM',
+                'dept-excursions': 'Excursions & Activities',
+                'dept-transfers': 'Transfers & Concierge',
+                'dept-transfers-available': 'Available 24/7',
+                
+                // Payment
+                'payment-title': 'Payment Methods',
+                'payment-currency': 'XOF (CFA Franc)',
+                'payment-note': 'All payments accepted',
+                
+                // Access
+                'access-title': 'How to get to Gandiol 🇸🇳',
+                'access-subtitle': 'Reach Les Résidences du Lawmar in Tassinère village',
+                'access-plane': 'By Plane',
+                'access-airport-xls': 'Saint-Louis Airport (XLS):',
+                'access-airport-xls-time': '25 min by car',
+                'access-airport-dss': 'Blaise Diagne Airport (DSS):',
+                'access-airport-dss-time': '3 hours by road',
+                'access-transfer': 'Private transfer:',
+                'access-transfer-reservation': 'by reservation',
+                'access-price-per': '/ trip',
+                'access-book-btn': 'Book',
+                'access-car': 'By Car',
+                'access-from-stlouis': 'From Saint-Louis:',
+                'access-from-stlouis-time': '25 min via Gandiol',
+                'access-parking': 'Private parking:',
+                'access-parking-free': 'free and secure',
+                'access-rental': 'Rental:',
+                'access-rental-available': 'service available',
+                'access-gps': 'GPS on request',
+                'access-transport': 'By Transport',
+                'access-taxi': 'Taxi:',
+                'access-taxi-time': '20 min from Saint-Louis',
+                'access-bus': 'Bus/Taxi-brousse:',
+                'access-bus-stop': 'Ndiébène stop',
+                'access-shuttle': 'Hotel shuttle:',
+                'access-shuttle-request': 'on request',
+                'access-taxi-price': '/ taxi',
+                'access-pirogue': 'By Canoe',
+                'access-from-langue': 'From Langue de Barbarie:',
+                'access-from-langue-time': '5 min',
+                'access-excursions': 'Excursions:',
+                'access-excursions-departure': 'departure from the dock',
+                'access-crossing': 'Transfer:',
+                'access-crossing-direct': 'direct crossing',
+                'access-pirogue-btn': 'Book',
+                
+                // Emergency
+                'emergency-title': 'Emergency Contact 24/7',
+                'emergency-text': 'For any emergency, contact our reception',
+                'emergency-available': '(available 24/7)',
+                'emergency-btn': 'Call',
+                
+                // Info pratiques
+                'info-languages-title': 'Languages Spoken',
+                'info-languages': 'French, English, Wolof',
+                'info-languages-note': 'Multilingual staff at your service',
+                'info-currency-title': 'Currency & Exchange',
+                'info-currency': 'CFA Franc (XOF)',
+                'info-currency-rate': 'Daily rate on request',
+                'info-exchange': 'Exchange available',
+                'info-electricity-title': 'Electricity & WiFi',
+                'info-electricity': '220V - European plugs',
+                'info-wifi': 'Free high-speed WiFi',
+                'info-wifi-badge': 'Fiber optic',
+                'info-adapters': 'Adapters provided',
+                
+                // Reviews
+                'reviews-title': 'They trusted us 🇸🇳',
+                'reviews-subtitle': 'Quality of our service according to our travelers in Gandiol',
+                'carousel-prev': 'Previous',
+                'carousel-next': 'Next',
+                
+                // Modal booking
+                'modal-title': 'Online Booking - Gandiol',
+                'modal-checkin': 'Check-in date *',
+                'modal-checkout': 'Check-out date *',
+                'modal-adults': 'Adults',
+                'modal-children': 'Children',
+                'modal-room-type': 'Room type',
+                'modal-room-standard': 'Standard Room',
+                'modal-room-deluxe': 'Deluxe Room',
+                'modal-room-suite': 'View Suite',
+                'modal-room-family': 'Family Suite',
+                'modal-note': 'An advisor will contact you within 24h to confirm.',
+                'modal-submit': 'Confirm booking',
+                
+                // Admin modal
+                'admin-title': 'Staff login',
+                'admin-email-label': 'Email',
+                'admin-password-label': 'Password',
+                'admin-role-reception': 'Receptionist',
+                'admin-role-serveur': 'Waiter',
+                'admin-role-cuisine': 'Kitchen',
+                'admin-role-guide': 'Tour guide',
+                'admin-role-manager': 'Manager',
+                'admin-login-btn': 'Sign in',
+                
+                // Footer
+                'footer-about': 'Les Résidences du Lawmar - Hotel & Restaurant. Authenticity, comfort and Senegalese hospitality in Tassinère, Gandiol, at the gates of the Langue de Barbarie.',
+                'footer-nav': 'Navigation',
+                'footer-home': 'Home',
+                'footer-residences': 'Residences',
+                'footer-restaurant': 'Restaurant',
+                'footer-hebergements': 'Accommodations',
+                'footer-services': 'Services',
+                'footer-gallery': 'Gallery',
+                'footer-contact': 'Contact',
+                'footer-contact-title': 'Contact - Gandiol',
+                'footer-address': 'Tassinère Village<br>Ndiébène Gandiol Commune<br>Saint-Louis, Senegal 🇸🇳',
+                'footer-sync-note': 'Goal: synchronization of 3 mailboxes',
+                'footer-newsletter-title': 'Newsletter',
+                'footer-newsletter-text': 'Receive our special offers and news from Gandiol',
+                'footer-email-input': 'Your email',
+                'footer-submit': 'Send',
+                'footer-biosphere': 'Langue de Barbarie Reserve',
+                'footer-rights': 'All rights reserved.',
+                'footer-admin': 'Staff access'
+            }
+        };
+
+        // Fonction de changement de langue
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            // Mettre à jour le texte de tous les éléments avec id
+            for (let key in translations[lang]) {
+                let element = document.getElementById(key);
+                if (element) {
+                    if (key === 'card-address' || key === 'footer-address') {
+                        element.innerHTML = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            }
+            
+            // Mettre à jour les attributs placeholder
+            const emailInput = document.getElementById('footer-email-input');
+            if (emailInput) emailInput.placeholder = translations[lang]['footer-email-input'];
+            
+            // Mettre à jour l'attribut lang
+            document.documentElement.lang = lang;
+            
+            // Mettre à jour le texte du bouton de langue
+            document.getElementById('current-lang').textContent = translations[lang]['current-lang'];
+            
+            // Recharger les avis dans la bonne langue
+            displayContactReviews(lang);
+            
+            showNotification(lang === 'fr' ? '🇫🇷 Français sélectionné' : '🇬🇧 English selected', 'success');
+        }
+
+        // Afficher les avis
+        function displayContactReviews(lang = 'fr') {
+            const reviewsContainer = document.getElementById('reviews-container');
+            const indicatorsContainer = document.querySelector('.carousel-indicators');
+            
+            if (!reviewsContainer) return;
+            
+            reviewsContainer.innerHTML = '';
+            if (indicatorsContainer) indicatorsContainer.innerHTML = '';
+            
+            contactReviews.forEach((review, index) => {
+                const stars = '★'.repeat(review.note) + '☆'.repeat(5 - review.note);
+                const isActive = index === 0 ? 'active' : '';
+                const nom = lang === 'fr' ? review.nom_fr : review.nom_en;
+                const commentaire = lang === 'fr' ? review.commentaire_fr : review.commentaire_en;
+                const origine = lang === 'fr' ? review.origine_fr : review.origine_en;
+                
+                const carouselItem = document.createElement('div');
+                carouselItem.className = `carousel-item ${isActive}`;
+                carouselItem.innerHTML = `
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="review-slide">
+                                <div class="review-avatar-round">
+                                    <img src="${review.avatar}" alt="${nom}">
+                                </div>
+                                <div class="review-stars-round">${stars}</div>
+                                <p class="review-text">"${commentaire}"</p>
+                                <div class="review-author">${nom}</div>
+                                <div class="review-origin">
+                                    <i class="fas fa-map-marker-alt me-1"></i> ${origine} • ${review.date}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                reviewsContainer.appendChild(carouselItem);
+                
+                if (indicatorsContainer) {
+                    const indicator = document.createElement('button');
+                    indicator.type = 'button';
+                    indicator.dataset.bsTarget = '#reviewsCarousel';
+                    indicator.dataset.bsSlideTo = index;
+                    indicator.className = index === 0 ? 'active' : '';
+                    indicator.setAttribute('aria-current', index === 0 ? 'true' : 'false');
+                    indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+                    indicatorsContainer.appendChild(indicator);
+                }
+            });
+        }
+
+        // Fonctions utilitaires
+        function openMap() {
+            window.open('https://www.google.com/maps/search/?api=1&query=Gandiol+Saint-Louis+Sénégal', '_blank');
+        }
+
+        function openWhatsApp() {
+            const message = currentLang === 'fr' 
+                ? 'Bonjour Les Résidences du Lawmar - Gandiol 🇸🇳,\n\nJe souhaite obtenir des informations.'
+                : 'Hello Les Résidences du Lawmar - Gandiol 🇸🇳,\n\nI would like to get information.';
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function sendMessageViaWhatsApp() {
+            const name = document.getElementById('contact-name')?.value.trim() || 'Non spécifié';
+            const email = document.getElementById('contact-email')?.value.trim() || 'Non spécifié';
+            const message = document.getElementById('contact-message')?.value.trim() || 'Non spécifié';
+            
+            const waMessage = currentLang === 'fr'
+                ? `Bonjour Lawmar - Gandiol,\n\nMessage de ${name} (${email}):\n\n${message}`
+                : `Hello Lawmar - Gandiol,\n\nMessage from ${name} (${email}):\n\n${message}`;
+            
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`, '_blank');
+        }
+
+        function bookService(service) {
+            const message = currentLang === 'fr'
+                ? `Bonjour, je souhaite réserver ${service === 'transfer-aeroport' ? 'un transfert aéroport' : 'une excursion en pirogue'}.`
+                : `Hello, I would like to book ${service === 'transfer-aeroport' ? 'an airport transfer' : 'a canoe excursion'}.`;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = 'notification-toast';
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="font-size: 1.2rem;">${type === 'success' ? '✅' : 'ℹ️'}</div>
+                    <div style="flex-grow: 1;">${message}</div>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 3000);
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            displayContactReviews('fr');
+            
+            // Formulaire de contact
+            document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                showNotification(currentLang === 'fr' ? 'Message envoyé !' : 'Message sent!', 'success');
+                this.reset();
+            });
+            
+            // Formulaire newsletter
+            document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                showNotification(currentLang === 'fr' ? 'Inscription réussie !' : 'Subscription successful!', 'success');
+                this.reset();
+            });
+            
+            // Formulaire réservation
+            document.getElementById('booking-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                showNotification(currentLang === 'fr' ? 'Réservation envoyée !' : 'Booking sent!', 'success');
+                bootstrap.Modal.getInstance(document.getElementById('bookingModal')).hide();
+                this.reset();
+            });
+            
+            // Formulaire admin
+            document.getElementById('admin-login-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                showNotification(currentLang === 'fr' ? 'Connexion réussie !' : 'Login successful!', 'success');
+                bootstrap.Modal.getInstance(document.getElementById('adminLoginModal')).hide();
+            });
+        });
+    </script>
+</body>
+</html>

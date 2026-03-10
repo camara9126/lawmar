@@ -1,0 +1,3331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Restaurant Le Teranga - Cuisine Sénégalaise à Gandiol 🇸🇳</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== TOUS LES STYLES EXISTANTS ===== */
+        :root {
+            --primary-color: #025ba5;
+            --secondary-color: #e0e0e0;
+            --accent-color: #c53030;
+            --dark-color: #2d3748;
+            --light-color: #f7fafc;
+            --yellow-color: #FFD700;
+            --light-green: #f0fff4;
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+            --box-shadow: 0 3px 10px rgba(2, 91, 165, 0.08);
+            --indigo: #1E3A5F;
+            --sable: #F4EDE4;
+            --vert: #2F5D50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.5;
+            color: var(--dark-color);
+            padding-top: 80px;
+            background-color: #f8fbff;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .section-padding {
+            padding: 25px 0;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 8px 18px;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            border-radius: var(--border-radius);
+        }
+
+        .btn-primary:hover {
+            background-color: #024a84;
+            border-color: #024a84;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            border-radius: 30px;
+        }
+
+        .btn-outline-primary:hover,
+        .btn-outline-primary.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-order {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .btn-order:hover {
+            background-color: #9e2b2b;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .btn-mobile-payment {
+            background-color: #805AD5;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .btn-mobile-payment:hover {
+            background-color: #6B46C1;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .btn-payment {
+            background-color: #38a169;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+        
+        .btn-payment:hover {
+            background-color: #2f855a;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-reservation {
+            background-color: transparent !important;
+            color: var(--primary-color) !important;
+            border: 2px solid var(--primary-color) !important;
+            border-radius: 5px;
+            font-weight: 600;
+            padding: 6px 15px !important;
+            transition: var(--transition);
+        }
+
+        .btn-reservation:hover {
+            background-color: var(--primary-color) !important;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .btn-admin {
+            background-color: #6c757d !important;
+            color: white !important;
+            border-radius: 5px;
+            font-weight: 600;
+            padding: 6px 18px !important;
+            border: none;
+        }
+        
+        .btn-admin:hover {
+            background-color: #5a6268 !important;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 6px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .quick-order-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50px;
+            padding: 12px 22px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(197, 48, 48, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            border: none;
+            transition: var(--transition);
+        }
+        
+        .quick-order-btn:hover {
+            transform: scale(1.05);
+            background-color: #b33434;
+        }
+        
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--yellow-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        /* ===== NAVBAR STYLE ===== */
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 5px 0;
+            min-height: 70px;
+        }
+
+        .navbar .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            padding: 0;
+            margin-left: -20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-image {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hotel-name {
+            color: var(--primary-color) !important;
+            font-size: 1.4rem;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .hotel-subtitle {
+            color: var(--dark-color) !important;
+            font-size: 0.75rem;
+            font-weight: 300;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--primary-color) !important;
+            font-weight: 500;
+            padding: 6px 10px !important;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--indigo) !important;
+            border-bottom: 2px solid var(--vert);
+        }
+
+        .btn-reservation {
+            background-color: transparent !important;
+            color: var(--primary-color) !important;
+            border: 2px solid var(--primary-color) !important;
+            border-radius: 5px;
+            font-weight: 600;
+            padding: 6px 15px !important;
+            transition: var(--transition);
+        }
+
+        .btn-reservation:hover {
+            background-color: var(--primary-color) !important;
+            color: white !important;
+            transform: translateY(-2px);
+            border-bottom: none !important;
+        }
+
+        .dropdown-menu {
+            background-color: white;
+            border: 1px solid var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 8px 0;
+            margin-top: 5px;
+            min-width: 220px;
+        }
+
+        .dropdown-item {
+            color: var(--primary-color) !important;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--primary-color) !important;
+            color: white !important;
+            padding-left: 25px;
+        }
+
+        .dropdown-item i {
+            width: 20px;
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+
+        .dropdown-item:hover i {
+            color: white !important;
+        }
+
+        /* ===== HEADER ===== */
+        .restaurant-hero {
+            background: url('images/lawmar.jpeg') no-repeat center center;
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: center;
+            padding-bottom: 40px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .restaurant-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            color: white;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .location-badge {
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .menu-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .menu-price::after {
+            content: " XOF";
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-left: 2px;
+        }
+        
+        .menu-items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .dish-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 16px;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(2, 91, 165, 0.05);
+            position: relative;
+        }
+        
+        .dish-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(2, 91, 165, 0.15);
+            border-color: rgba(2, 91, 165, 0.1);
+        }
+        
+        .dish-image-container {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .dish-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .dish-card:hover .dish-image {
+            transform: scale(1.02);
+        }
+        
+        .category-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(2, 91, 165, 0.85);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            z-index: 2;
+            backdrop-filter: blur(2px);
+        }
+        
+        .dish-name {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin: 8px 0 5px;
+            font-size: 1.1rem;
+            line-height: 1.3;
+        }
+        
+        .specialty-badge {
+            background: var(--yellow-color);
+            color: var(--dark-color);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-left: 8px;
+        }
+        
+        .chef-recommendation {
+            position: relative;
+            overflow: visible;
+        }
+        
+        .chef-recommendation::before {
+            content: "👨🏾‍🍳 Chef";
+            position: absolute;
+            top: -8px;
+            right: 10px;
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            z-index: 3;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .menu-category-icon {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .currency-badge {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .senegal-flag-icon {
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        /* ===== STYLES COMMANDES ===== */
+        .commande-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(2, 91, 165, 0.1);
+        }
+        
+        .commande-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--yellow-color);
+            padding-bottom: 15px;
+        }
+        
+        .order-status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .status-en-cours {
+            background-color: #ffc107;
+            color: #212529;
+        }
+        
+        .status-confirmee {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .status-livree {
+            background-color: #17a2b8;
+            color: white;
+        }
+        
+        .status-annulee {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .order-card {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .order-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .order-id {
+            font-weight: 700;
+            color: var(--primary-color);
+            background: rgba(2, 91, 165, 0.1);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+        
+        .order-date {
+            color: #6c757d;
+            font-size: 0.75rem;
+        }
+        
+        .order-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+        
+        .order-items {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+        
+        .order-total {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 0.95rem;
+        }
+        
+        .confirmation-code {
+            background: var(--yellow-color);
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        .admin-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #343a40;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .admin-link:hover {
+            background-color: #23272b;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .empty-orders {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6c757d;
+        }
+        
+        .empty-orders i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #dee2e6;
+        }
+
+        .reviews-carousel {
+            position: relative;
+            padding: 20px 0 40px;
+        }
+        
+        .review-slide {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            height: 100%;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid rgba(2, 91, 165, 0.1);
+        }
+        
+        .review-avatar-round {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 15px;
+            border: 3px solid var(--secondary-color);
+            position: relative;
+        }
+        
+        .review-avatar-round img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .review-stars-round {
+            color: #ffb400;
+            font-size: 1.2rem;
+            margin: 8px 0;
+        }
+        
+        .review-text {
+            font-style: italic;
+            color: #555;
+            margin: 15px 0;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .review-author {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .review-origin {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .carousel-indicators {
+            bottom: -20px;
+        }
+        
+        .carousel-indicators button {
+            background-color: var(--primary-color) !important;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 5px;
+            opacity: 0.5;
+        }
+        
+        .carousel-indicators button.active {
+            opacity: 1;
+        }
+        
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+            opacity: 0.8;
+        }
+        
+        .carousel-control-prev {
+            left: -30px;
+        }
+        
+        .carousel-control-next {
+            right: -30px;
+        }
+        
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            padding: 12px;
+            background-size: 60%;
+        }
+
+        .payment-option-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--border-radius);
+            background: white;
+            transition: var(--transition);
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        
+        .payment-option-btn:hover,
+        .payment-option-btn.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(2, 91, 165, 0.05);
+            transform: translateX(5px);
+        }
+        
+        .payment-icon {
+            font-size: 1.6rem;
+            width: 45px;
+            text-align: center;
+        }
+        
+        .wave-color { color: #00B2A9; }
+        .orange-color { color: #FF6600; }
+        .whatsapp-color { color: #25D366; }
+        .card-color { color: var(--primary-color); }
+
+        .modal-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-bottom: none;
+            padding: 18px 20px;
+        }
+
+        .modal-title {
+            color: white;
+            font-weight: 600;
+        }
+
+        .btn-close {
+            filter: invert(1);
+        }
+
+        .notification-toast {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: white;
+            border-radius: 8px;
+            padding: 12px 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border-left: 5px solid var(--accent-color);
+            z-index: 9999;
+            max-width: 300px;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* ===== STYLES POUR LES SOUS-PAGES ===== */
+        .restaurant-subpage {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .subpage-header {
+            border-bottom: 2px solid var(--yellow-color);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .subpage-header h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+        
+        .subpage-header h2 i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        .subpage-nav {
+            background-color: var(--sable);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .subpage-nav .btn {
+            margin: 5px;
+            border-radius: 30px;
+        }
+        
+        .subpage-nav .btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .chef-profile {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: linear-gradient(135deg, var(--sable) 0%, white 100%);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .chef-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--yellow-color);
+        }
+        
+        .chef-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .chef-info p {
+            margin-bottom: 5px;
+        }
+        
+        .chef-signature {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .menu-special-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .special-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(2, 91, 165, 0.1);
+        }
+        
+        .special-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(2, 91, 165, 0.15);
+        }
+        
+        .special-image {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .special-content {
+            padding: 15px;
+        }
+        
+        .special-content h4 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .special-price {
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .event-card {
+            display: flex;
+            gap: 20px;
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--yellow-color);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .event-date {
+            min-width: 80px;
+            text-align: center;
+            background: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 10px;
+        }
+        
+        .event-date .day {
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
+        .event-date .month {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .event-details h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .event-details p {
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        /* ===== STYLES POUR LA SECTION DE PRÉSENTATION DU RESTAURANT ===== */
+        .restaurant-description {
+            background: linear-gradient(135deg, var(--sable) 0%, #fff5e6 100%);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--yellow-color);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .restaurant-description h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .restaurant-description .lead {
+            font-size: 1.2rem;
+            color: var(--indigo);
+            font-weight: 500;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .restaurant-description p {
+            font-size: 1rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .restaurant-description .quote-icon {
+            color: var(--yellow-color);
+            font-size: 2rem;
+            opacity: 0.5;
+            margin-right: 10px;
+        }
+        
+        .restaurant-hours {
+            background: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .restaurant-hours .hour-item {
+            text-align: center;
+        }
+        
+        .restaurant-hours .hour-item i {
+            font-size: 2rem;
+            color: var(--yellow-color);
+            margin-bottom: 10px;
+        }
+        
+        .restaurant-hours .hour-item .meal {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .restaurant-hours .hour-item .time {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .local-products {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        
+        .local-product {
+            background: white;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            border: 1px solid var(--yellow-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .local-product i {
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+
+        /* ===== FOOTER BLANC TEXTE BLEU ===== */
+        .footer {
+            background-color: white !important;
+            color: var(--primary-color);
+            padding: 40px 0 20px;
+            font-size: 0.9rem;
+            border-top: 2px solid var(--primary-color);
+            box-shadow: 0 -5px 15px rgba(2, 91, 165, 0.05);
+        }
+
+        .footer-about h3 {
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-links h4,
+        .footer-contact h4,
+        .footer-newsletter h4 {
+            color: var(--primary-color) !important;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a {
+            color: var(--primary-color) !important;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--indigo) !important;
+            padding-left: 5px;
+            border-left: 2px solid var(--primary-color);
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            color: var(--primary-color) !important;
+        }
+
+        .footer-contact i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background-color: var(--primary-color);
+            color: white !important;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--indigo);
+            transform: translateY(-3px);
+        }
+
+        .footer-newsletter .input-group {
+            margin-top: 10px;
+        }
+
+        .footer-newsletter .input-group input {
+            border: 1px solid var(--primary-color);
+        }
+
+        .footer-newsletter .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(2, 91, 165, 0.2);
+            padding-top: 20px;
+            margin-top: 30px;
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--indigo);
+            text-decoration: underline;
+        }
+
+        .footer-logo-image {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border: none !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+        }
+
+        /* Emails professionnels dans footer */
+        .emails-pro {
+            margin-top: 15px;
+            font-size: 0.85rem;
+        }
+        .emails-pro a {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .emails-pro a:hover {
+            color: var(--indigo);
+            text-decoration: underline;
+        }
+        .sync-note {
+            font-size: 0.75rem;
+            color: var(--dark-color);
+            opacity: 0.7;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Styles pour le panier */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            background: white;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+        .cart-item-details {
+            flex: 2;
+            font-size: 0.9rem;
+        }
+        .cart-item-price {
+            flex: 1;
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 10px;
+        }
+        .cart-item-quantity {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 3px;
+            font-size: 0.8rem;
+        }
+        .cart-item-remove {
+            color: var(--accent-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0 5px;
+            transition: var(--transition);
+        }
+        .cart-item-remove:hover {
+            transform: scale(1.2);
+            color: #9e2b2b;
+        }
+        .cart-total {
+            font-weight: 700;
+            color: var(--primary-color);
+            border-top: 2px solid var(--yellow-color);
+            padding-top: 15px;
+            margin-top: 15px;
+            font-size: 1.2rem;
+        }
+        #cart-items-list {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        .cart-action-btn {
+            background-color: var(--yellow-color);
+            color: var(--primary-color);
+            border: none;
+            font-weight: 600;
+        }
+        .cart-action-btn:hover {
+            background-color: #e6c200;
+        }
+        .cart-empty-message {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+            font-size: 1rem;
+        }
+        .cart-empty-message i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+
+        /* Filtres */
+        .filter-badge {
+            cursor: pointer;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: #f0f0f0;
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+        .filter-badge.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        .filter-badge:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .promo-banner {
+            background: linear-gradient(135deg, var(--yellow-color), #ffaa00);
+            color: var(--primary-color);
+            padding: 10px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .menu-search {
+            max-width: 300px;
+            margin: 0 auto 20px;
+        }
+        .delivery-time {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+        }
+        .rating-badge {
+            background: var(--yellow-color);
+            color: var(--dark-color);
+            padding: 2px 8px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* Validation commande */
+        .validation-step {
+            display: none;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            margin-top: 15px;
+            background: #f9f9f9;
+        }
+        .validation-step.active {
+            display: block;
+        }
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            gap: 5px;
+        }
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+        .step.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        .step.completed {
+            background: #28a745;
+            color: white;
+        }
+        .order-summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+        .validation-error {
+            color: var(--accent-color);
+            font-size: 0.75rem;
+            margin-top: 3px;
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .navbar .container {
+                position: static;
+            }
+            
+            .navbar-brand {
+                margin-left: 0;
+            }
+            
+            .navbar-collapse {
+                background-color: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                margin-top: 10px;
+            }
+            
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 10px 15px !important;
+                width: 100%;
+                text-align: left;
+            }
+            
+            .btn-reservation {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                margin-top: 5px;
+            }
+            
+            .dropdown-menu {
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .navbar {
+                padding: 4px 0 !important;
+                min-height: 60px;
+            }
+            
+            .logo-image {
+                width: 38px;
+                height: 38px;
+            }
+            
+            .hotel-name {
+                font-size: 1.2rem !important;
+            }
+            
+            .hotel-subtitle {
+                font-size: 0.65rem !important;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 8px 15px !important;
+            }
+            
+            .restaurant-hero {
+                height: 280px !important;
+                padding-bottom: 30px !important;
+            }
+            
+            .hero-title {
+                font-size: 1.6rem !important;
+                color: white !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem !important;
+                padding: 0 10px;
+                color: white !important;
+            }
+            
+            .location-badge {
+                font-size: 0.75rem !important;
+                padding: 5px 12px !important;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                color: white !important;
+                background-color: rgba(0,0,0,0.7) !important;
+            }
+            
+            .menu-items-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .dish-image {
+                height: 130px;
+            }
+            
+            .dish-name {
+                font-size: 0.95rem;
+                margin: 5px 0 3px;
+                min-height: 40px;
+            }
+            
+            .dish-card p {
+                font-size: 0.75rem;
+                margin-bottom: 5px;
+            }
+            
+            .menu-price {
+                font-size: 0.95rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .btn-order, .btn-whatsapp, .btn-mobile-payment {
+                width: 100%;
+                padding: 5px 8px;
+                font-size: 0.7rem;
+            }
+            
+            .chef-recommendation::before {
+                font-size: 0.65rem;
+                padding: 3px 8px;
+                top: -5px;
+                right: 5px;
+            }
+            
+            .commande-section {
+                padding: 20px;
+            }
+            
+            .quick-order-btn {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px 18px;
+                font-size: 0.85rem;
+            }
+            
+            .review-avatar-round {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .review-text {
+                font-size: 0.9rem;
+            }
+            
+            .carousel-control-prev,
+            .carousel-control-next {
+                display: none;
+            }
+            
+            .order-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .footer-logo-image {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .event-card {
+                flex-direction: column;
+            }
+            
+            .event-date {
+                align-self: flex-start;
+            }
+            
+            .restaurant-description {
+                padding: 25px;
+            }
+            
+            .restaurant-hours {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                padding-top: 65px;
+            }
+            
+            .navbar {
+                min-height: 55px;
+            }
+            
+            .navbar-brand {
+                max-width: 65%;
+            }
+            
+            .logo-image {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .hotel-name {
+                font-size: 1.1rem !important;
+            }
+            
+            .restaurant-hero {
+                height: 240px !important;
+                padding-bottom: 25px !important;
+            }
+            
+            .hero-title {
+                font-size: 1.4rem !important;
+                color: white !important;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.8rem !important;
+                padding: 0 10px;
+                color: white !important;
+            }
+            
+            .location-badge {
+                font-size: 0.7rem !important;
+                padding: 4px 10px !important;
+                width: 95%;
+                color: white !important;
+                background-color: rgba(0,0,0,0.7) !important;
+            }
+            
+            .menu-items-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .dish-card {
+                padding: 12px;
+            }
+            
+            .dish-image {
+                height: 110px;
+            }
+            
+            .dish-name {
+                font-size: 0.85rem;
+                min-height: 40px;
+            }
+            
+            .dish-card p {
+                font-size: 0.7rem;
+                line-height: 1.2;
+            }
+            
+            .menu-price {
+                font-size: 0.9rem;
+            }
+            
+            .menu-price::after {
+                font-size: 0.7rem;
+            }
+            
+            .category-badge {
+                font-size: 0.6rem;
+                padding: 3px 8px;
+            }
+            
+            .chef-recommendation::before {
+                font-size: 0.6rem;
+                padding: 2px 8px;
+            }
+            
+            .commande-section {
+                padding: 15px;
+            }
+            
+            .footer {
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+                display: flex;
+            }
+            
+            .review-slide {
+                padding: 20px;
+            }
+            
+            .review-avatar-round {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .footer-logo-image {
+                width: 38px;
+                height: 38px;
+            }
+            
+            .subpage-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .restaurant-description h2 {
+                font-size: 1.5rem;
+            }
+            
+            .restaurant-description .lead {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-container">
+                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border: none; border-radius: 0; background: transparent; width: 45px; height: 45px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
+                    <div class="brand-text">
+                        <h1 class="hotel-name" id="hotel-name">LAWMAR</h1>
+                        <span class="hotel-subtitle" id="hotel-subtitle">
+                            <span class="senegal-flag-icon">🇸🇳</span> Les Résidences du Lawmar - Tassinère
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" id="nav-home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Residences.html" id="nav-residences">Lawmar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="restauration.html" id="nav-restauration">Restauration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chambres.html" id="nav-hebergements">Hébergements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html" id="nav-services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galerie.html" id="nav-galerie">Galerie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html" id="nav-contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html" id="nav-admin">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-reservation" href="#" data-bs-toggle="modal" data-bs-target="#tableBookingModal" id="nav-reserver">Réserver</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-globe"></i> <span id="current-lang">FR</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('fr'); return false;">Français</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en'); return false;">English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HEADER ===== -->
+    <header class="restaurant-hero">
+        <div class="container hero-content">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h1 class="hero-title" id="hero-title">Restaurant Le Teranga</h1>
+                    <p class="hero-subtitle" id="hero-subtitle">Cuisine sénégalaise authentique au cœur de Gandiol, sous la direction du Chef </p>
+                    <div class="location-badge" id="location-badge">
+                        <i class="fas fa-utensils me-1"></i> Saveurs du Sénégal aux portes de la Langue de Barbarie
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== SECTION PRÉSENTATION DU RESTAURANT ===== -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="restaurant-description">
+                <h2 id="resto-desc-title"><i class="fas fa-utensils quote-icon"></i> L'expérience culinaire au Restaurant Le Teranga</h2>
+                <p class="lead" id="resto-desc-lead">
+                    Notre restaurant met à l'honneur les saveurs du terroir. Poissons frais, spécialités sénégalaises, grillades et cuisine conviviale composent notre carte.
+                </p>
+                <p id="resto-desc-text">
+                    Nous privilégions les produits locaux et de saison afin d'offrir une expérience authentique et gourmande dans un cadre naturel et chaleureux. Chaque plat est préparé avec soin par notre Chef , qui met son savoir-faire au service de la gastronomie sénégalaise.
+                </p>
+                
+                <!-- Produits locaux mis en avant -->
+                <div class="local-products">
+                    <span class="local-product" id="product1"><i class="fas fa-fish"></i> Poisson frais de Gandiol</span>
+                    <span class="local-product" id="product2"><i class="fas fa-leaf"></i> Légumes de Tassinère</span>
+                    <span class="local-product" id="product3"><i class="fas fa-seedling"></i> Épices locales</span>
+                    <span class="local-product" id="product4"><i class="fas fa-wheat-alt"></i> Riz du fleuve</span>
+                    <span class="local-product" id="product5"><i class="fas fa-egg"></i> Produits de saison</span>
+                </div>
+                
+                <!-- Horaires d'ouverture -->
+                <div class="restaurant-hours">
+                    <div class="hour-item">
+                        <i class="fas fa-sun"></i>
+                        <div class="meal" id="breakfast">Petit-déjeuner</div>
+                        <div class="time" id="breakfast-time">07h00 - 10h30</div>
+                    </div>
+                    <div class="hour-item">
+                        <i class="fas fa-utensils"></i>
+                        <div class="meal" id="lunch">Déjeuner</div>
+                        <div class="time" id="lunch-time">12h00 - 15h00</div>
+                    </div>
+                    <div class="hour-item">
+                        <i class="fas fa-moon"></i>
+                        <div class="meal" id="dinner">Dîner</div>
+                        <div class="time" id="dinner-time">19h00 - 22h30</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION MENU DU JOUR ===== -->
+    <section id="menu-du-jour" class="section-padding">
+        <div class="container">
+            <div class="restaurant-subpage">
+                <div class="subpage-header">
+                    <h2><i class="fas fa-sun"></i> <span id="menu-day-title">Menu du Jour - Le Teranga</span></h2>
+                    <p class="text-muted" id="menu-day-subtitle">Découvrez notre menu frais du jour, préparé avec les produits de saison de Gandiol</p>
+                </div>
+                
+                
+                
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="special-card">
+                            <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="special-image" alt="Entrée">
+                            <div class="special-content">
+                                <h4 id="starter-title">Entrée</h4>
+                                <p class="fw-bold" id="starter-name">Velouté de potiron de Gandiol</p>
+                                <p class="small text-muted" id="starter-desc">Potiron local, gingembre frais, lait de coco</p>
+                                <span class="special-price" id="starter-price">3,500 XOF</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="special-card">
+                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="special-image" alt="Plat">
+                            <div class="special-content">
+                                <h4 id="main-title">Plat Principal</h4>
+                                <p class="fw-bold" id="main-name">Thieboudienne du Chef</p>
+                                <p class="small text-muted" id="main-desc">Riz au poisson, légumes frais de Tassinère</p>
+                                <span class="special-price" id="main-price">9,500 XOF</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="special-card">
+                            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="special-image" alt="Dessert">
+                            <div class="special-content">
+                                <h4 id="dessert-title">Dessert</h4>
+                                <p class="fw-bold" id="dessert-name">Fondant chocolat baobab</p>
+                                <p class="small text-muted" id="dessert-desc">Glace à la bouye (fruit du baobab)</p>
+                                <span class="special-price" id="dessert-price">3,000 XOF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-3">
+                    <p class="fw-bold"><span id="menu-complete-label">Menu complet</span> : <span class="text-primary" id="menu-complete-price">16,000 XOF</span> (<span id="menu-complete-desc">Entrée + Plat + Dessert</span>)</p>
+                    <button class="btn btn-primary" id="order-menu-btn" onclick="addMenuToCart()"><i class="fas fa-shopping-cart me-2"></i> <span id="order-menu-text">Commander le menu du jour</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION SPÉCIALITÉS ===== -->
+    <section id="specialites" class="section-padding bg-light">
+        <div class="container">
+            <div class="restaurant-subpage">
+                <div class="subpage-header">
+                    <h2><i class="fas fa-star"></i> <span id="specialities-title">Nos Spécialités Sénégalaises</span></h2>
+                    <p class="text-muted" id="specialities-subtitle">Les plats emblématiques de notre chef, préparés avec amour et tradition</p>
+                </div>
+                
+                <div class="menu-special-grid">
+                    <!-- Spécialité 1 -->
+                    <div class="special-card">
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="special-image" alt="Thieboudienne">
+                        <div class="special-content">
+                            <h4>Thieboudienne <span class="badge bg-warning ms-2" id="national-dish">Plat national</span></h4>
+                            <p class="small" id="thieb-desc">Riz au poisson, légumes frais, condiments - Recette traditionnelle</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="special-price"> XOF</span>
+                                <button class="btn btn-sm btn-order add-to-cart-btn" data-dish="Thieboudienne" data-price="12500"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Spécialité 2 -->
+                    <div class="special-card">
+                        <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="special-image" alt="Yassa Poulet">
+                        <div class="special-content">
+                            <h4>Yassa Poulet</h4>
+                            <p class="small" id="yassa-desc">Poulet fermier mariné au citron, oignons confits</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="special-price"> XOF</span>
+                                <button class="btn btn-sm btn-order add-to-cart-btn" data-dish="Yassa Poulet" data-price="11000"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Spécialité 3 -->
+                    <div class="special-card">
+                        <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="special-image" alt="Mafé">
+                        <div class="special-content">
+                            <h4>Mafé d'agneau</h4>
+                            <p class="small" id="mafe-desc">Ragoût d'agneau mijoté à la sauce arachide de Gandiol</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="special-price"> XOF</span>
+                                <button class="btn btn-sm btn-order add-to-cart-btn" data-dish="Mafé d'agneau" data-price="12000"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Spécialité 4 -->
+                    <div class="special-card">
+                        <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="special-image" alt="Pastels">
+                        <div class="special-content">
+                            <h4>Pastels (6 pièces)</h4>
+                            <p class="small" id="pastels-desc">Beignets farcis au poisson épicé de Tassinère</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="special-price"> XOF</span>
+                                <button class="btn btn-sm btn-order add-to-cart-btn" data-dish="Pastels" data-price="8000"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Spécialité 5 -->
+                    <div class="special-card">
+                        <img src="https://images.unsplash.com/photo-1526230529638-b6a96d69e4c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="special-image" alt="Accra">
+                        <div class="special-content">
+                            <h4>Accra (10 pièces)</h4>
+                            <p class="small" id="accra-desc">Beignets de haricots blancs, sauce piquante maison</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="special-price"> XOF</span>
+                                <button class="btn btn-sm btn-order add-to-cart-btn" data-dish="Accra" data-price="6500"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Spécialité 6 -->
+                    <div class="special-card">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="special-image" alt="Feuilles de manioc">
+                        <div class="special-content">
+                            <h4>Feuilles de manioc</h4>
+                            <p class="small" id="manioc-desc">Feuilles de manioc au poisson fumé, huile de palme</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="special-price"> XOF</span>
+                                <button class="btn btn-sm btn-order add-to-cart-btn" data-dish="Feuilles de manioc" data-price="8000"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION NOTRE CHEF ===== -->
+    <section id="chef" class="section-padding bg-light">
+        <div class="container">
+            <div class="restaurant-subpage">
+                <div class="subpage-header">
+                    <h2><i class="fas fa-user-chef"></i> <span id="chef-title">Notre Chef </span></h2>
+                    <p class="text-muted" id="chef-subtitle">Un talentueux chef sénégalais au service de la gastronomie locale</p>
+                </div>
+                
+                <div class="chef-profile">
+                    <img src="images/logo1.png" alt="Chef Oumar Diallo" class="chef-image" onerror="this.src='https://via.placeholder.com/150x150/1E3A5F/ffffff?text=Chef'">
+                    <div class="chef-info">
+                        <h3>Chef Oumar Diallo</h3>
+                        <p class="chef-signature" id="chef-quote">"La cuisine sénégalaise est un voyage des sens"</p>
+                        <p id="chef-bio1">Originaire de Saint-Louis, le Chef  a parcouru le monde avant de revenir à Gandiol pour partager sa passion de la cuisine sénégalaise. Formé dans les plus grandes cuisines de Dakar et à l'international, il met son talent au service des produits locaux de Gandiol et de Tassinère.</p>
+                        
+                        <p><i class="fas fa-heart me-2" style="color: var(--accent-color);"></i> <span id="chef-experience">15 ans d'expérience en cuisine sénégalaise</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION ÉVÉNEMENTS ===== -->
+    <section id="evenements" class="section-padding">
+        <div class="container">
+            <div class="restaurant-subpage">
+                <div class="subpage-header">
+                    <h2><i class="fas fa-calendar-alt"></i> <span id="events-title">Événements & Soirées à Thème</span></h2>
+                    <p class="text-muted" id="events-subtitle">Vivez des expériences culinaires uniques au Restaurant Le Teranga</p>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">
+                        <div class="day">15</div>
+                        <div class="month" id="month-mar">Mars</div>
+                    </div>
+                    <div class="event-details">
+                        <h4 id="event1-title">Soirée Thieboudienne Géante</h4>
+                        <p><i class="fas fa-clock me-2"></i> <span id="event1-time">19h30 - 23h00</span></p>
+                        <p id="event1-desc">Venez déguster la meilleure thieboudienne de Gandiol dans une ambiance festive avec musique traditionnelle.</p>
+                        <p class="fw-bold text-primary" id="event1-price">Prix: XOF (plat + boisson)</p>
+                        <button class="btn btn-sm btn-primary" id="event1-book" onclick="bookEvent('Soirée Thieboudienne Géante')">Réserver</button>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-date">
+                        <div class="day">22</div>
+                        <div class="month" id="month-mar2">Mars</div>
+                    </div>
+                    <div class="event-details">
+                        <h4 id="event2-title">Atelier Cuisine avec le Chef</h4>
+                        <p><i class="fas fa-clock me-2"></i> <span id="event2-time">16h00 - 19h00</span></p>
+                        <p id="event2-desc">Apprenez à préparer le Yassa Poulet avec le Chef. Dégustation incluse.</p>
+                        <p class="fw-bold text-primary" id="event2-price">Prix:  XOF par personne</p>
+                        <button class="btn btn-sm btn-primary" id="event2-book" onclick="bookEvent('Atelier Cuisine avec le Chef')">S'inscrire</button>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <p class="text-muted" id="event-private">Pour organiser un événement privé (anniversaire, mariage, séminaire), contactez-nous.</p>
+                    <button class="btn btn-whatsapp" onclick="window.open('https://wa.me/221779952020?text=Bonjour%2C%20je%20souhaite%20organiser%20un%20%C3%A9v%C3%A9nement%20priv%C3%A9%20au%20restaurant%20Le%20Teranga.')">
+                        <i class="fab fa-whatsapp me-2"></i> <span id="event-contact">Contacter pour un événement</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Bannière promotionnelle ===== -->
+    <div class="container">
+        <div class="promo-banner" id="promo-banner">
+            <i class="fas fa-tag me-2"></i> Commandez via WhatsApp et recevez -10% sur votre première commande !
+            <span class="badge bg-light text-dark ms-2">Code: BIENVENUE10</span>
+        </div>
+    </div>
+
+    <!-- ===== Barre de recherche ===== -->
+    <div class="container">
+        <div class="menu-search">
+            <input type="text" class="form-control" id="search-menu" placeholder="🔍 Rechercher un plat...">
+        </div>
+    </div>
+
+    <!-- ===== Filtres rapides ===== -->
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
+            <span class="filter-badge active" data-filter="all" id="filter-all">Tous</span>
+            <span class="filter-badge" data-filter="spécialité" id="filter-specialities">Spécialités</span>
+            <span class="filter-badge" data-filter="poisson" id="filter-fish">Poisson</span>
+            <span class="filter-badge" data-filter="viande" id="filter-meat">Viande</span>
+            <span class="filter-badge" data-filter="végétarien" id="filter-veg">Végétarien</span>
+            <span class="filter-badge" data-filter="dessert" id="filter-dessert">Desserts</span>
+        </div>
+    </div>
+
+    <!-- ===== Navigation du menu principal ===== -->
+    <div class="container" id="menu-navigation">
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="menu-navigation text-center">
+                    <button class="btn btn-outline-primary mb-2 active" data-menu="specialites" id="nav-specialities">
+                        <i class="fas fa-star me-1"></i> Spécialités 🇸🇳
+                    </button>
+                    <button class="btn btn-outline-primary mb-2" data-menu="entrees" id="nav-starters">
+                        <i class="fas fa-seedling me-1"></i> Entrées
+                    </button>
+                    <button class="btn btn-outline-primary mb-2" data-menu="plats" id="nav-mains">
+                        <i class="fas fa-utensils me-1"></i> Plats
+                    </button>
+                    <button class="btn btn-outline-primary mb-2" data-menu="desserts" id="nav-desserts">
+                        <i class="fas fa-ice-cream me-1"></i> Desserts
+                    </button>
+                    <button class="btn btn-outline-primary mb-2" data-menu="boissons" id="nav-drinks">
+                        <i class="fas fa-glass-cheers me-1"></i> Boissons
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SPÉCIALITÉS SÉNÉGALAISES ===== -->
+    <div class="container">
+        <div class="menu-section mb-4" id="specialites-section">
+            <div class="d-flex align-items-center mb-3">
+                <div class="menu-category-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h3 class="mb-0 ms-2" id="specialities-section-title">Spécialités du Sénégal</h3>
+                <span class="badge bg-primary ms-2 px-3 py-2" style="font-size: 0.75rem;" id="specialities-count">6 plats</span>
+            </div>
+            
+            <div class="menu-items-grid">
+                <!-- Spécialité 1 - Thieboudienne -->
+                <div class="dish-card chef-recommendation" data-category="spécialité poisson">
+                    <div class="dish-image-container">
+                        <span class="category-badge" id="speciality-badge">🇸🇳 Spécialité</span>
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Thieboudienne" class="dish-image" loading="lazy">
+                    </div>
+                    <div class="dish-name">Thieboudienne <span class="specialty-badge" id="national-badge">Plat national</span></div>
+                    <p class="mb-2 flex-grow-1 small" id="thieb-desc2">Riz au poisson, légumes frais, condiments - Recette traditionnelle</p>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="rating-badge"><i class="fas fa-star me-1"></i>4.9 (128 avis)</span>
+                        <span class="delivery-time"><i class="fas fa-clock me-1"></i>35 min</span>
+                    </div>
+                    <div class="menu-price">12,500 XOF</div>
+                    <div class="action-buttons">
+                        <button class="btn-order add-to-cart-btn" data-dish="Thieboudienne" data-price="12500">
+                            <i class="fas fa-shopping-cart"></i> <span id="cart-btn">Panier</span>
+                        </button>
+                        <button class="btn-whatsapp whatsapp-order-btn" data-dish="Thieboudienne" data-price="12500">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Spécialité 2 - Yassa Poulet -->
+                <div class="dish-card" data-category="spécialité viande">
+                    <div class="dish-image-container">
+                        <span class="category-badge" id="speciality-badge2">🇸🇳 Spécialité</span>
+                        <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Yassa Poulet" class="dish-image" loading="lazy">
+                    </div>
+                    <div class="dish-name">Yassa Poulet</div>
+                    <p class="mb-2 flex-grow-1 small" id="yassa-desc2">Poulet fermier mariné au citron, oignons confits</p>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="rating-badge"><i class="fas fa-star me-1"></i>4.8 (95 avis)</span>
+                        <span class="delivery-time"><i class="fas fa-clock me-1"></i>30 min</span>
+                    </div>
+                    <div class="menu-price">11,000 XOF</div>
+                    <div class="action-buttons">
+                        <button class="btn-order add-to-cart-btn" data-dish="Yassa Poulet" data-price="11000">
+                            <i class="fas fa-shopping-cart"></i> <span>Panier</span>
+                        </button>
+                        <button class="btn-whatsapp whatsapp-order-btn" data-dish="Yassa Poulet" data-price="11000">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Spécialité 3 - Mafé d'agneau -->
+                <div class="dish-card" data-category="spécialité viande">
+                    <div class="dish-image-container">
+                        <span class="category-badge" id="speciality-badge3">🇸🇳 Spécialité</span>
+                        <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Mafé d'agneau" class="dish-image" loading="lazy">
+                    </div>
+                    <div class="dish-name">Mafé d'agneau</div>
+                    <p class="mb-2 flex-grow-1 small" id="mafe-desc2">Ragoût d'agneau mijoté à la sauce arachide de Gandiol</p>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="rating-badge"><i class="fas fa-star me-1"></i>4.7 (82 avis)</span>
+                        <span class="delivery-time"><i class="fas fa-clock me-1"></i>40 min</span>
+                    </div>
+                    <div class="menu-price">12,000 XOF</div>
+                    <div class="action-buttons">
+                        <button class="btn-order add-to-cart-btn" data-dish="Mafé d'agneau" data-price="12000">
+                            <i class="fas fa-shopping-cart"></i> <span>Panier</span>
+                        </button>
+                        <button class="btn-whatsapp whatsapp-order-btn" data-dish="Mafé d'agneau" data-price="12000">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SUIVI DES COMMANDES ===== -->
+    <div class="container" id="commandes">
+        <div class="commande-section">
+            <div class="commande-header">
+                <h3 style="color: var(--primary-color); margin-bottom: 0;">
+                    <i class="fas fa-shopping-bag me-2"></i> <span id="order-tracking">Suivi des commandes</span>
+                </h3>
+                <a href="admin.html" class="admin-link" target="_blank">
+                    <i class="fas fa-lock me-1"></i> <span id="admin-link">Admin (Commandes)</span>
+                </a>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="cart-container" class="mb-4">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="bg-light p-3 rounded">
+                                    <h6 class="mb-3" style="color: var(--primary-color);">
+                                        <i class="fas fa-history me-2"></i> <span id="recent-orders">Vos commandes récentes</span>
+                                    </h6>
+                                    <div id="recent-orders-list" style="max-height: 300px; overflow-y: auto; padding-right: 5px;">
+                                        <!-- Les commandes récentes seront chargées ici -->
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-5">
+                                <div class="bg-light p-3 rounded">
+                                    <h6 class="mb-3" style="color: var(--primary-color);">
+                                        <i class="fas fa-clipboard-check me-2"></i> <span id="order-status">Suivi de commande</span>
+                                    </h6>
+                                    <p class="small text-muted mb-3" id="order-status-desc">
+                                        Consultez le statut de vos commandes en cours.
+                                    </p>
+                                    
+                                    <div id="order-confirmation-area" class="d-none">
+                                        <div class="text-center mb-3">
+                                            <div style="font-size: 2rem; color: #28a745;">
+                                                <i class="fas fa-check-circle"></i>
+                                            </div>
+                                            <h5 style="color: #28a745;" id="order-in-progress">Commande en cours</h5>
+                                            <div class="confirmation-code mt-2" id="confirmation-code">
+                                                LAW-2024-001
+                                            </div>
+                                            <p class="small mt-2 mb-0" id="order-code-label">
+                                                Code de commande
+                                            </p>
+                                        </div>
+                                        
+                                        <div class="alert alert-success small">
+                                            <i class="fas fa-clock me-2"></i> 
+                                            <span id="prep-time-label">Temps de préparation estimé</span> : <strong id="prep-time">25-35 minutes</strong>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="no-order-message">
+                                        <div class="text-center py-4">
+                                            <i class="fas fa-receipt" style="font-size: 2.5rem; color: #dee2e6;"></i>
+                                            <p class="mt-2 text-muted" id="no-order-text">Aucune commande en cours</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SECTION AVIS CLIENTS ===== -->
+    <section id="avis" class="section-padding">
+        <div class="container">
+            <div class="section-header text-center mb-4">
+                <h2 id="reviews-title">Ils ont savouré Le Teranga <span class="senegal-flag-icon">🇸🇳</span></h2>
+                <p class="text-muted" id="reviews-subtitle">Ce que nos convives disent de notre cuisine sénégalaise</p>
+            </div>
+            
+            <div id="reviewsCarousel" class="carousel slide reviews-carousel" data-bs-ride="carousel">
+                <div class="carousel-inner" id="reviews-container">
+                    <!-- Les avis seront chargés dynamiquement -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden" id="previous">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden" id="next">Suivant</span>
+                </button>
+                <div class="carousel-indicators">
+                    <!-- Les indicateurs seront générés dynamiquement -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MODAL RÉSERVATION TABLE ===== -->
+    <div class="modal fade" id="tableBookingModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-calendar-alt me-2"></i> <span id="modal-book-title">Réserver une table - Le Teranga</span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="table-booking-form" onsubmit="event.preventDefault(); bookTable();">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="booking-date" class="form-label small fw-bold" id="modal-date">Date *</label>
+                                <input type="date" class="form-control form-control-sm" id="booking-date" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="booking-time" class="form-label small fw-bold" id="modal-time">Heure *</label>
+                                <select class="form-select form-select-sm" id="booking-time" required>
+                                    <option value="12:00">12h00</option>
+                                    <option value="12:30">12h30</option>
+                                    <option value="13:00">13h00</option>
+                                    <option value="13:30">13h30</option>
+                                    <option value="19:00">19h00</option>
+                                    <option value="19:30">19h30</option>
+                                    <option value="20:00">20h00</option>
+                                    <option value="20:30">20h30</option>
+                                    <option value="21:00">21h00</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="booking-guests" class="form-label small fw-bold" id="modal-guests">Nombre de personnes *</label>
+                                <select class="form-select form-select-sm" id="booking-guests" required>
+                                    <option value="1">1 personne</option>
+                                    <option value="2" selected>2 personnes</option>
+                                    <option value="3">3 personnes</option>
+                                    <option value="4">4 personnes</option>
+                                    <option value="5">5 personnes</option>
+                                    <option value="6">6 personnes</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="booking-name" class="form-label small fw-bold" id="modal-name">Votre nom *</label>
+                                <input type="text" class="form-control form-control-sm" id="booking-name" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="booking-phone" class="form-label small fw-bold" id="modal-phone">Téléphone *</label>
+                                <input type="tel" class="form-control form-control-sm" id="booking-phone" placeholder="+221 77 XXX XX XX" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="booking-email" class="form-label small fw-bold" id="modal-email">Email</label>
+                                <input type="email" class="form-control form-control-sm" id="booking-email" placeholder="optionnel">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="booking-special" class="form-label small fw-bold" id="modal-special">Demandes spéciales</label>
+                            <textarea class="form-control form-control-sm" id="booking-special" rows="2" placeholder="Allergies, occasion spéciale, etc."></textarea>
+                        </div>
+                        <div class="alert alert-info small mb-3" id="modal-info">
+                            <i class="fas fa-info-circle me-2"></i> Réservation gratuite. Annulation possible jusqu'à 2h avant.
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary flex-grow-1" id="modal-confirm">
+                                <i class="fas fa-check-circle me-2"></i> Confirmer
+                            </button>
+                            <button type="button" class="btn btn-whatsapp flex-grow-1" onclick="bookTableViaWhatsApp()">
+                                <i class="fab fa-whatsapp me-2"></i> WhatsApp
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL PANIER AVEC VALIDATION ===== -->
+    <div class="modal fade" id="cartModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-shopping-cart me-2"></i> <span id="cart-title">Validation de votre commande</span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="resetCartModal()"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Indicateur d'étapes -->
+                    <div class="step-indicator">
+                        <div class="step active" id="step1">1. Panier</div>
+                        <div class="step" id="step2">2. Coordonnées</div>
+                        <div class="step" id="step3">3. Confirmation</div>
+                    </div>
+
+                    <!-- ÉTAPE 1 : Récapitulatif du panier -->
+                    <div class="validation-step active" id="step1-content">
+                        <h6 class="mb-3" id="cart-summary">Récapitulatif de votre commande</h6>
+                        <div id="cart-items-list"></div>
+                        
+                        <div class="cart-total d-flex justify-content-between mt-3">
+                            <span class="fw-bold" id="cart-total-label">Total</span>
+                            <span class="fw-bold text-primary" id="cart-total">0 XOF</span>
+                        </div>
+                        
+                        <div id="cart-empty-message" class="cart-empty-message" style="display: none;">
+                            <i class="fas fa-shopping-cart"></i>
+                            <p>Votre panier est vide</p>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-3">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="continue-shopping">Continuer mes achats</button>
+                            <button type="button" class="btn btn-primary" id="step1-next" disabled>Continuer</button>
+                        </div>
+                    </div>
+
+                    <!-- ÉTAPE 2 : Coordonnées du client -->
+                    <div class="validation-step" id="step2-content">
+                        <h6 class="mb-3" id="your-info">Vos coordonnées</h6>
+                        <form id="checkout-form" onsubmit="event.preventDefault();">
+                            <div class="mb-3">
+                                <label for="checkout-name" class="form-label small fw-bold" id="label-name">Nom complet *</label>
+                                <input type="text" class="form-control form-control-sm" id="checkout-name" required>
+                                <div class="validation-error" id="name-error">Ce champ est requis</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="checkout-phone" class="form-label small fw-bold" id="label-phone">Téléphone *</label>
+                                <input type="tel" class="form-control form-control-sm" id="checkout-phone" placeholder="+221 77 XXX XX XX" required>
+                                <div class="validation-error" id="phone-error">Ce champ est requis</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="checkout-email" class="form-label small fw-bold" id="label-email">Email (optionnel)</label>
+                                <input type="email" class="form-control form-control-sm" id="checkout-email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="checkout-address" class="form-label small fw-bold" id="label-address">Adresse de livraison *</label>
+                                <textarea class="form-control form-control-sm" id="checkout-address" rows="2" placeholder="Votre adresse complète à Gandiol / Saint-Louis" required></textarea>
+                                <div class="validation-error" id="address-error">Ce champ est requis</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="checkout-notes" class="form-label small fw-bold" id="label-notes">Instructions spéciales</label>
+                                <textarea class="form-control form-control-sm" id="checkout-notes" rows="2" placeholder="Allergies, heure de livraison souhaitée, etc."></textarea>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mt-3">
+                                <button type="button" class="btn btn-secondary" id="step2-back">← Retour</button>
+                                <button type="button" class="btn btn-primary" id="step2-next">Continuer vers la confirmation</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- ÉTAPE 3 : Confirmation et envoi WhatsApp -->
+                    <div class="validation-step" id="step3-content">
+                        <h6 class="mb-3" id="confirmation-title">Confirmation de votre commande</h6>
+                        
+                        <div class="alert alert-success" id="whatsapp-info">
+                            <i class="fas fa-check-circle me-2"></i> Votre commande sera envoyée via WhatsApp pour confirmation.
+                        </div>
+                        
+                        <div class="mb-3 p-3 bg-light rounded">
+                            <h6 class="fw-bold" id="summary-title">Récapitulatif</h6>
+                            <div id="order-summary-confirm"></div>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <span id="total-label">Total</span>
+                                <span class="fw-bold text-primary" id="confirm-total">0 XOF</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold" id="your-coords">Vos coordonnées</label>
+                            <div class="bg-light p-2 rounded small" id="confirm-client-info"></div>
+                        </div>
+                        
+                        <div class="alert alert-info small" id="whatsapp-redirect">
+                            <i class="fab fa-whatsapp me-2"></i> En cliquant sur "Confirmer la commande", vous serez redirigé vers WhatsApp pour finaliser votre commande.
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-3">
+                            <button type="button" class="btn btn-secondary" id="step3-back">← Retour</button>
+                            <button type="button" class="btn btn-success" id="finalize-order">
+                                <i class="fab fa-whatsapp me-2"></i> <span id="confirm-order">Confirmer via WhatsApp</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL COMMANDE WHATSAPP ===== -->
+    <div class="modal fade" id="whatsappOrderModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fab fa-whatsapp me-2"></i> <span id="whatsapp-modal-title">Commander via WhatsApp</span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="small text-muted" id="whatsapp-modal-desc">Commandez directement via WhatsApp pour une prise en charge rapide par Les Résidences du Lawmar.</p>
+                    <div class="mb-3">
+                        <label for="whatsapp-name" class="form-label small fw-bold" id="whatsapp-name-label">Votre nom *</label>
+                        <input type="text" class="form-control form-control-sm" id="whatsapp-name" placeholder="Ex: El Hadji Diop">
+                    </div>
+                    <div class="mb-3">
+                        <label for="whatsapp-phone" class="form-label small fw-bold" id="whatsapp-phone-label">Numéro WhatsApp *</label>
+                        <input type="tel" class="form-control form-control-sm" id="whatsapp-phone" placeholder="+221 77 123 45 67">
+                    </div>
+                    <div class="mb-3">
+                        <label for="whatsapp-message" class="form-label small fw-bold" id="whatsapp-message-label">Votre commande</label>
+                        <textarea class="form-control form-control-sm" id="whatsapp-message" rows="4" readonly></textarea>
+                    </div>
+                    <div class="alert alert-info small" id="whatsapp-redirect-info">
+                        <i class="fas fa-info-circle me-2"></i> Vous serez redirigé vers WhatsApp pour confirmer votre commande.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal" id="cancel-btn">Annuler</button>
+                    <button type="button" class="btn btn-whatsapp btn-sm" id="send-whatsapp-order">
+                        <i class="fab fa-whatsapp me-2"></i> <span id="send-order">Envoyer la commande</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-about">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="footer-logo-image" style="border: none; border-radius: 0; background: transparent; width: 45px; height: 45px;" onerror="this.onerror=null; this.src='https://via.placeholder.com/50x50/1E3A5F/ffffff?text=LAWMAR'; this.style.border='none'; this.style.borderRadius='0';">
+                            <h3>LAWMAR <span class="senegal-flag-icon ms-2">🇸🇳</span></h3>
+                        </div>
+                        <p id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
+                        <div class="social-links">
+                            <a href="https://facebook.com/lawmar.gandiol" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com/lawmar.gandiol" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://tiktok.com/@lawmar.gandiol" target="_blank"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://wa.me/221779952020" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h4 id="footer-nav">Navigation</h4>
+                        <ul>
+                            <li><a href="index.html" id="footer-home">Accueil</a></li>
+                            <li><a href="Residences.html" id="footer-residences">Résidences</a></li>
+                            <li><a href="restauration.html" id="footer-restauration">Restauration</a></li>
+                            <li><a href="chambres.html" id="footer-hebergements">Hébergements</a></li>
+                            <li><a href="services.html" id="footer-services">Services</a></li>
+                            <li><a href="experiences.html" id="footer-experiences">Expériences</a></li>
+                            <li><a href="galerie.html" id="footer-galerie">Galerie</a></li>
+                            <li><a href="contact.html" id="footer-contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-contact">
+                        <h4 id="footer-contact-title">Contact - Gandiol</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> <span id="footer-address">Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳</span></p>
+                        <p><i class="fas fa-phone-alt"></i> +221 77 995 20 20</p>
+                        <p><i class="fas fa-phone-alt"></i> +221 77 291 72 15</p>
+                        <p><i class="fab fa-whatsapp"></i> <span id="footer-whatsapp">WhatsApp: +221 77 995 20 20</span></p>
+                        <!-- Emails professionnels -->
+                        <div class="emails-pro">
+                            <a href="mailto:contact@residenceslawmar.com"><i class="fas fa-envelope"></i> contact@residenceslawmar.com</a><br>
+                            <a href="mailto:reservation@residencelawmar.com"><i class="fas fa-envelope"></i> reservation@residencelawmar.com</a><br>
+                            <a href="mailto:residencelawmar@gmail.com"><i class="fas fa-envelope"></i> residencelawmar@gmail.com</a>
+                            <div class="sync-note" id="footer-sync-note">
+                                <i class="fas fa-sync-alt"></i> Objectif : tout message reçu sur l'une de ces adresses est accessible dans les trois boîtes.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-newsletter">
+                        <h4 id="footer-newsletter-title">Newsletter</h4>
+                        <p id="footer-newsletter-text">Recevez nos offres spéciales et actualités</p>
+                        <form id="newsletter-form" onsubmit="event.preventDefault(); subscribeNewsletter()">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Votre email" id="newsletter-input">
+                                <button class="btn btn-primary" type="submit" id="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lawmar Hôtel Les Résidences - Gandiol. <span id="footer-rights">Tous droits réservés.</span> | 
+                   <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
+                   <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal" id="footer-admin">Accès personnel</a> | 
+                   <strong>BCM GROUPE 2026</strong> | <a href="https://bcmgroupe.com" target="_blank">bcmgroupe.com</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton flottant pour ouvrir le panier -->
+    <button class="quick-order-btn" id="cart-button" data-bs-toggle="modal" data-bs-target="#cartModal" onclick="openCartModal()">
+        <i class="fas fa-shopping-cart"></i> <span id="view-cart">Voir mon panier</span>
+        <span class="cart-badge" id="cart-count">0</span>
+    </button>
+
+    <!-- Bouton remonter en haut -->
+    <button id="scroll-top" class="btn btn-primary" style="position: fixed; bottom: 90px; right: 20px; border-radius: 50%; width: 50px; height: 50px; display: none; z-index: 999;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- ===== MODAL ADMIN LOGIN ===== -->
+    <div class="modal fade" id="adminLoginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: var(--primary-color);">
+                    <h5 class="modal-title text-white" id="admin-title">Connexion personnel</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="admin-login-form" onsubmit="event.preventDefault(); adminLogin()">
+                        <div class="mb-3">
+                            <label for="admin-email" class="form-label small" id="admin-email-label">Email</label>
+                            <input type="email" class="form-control form-control-sm" id="admin-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="admin-password" class="form-label small" id="admin-password-label">Mot de passe</label>
+                            <input type="password" class="form-control form-control-sm" id="admin-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select form-select-sm" id="admin-role">
+                                <option value="reception" id="admin-role-reception">Réceptionniste</option>
+                                <option value="serveur" id="admin-role-serveur">Serveur</option>
+                                <option value="cuisine" id="admin-role-cuisine">Cuisine</option>
+                                <option value="guide" id="admin-role-guide">Guide touristique</option>
+                                <option value="manager" id="admin-role-manager">Manager</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 btn-sm" id="admin-login-btn">Se connecter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ============================================
+        // RESTAURANT LE TERANGA - GANDIOL 🇸🇳
+        // SYSTÈME DE PANIER COMPLET AVEC SAUVEGARDE
+        // ============================================
+        
+        const WHATSAPP_NUMBER = "221779952020";
+        
+        // ===== GESTION DU PANIER =====
+        let cart = JSON.parse(localStorage.getItem('restaurantCart')) || [];
+        let currentStep = 1;
+
+        // Mettre à jour le compteur du panier
+        function updateCartCount() {
+            const cartCount = document.getElementById('cart-count');
+            if (cartCount) {
+                const totalItems = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
+                cartCount.textContent = totalItems;
+                cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+            }
+        }
+
+        // Ajouter un plat au panier
+        function addToCart(dishName, dishPrice) {
+            const existingItem = cart.find(item => item.name === dishName);
+            if (existingItem) {
+                existingItem.quantity = (existingItem.quantity || 1) + 1;
+            } else {
+                cart.push({ name: dishName, price: parseInt(dishPrice), quantity: 1 });
+            }
+            localStorage.setItem('restaurantCart', JSON.stringify(cart));
+            updateCartCount();
+            
+            // Notification
+            showNotification(`${dishName} ajouté au panier !`, 'success');
+        }
+
+        // Ajouter le menu complet au panier
+        function addMenuToCart() {
+            addToCart('Menu du Jour - Entrée (Velouté)', 3500);
+            addToCart('Menu du Jour - Plat (Thieboudienne)', 9500);
+            addToCart('Menu du Jour - Dessert (Fondant)', 3000);
+            showNotification('Menu du jour ajouté au panier !', 'success');
+        }
+
+        // Supprimer un article du panier
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('restaurantCart', JSON.stringify(cart));
+            updateCartCount();
+            if (document.getElementById('cartModal').classList.contains('show')) {
+                displayCartItems();
+            }
+            showNotification('Article retiré du panier', 'info');
+        }
+
+        // Mettre à jour la quantité
+        function updateQuantity(index, newQuantity) {
+            if (newQuantity < 1) {
+                removeFromCart(index);
+                return;
+            }
+            cart[index].quantity = parseInt(newQuantity);
+            localStorage.setItem('restaurantCart', JSON.stringify(cart));
+            updateCartCount();
+            displayCartItems();
+        }
+
+        // Afficher les articles du panier
+        function displayCartItems() {
+            const cartList = document.getElementById('cart-items-list');
+            const cartTotal = document.getElementById('cart-total');
+            const emptyMessage = document.getElementById('cart-empty-message');
+            const step1Next = document.getElementById('step1-next');
+            
+            if (!cartList) return;
+            
+            cartList.innerHTML = '';
+            
+            if (cart.length === 0) {
+                emptyMessage.style.display = 'block';
+                cartTotal.textContent = '0 XOF';
+                if (step1Next) step1Next.disabled = true;
+                return;
+            }
+            
+            emptyMessage.style.display = 'none';
+            if (step1Next) step1Next.disabled = false;
+            
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * (item.quantity || 1);
+                total += itemTotal;
+                
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <div class="cart-item-details">
+                        <strong>${item.name}</strong><br>
+                        <small>${item.price.toLocaleString()} XOF</small>
+                    </div>
+                    <div class="cart-item-price">${itemTotal.toLocaleString()} XOF</div>
+                    <div class="cart-item-actions">
+                        <input type="number" min="1" value="${item.quantity || 1}" 
+                               class="cart-item-quantity" 
+                               onchange="updateQuantity(${index}, this.value)">
+                        <span class="cart-item-remove" onclick="removeFromCart(${index})">
+                            <i class="fas fa-trash"></i>
+                        </span>
+                    </div>
+                `;
+                cartList.appendChild(itemElement);
+            });
+            
+            cartTotal.textContent = total.toLocaleString() + ' XOF';
+            document.getElementById('confirm-total').textContent = total.toLocaleString() + ' XOF';
+        }
+
+        // Ouvrir le modal du panier
+        function openCartModal() {
+            displayCartItems();
+            resetToStep1();
+        }
+
+        // Réinitialiser à l'étape 1
+        function resetToStep1() {
+            currentStep = 1;
+            document.querySelectorAll('.validation-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('step1-content').classList.add('active');
+            
+            document.querySelectorAll('.step').forEach(el => {
+                el.classList.remove('active', 'completed');
+            });
+            document.getElementById('step1').classList.add('active');
+        }
+
+        // Réinitialiser le modal
+        function resetCartModal() {
+            resetToStep1();
+            document.getElementById('checkout-form').reset();
+        }
+
+        // Aller à l'étape 2
+        function goToStep2() {
+            if (cart.length === 0) return;
+            
+            currentStep = 2;
+            document.querySelectorAll('.validation-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('step2-content').classList.add('active');
+            
+            document.querySelectorAll('.step').forEach(el => {
+                el.classList.remove('active', 'completed');
+            });
+            document.getElementById('step1').classList.add('completed');
+            document.getElementById('step2').classList.add('active');
+        }
+
+        // Aller à l'étape 3
+        function goToStep3() {
+            // Valider les champs
+            const name = document.getElementById('checkout-name').value;
+            const phone = document.getElementById('checkout-phone').value;
+            const address = document.getElementById('checkout-address').value;
+            
+            let isValid = true;
+            
+            if (!name) {
+                document.getElementById('name-error').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('name-error').style.display = 'none';
+            }
+            
+            if (!phone) {
+                document.getElementById('phone-error').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('phone-error').style.display = 'none';
+            }
+            
+            if (!address) {
+                document.getElementById('address-error').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('address-error').style.display = 'none';
+            }
+            
+            if (!isValid) return;
+            
+            currentStep = 3;
+            document.querySelectorAll('.validation-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('step3-content').classList.add('active');
+            
+            document.querySelectorAll('.step').forEach(el => {
+                el.classList.remove('active', 'completed');
+            });
+            document.getElementById('step1').classList.add('completed');
+            document.getElementById('step2').classList.add('completed');
+            document.getElementById('step3').classList.add('active');
+            
+            // Afficher le résumé
+            displayOrderSummary();
+        }
+
+        // Afficher le résumé de la commande
+        function displayOrderSummary() {
+            const summaryDiv = document.getElementById('order-summary-confirm');
+            const clientInfo = document.getElementById('confirm-client-info');
+            
+            let summaryHtml = '';
+            cart.forEach(item => {
+                summaryHtml += `
+                    <div class="order-summary-item">
+                        <span>${item.name} x${item.quantity || 1}</span>
+                        <span>${(item.price * (item.quantity || 1)).toLocaleString()} XOF</span>
+                    </div>
+                `;
+            });
+            summaryDiv.innerHTML = summaryHtml;
+            
+            clientInfo.innerHTML = `
+                <strong>${document.getElementById('checkout-name').value}</strong><br>
+                📞 ${document.getElementById('checkout-phone').value}<br>
+                ${document.getElementById('checkout-email').value ? '✉️ ' + document.getElementById('checkout-email').value + '<br>' : ''}
+                📍 ${document.getElementById('checkout-address').value}<br>
+                ${document.getElementById('checkout-notes').value ? '📝 ' + document.getElementById('checkout-notes').value : ''}
+            `;
+        }
+
+        // ===== FONCTION DE SAUVEGARDE DES COMMANDES =====
+        function saveOrderToStorage() {
+            const cart = JSON.parse(localStorage.getItem('restaurantCart') || '[]');
+            
+            if (cart.length === 0) return null;
+            
+            const name = document.getElementById('checkout-name')?.value || 'Client';
+            const phone = document.getElementById('checkout-phone')?.value || '+221 77 000 00 00';
+            const address = document.getElementById('checkout-address')?.value || 'Gandiol';
+            const email = document.getElementById('checkout-email')?.value || '';
+            const notes = document.getElementById('checkout-notes')?.value || '';
+            
+            const order = {
+                id: 'R' + Date.now().toString().slice(-6),
+                guest: name,
+                table: Math.floor(Math.random() * 10) + 1,
+                items: cart.map(item => ({
+                    name: item.name,
+                    qty: item.quantity || 1,
+                    price: item.price
+                })),
+                total: cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0),
+                status: 'pending',
+                time: new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }),
+                date: new Date().toISOString().split('T')[0],
+                customer: {
+                    name: name,
+                    phone: phone,
+                    email: email,
+                    address: address,
+                    notes: notes
+                }
+            };
+            
+            // Récupérer les commandes existantes
+            let orders = JSON.parse(localStorage.getItem('restaurantOrders') || '[]');
+            orders.push(order);
+            localStorage.setItem('restaurantOrders', JSON.stringify(orders));
+            
+            return order;
+        }
+
+        // Finaliser la commande via WhatsApp avec sauvegarde
+        function finalizeOrder() {
+            const name = document.getElementById('checkout-name').value;
+            const phone = document.getElementById('checkout-phone').value;
+            const email = document.getElementById('checkout-email').value;
+            const address = document.getElementById('checkout-address').value;
+            const notes = document.getElementById('checkout-notes').value;
+            
+            // Sauvegarder la commande dans localStorage
+            const savedOrder = saveOrderToStorage();
+            
+            let orderDetails = `*NOUVELLE COMMANDE - RESTAURANT LE TERANGA* 🇸🇳\n\n`;
+            orderDetails += `👤 *Client:* ${name}\n`;
+            orderDetails += `📞 *Téléphone:* ${phone}\n`;
+            if (email) orderDetails += `✉️ *Email:* ${email}\n`;
+            orderDetails += `📍 *Adresse:* ${address}\n`;
+            if (notes) orderDetails += `📝 *Notes:* ${notes}\n\n`;
+            
+            orderDetails += `*DÉTAIL DE LA COMMANDE:*\n`;
+            let total = 0;
+            cart.forEach(item => {
+                const itemTotal = item.price * (item.quantity || 1);
+                total += itemTotal;
+                orderDetails += `• ${item.name} x${item.quantity || 1} = ${itemTotal.toLocaleString()} XOF\n`;
+            });
+            orderDetails += `\n*TOTAL: ${total.toLocaleString()} XOF*`;
+            
+            // Code promo
+            orderDetails += `\n\n📢 *Code promo: BIENVENUE10* (-10% sur première commande)`;
+            
+            // Ajouter l'ID de commande
+            if (savedOrder) {
+                orderDetails += `\n\n🆔 *ID Commande:* ${savedOrder.id}`;
+            }
+            
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(orderDetails)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Vider le panier après commande
+            cart = [];
+            localStorage.setItem('restaurantCart', JSON.stringify(cart));
+            updateCartCount();
+            
+            // Fermer le modal
+            bootstrap.Modal.getInstance(document.getElementById('cartModal')).hide();
+            
+            // Notification
+            showNotification('Commande enregistrée et envoyée via WhatsApp !', 'success');
+            
+            // Réinitialiser le formulaire
+            resetCartModal();
+        }
+
+        // Commande rapide via WhatsApp
+        function quickWhatsAppOrder(dishName, dishPrice) {
+            const message = `*COMMANDE RAPIDE - RESTAURANT LE TERANGA* 🇸🇳\n\nPlat: ${dishName}\nPrix: ${dishPrice} XOF\n\nJe souhaite commander ce plat.`;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // ===== NOTIFICATIONS =====
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = 'notification-toast';
+            const icon = type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️';
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="font-size: 1.2rem;">${icon}</div>
+                    <div style="flex-grow: 1; font-size: 0.9rem;">${message}</div>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 3000);
+        }
+
+        // ===== RÉSERVATIONS =====
+        function bookTable() {
+            const name = document.getElementById('booking-name').value;
+            const date = document.getElementById('booking-date').value;
+            const time = document.getElementById('booking-time').value;
+            const guests = document.getElementById('booking-guests').value;
+            const phone = document.getElementById('booking-phone').value;
+            
+            if (!name || !date || !time || !guests || !phone) {
+                showNotification('Veuillez remplir tous les champs obligatoires', 'error');
+                return;
+            }
+            
+            showNotification('Réservation enregistrée ! Vous recevrez une confirmation sous peu.', 'success');
+            bootstrap.Modal.getInstance(document.getElementById('tableBookingModal')).hide();
+            document.getElementById('table-booking-form').reset();
+        }
+
+        function bookTableViaWhatsApp() {
+            const name = document.getElementById('booking-name')?.value || 'Non spécifié';
+            const date = document.getElementById('booking-date')?.value || 'Non spécifié';
+            const time = document.getElementById('booking-time')?.value || 'Non spécifié';
+            const guests = document.getElementById('booking-guests')?.value || 'Non spécifié';
+            const phone = document.getElementById('booking-phone')?.value || 'Non spécifié';
+            const special = document.getElementById('booking-special')?.value || 'Aucune';
+            
+            const message = 
+                `*RÉSERVATION TABLE - RESTAURANT LE TERANGA* 🇸🇳\n\n` +
+                `👤 *Nom:* ${name}\n` +
+                `📞 *Téléphone:* ${phone}\n` +
+                `📅 *Date:* ${date}\n` +
+                `⏰ *Heure:* ${time}\n` +
+                `👥 *Personnes:* ${guests}\n` +
+                `📝 *Demande spéciale:* ${special}`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
+            
+            const modalElement = document.getElementById('tableBookingModal');
+            if (modalElement) {
+                const modal = bootstrap.Modal.getInstance(modalElement);
+                if (modal) modal.hide();
+            }
+        }
+
+        function bookEvent(eventName) {
+            const message = `*RÉSERVATION ÉVÉNEMENT - RESTAURANT LE TERANGA* 🇸🇳\n\nÉvénement: ${eventName}\n\nJe souhaite réserver pour cet événement.`;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // ===== NEWSLETTER =====
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletter-input').value;
+            if (email && email.includes('@')) {
+                showNotification('Merci pour votre inscription à la newsletter !', 'success');
+                document.getElementById('newsletter-input').value = '';
+            } else {
+                showNotification('Veuillez entrer un email valide', 'error');
+            }
+        }
+
+        // ===== ADMIN LOGIN =====
+        function adminLogin() {
+            const email = document.getElementById('admin-email').value;
+            const password = document.getElementById('admin-password').value;
+            
+            if (email && password) {
+                showNotification('Connexion réussie !', 'success');
+                bootstrap.Modal.getInstance(document.getElementById('adminLoginModal')).hide();
+                document.getElementById('admin-login-form').reset();
+            } else {
+                showNotification('Veuillez remplir tous les champs', 'error');
+            }
+        }
+
+        // ===== TRADUCTION =====
+        const translations = {
+            fr: {
+                // ... (garder le même dictionnaire que dans le code original)
+            },
+            en: {
+                // ... (garder le même dictionnaire que dans le code original)
+            }
+        };
+
+        function changeLanguage(lang) {
+            // ... (garder la même fonction que dans le code original)
+        }
+
+        // ===== DONNÉES DES AVIS =====
+        const restaurantReviews = [
+            {
+                nom: "Awa Ndiaye",
+                note: 5,
+                commentaire: "La meilleure thieboudienne de tout le Gandiol ! Le chef Oumar est un magicien. L'accueil est chaleureux, les plats généreux. Je reviens chaque semaine !",
+                date: "12/12/2023",
+                avatar: "images/logo1.png",
+                origine: "Saint-Louis"
+            },
+            {
+                nom: "Jean Lefebvre",
+                note: 5,
+                commentaire: "Une expérience culinaire exceptionnelle. Le yassa poulet est incroyablement savoureux. Cadre magnifique et personnel aux petits soins. Je recommande vivement !",
+                date: "05/12/2023",
+                avatar: "images/logo1.png",
+                origine: "France"
+            },
+            {
+                nom: "Moussa Diop",
+                note: 4,
+                commentaire: "Restaurant authentique avec des produits frais du Gandiol. Le mafé d'agneau est fondant à souhait. Service impeccable. Un régal !",
+                date: "28/11/2023",
+                avatar: "images/logo1.png",
+                origine: "Dakar"
+            }
+        ];
+
+        // Afficher les avis
+        function displayRestaurantReviews() {
+            const reviewsContainer = document.getElementById('reviews-container');
+            const indicatorsContainer = document.querySelector('.carousel-indicators');
+            
+            if (!reviewsContainer) return;
+            
+            reviewsContainer.innerHTML = '';
+            if (indicatorsContainer) indicatorsContainer.innerHTML = '';
+            
+            restaurantReviews.forEach((review, index) => {
+                const stars = '★'.repeat(review.note) + '☆'.repeat(5 - review.note);
+                const isActive = index === 0 ? 'active' : '';
+                
+                const carouselItem = document.createElement('div');
+                carouselItem.className = `carousel-item ${isActive}`;
+                carouselItem.innerHTML = `
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="review-slide">
+                                <div class="review-avatar-round">
+                                    <img src="${review.avatar}" alt="${review.nom}">
+                                </div>
+                                <div class="review-stars-round">${stars}</div>
+                                <p class="review-text">"${review.commentaire}"</p>
+                                <div class="review-author">${review.nom}</div>
+                                <div class="review-origin">
+                                    <i class="fas fa-map-marker-alt"></i> ${review.origine} • ${review.date}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                reviewsContainer.appendChild(carouselItem);
+                
+                if (indicatorsContainer) {
+                    const indicator = document.createElement('button');
+                    indicator.type = 'button';
+                    indicator.dataset.bsTarget = '#reviewsCarousel';
+                    indicator.dataset.bsSlideTo = index;
+                    indicator.className = index === 0 ? 'active' : '';
+                    indicator.setAttribute('aria-current', index === 0 ? 'true' : 'false');
+                    indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+                    indicatorsContainer.appendChild(indicator);
+                }
+            });
+        }
+
+        // ===== INITIALISATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            displayRestaurantReviews();
+            updateCartCount();
+            
+            // Bouton remonter
+            const scrollTopBtn = document.getElementById('scroll-top');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.style.display = 'block';
+                } else {
+                    scrollTopBtn.style.display = 'none';
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Ajouter les événements aux boutons "Ajouter au panier"
+            document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const dish = this.getAttribute('data-dish');
+                    const price = this.getAttribute('data-price');
+                    addToCart(dish, price);
+                });
+            });
+
+            // Ajouter les événements aux boutons "WhatsApp"
+            document.querySelectorAll('.whatsapp-order-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const dish = this.getAttribute('data-dish');
+                    const price = this.getAttribute('data-price');
+                    quickWhatsAppOrder(dish, price);
+                });
+            });
+
+            // Gestionnaires d'étapes
+            document.getElementById('step1-next')?.addEventListener('click', goToStep2);
+            document.getElementById('step2-next')?.addEventListener('click', goToStep3);
+            document.getElementById('step2-back')?.addEventListener('click', function() {
+                currentStep = 1;
+                document.querySelectorAll('.validation-step').forEach(el => el.classList.remove('active'));
+                document.getElementById('step1-content').classList.add('active');
+                document.querySelectorAll('.step').forEach(el => {
+                    el.classList.remove('active', 'completed');
+                });
+                document.getElementById('step1').classList.add('active');
+            });
+            document.getElementById('step3-back')?.addEventListener('click', function() {
+                currentStep = 2;
+                document.querySelectorAll('.validation-step').forEach(el => el.classList.remove('active'));
+                document.getElementById('step2-content').classList.add('active');
+                document.querySelectorAll('.step').forEach(el => {
+                    el.classList.remove('active', 'completed');
+                });
+                document.getElementById('step1').classList.add('completed');
+                document.getElementById('step2').classList.add('active');
+            });
+            document.getElementById('finalize-order')?.addEventListener('click', finalizeOrder);
+
+            // Gestionnaire newsletter
+            document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                subscribeNewsletter();
+            });
+            
+            // Gestionnaire admin login
+            document.getElementById('admin-login-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                adminLogin();
+            });
+            
+            // Gestionnaire réservation table
+            document.getElementById('table-booking-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                bookTable();
+            });
+
+            // Initialiser les dates dans le modal de réservation
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            
+            const formatDate = (date) => {
+                return date.toISOString().split('T')[0];
+            };
+            
+            if (document.getElementById('booking-date')) {
+                document.getElementById('booking-date').value = formatDate(today);
+                document.getElementById('booking-date').min = formatDate(today);
+            }
+        });
+
+        // Exposer les fonctions globalement
+        window.addToCart = addToCart;
+        window.addMenuToCart = addMenuToCart;
+        window.removeFromCart = removeFromCart;
+        window.updateQuantity = updateQuantity;
+        window.openCartModal = openCartModal;
+        window.resetCartModal = resetCartModal;
+        window.finalizeOrder = finalizeOrder;
+        window.quickWhatsAppOrder = quickWhatsAppOrder;
+        window.bookTable = bookTable;
+        window.bookTableViaWhatsApp = bookTableViaWhatsApp;
+        window.bookEvent = bookEvent;
+        window.subscribeNewsletter = subscribeNewsletter;
+        window.adminLogin = adminLogin;
+        window.changeLanguage = changeLanguage;
+    </script>
+</body>
+</html>

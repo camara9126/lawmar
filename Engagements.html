@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Engagements - Lawmar Hôtel Les Résidences | Saint-Louis, Sénégal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #025ba5;
+            --secondary-color: #e0e0e0;
+            --accent-color: #c53030;
+            --dark-color: #2d3748;
+            --light-color: #f7fafc;
+            --light-green: #f0fff4;
+            
+            --transition: all 0.3s ease;
+            --indigo: #1E3A5F;
+            --sable: #F4EDE4;
+            --vert: #2F5D50;
+           
+            --earth: #8B4513;
+            --ocean: #006994;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            padding-top: 60px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .bg-sable {
+            background-color: var(--sable) !important;
+        }
+
+        .bg-vert {
+            background-color: var(--vert) !important;
+            color: white;
+        }
+
+        /* Navigation réduite */
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 2px 0;
+            min-height: 55px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            padding: 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .logo-image {
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            border: 1px solid var(--secondary-color);
+            background-color: white;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hotel-name {
+            color: var(--primary-color) !important;
+            font-size: 1.2rem;
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        .hotel-subtitle {
+            color: var(--dark-color) !important;
+            font-size: 0.65rem;
+            font-weight: 300;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--primary-color) !important;
+            font-weight: 500;
+            padding: 4px 10px !important;
+            margin: 0 2px;
+            transition: var(--transition);
+            font-size: 0.8rem;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--indigo) !important;
+            border-bottom: 2px solid var(--vert);
+        }
+
+        .btn-reservation {
+            background-color: var(--yellow-color) !important;
+            color: var(--primary-color) !important;
+            border-radius: 5px;
+            font-weight: 600;
+            padding: 4px 12px !important;
+            border: none;
+            font-size: 0.8rem !important;
+        }
+
+        /* Section des emails professionnels */
+        .emails-section {
+            background: white;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--sable);
+        }
+        
+        .emails-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .email-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--sable);
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+        
+        .email-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: #e8e0d5;
+        }
+        
+        .email-item i {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+        
+        .email-item a {
+            color: var(--indigo);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .email-item a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        .email-sync-badge {
+            background: var(--vert);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .email-sync-badge i {
+            color: var(--yellow-color);
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section réduite */
+        .engagements-hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/lawmar.jpeg') no-repeat center center;
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Section Engagement avec le nouveau texte */
+        .engagement-philosophy {
+            background: linear-gradient(135deg, var(--sable) 0%, white 100%);
+            padding: 50px 0;
+            position: relative;
+        }
+
+        .philosophy-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--dark-color);
+        }
+
+        .philosophy-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--primary-color);
+            border-left: 4px solid var(--teranga);
+            padding-left: 20px;
+            margin: 25px 0;
+        }
+
+        /* Cartes d'engagement */
+        .engagement-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            height: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .engagement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--vert), var(--teranga));
+        }
+
+        .engagement-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .engagement-icon {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .engagement-card:hover .engagement-icon {
+            transform: scale(1.1);
+        }
+
+        .engagement-card h3 {
+            color: var(--indigo);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .engagement-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* Nos actions concrètes */
+        .action-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .action-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .action-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .action-content h4 {
+            color: var(--indigo);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .action-content p {
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .action-stats {
+            font-weight: 700;
+            color: var(--vert);
+            font-size: 1.1rem;
+        }
+
+        /* Stats */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--indigo));
+            color: white;
+            padding: 50px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .stat-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            color: var(--yellow-color);
+        }
+
+        /* Footer avec emails */
+        .footer {
+            background-color: white !important;
+            color: var(--primary-color);
+            padding: 40px 0 20px;
+            font-size: 0.85rem;
+            border-top: 2px solid var(--primary-color);
+            box-shadow: 0 -5px 15px rgba(2, 91, 165, 0.05);
+        }
+
+        .footer-about h3 {
+            color: var(--primary-color) !important;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .footer-links h4,
+        .footer-contact h4,
+        .footer-newsletter h4 {
+            color: var(--primary-color) !important;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 6px;
+        }
+
+        .footer-links ul li a {
+            color: var(--primary-color) !important;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.85rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--indigo) !important;
+            padding-left: 5px;
+            border-left: 2px solid var(--vert);
+        }
+
+        .footer-contact p {
+            margin-bottom: 8px;
+            color: var(--primary-color) !important;
+            font-size: 0.85rem;
+        }
+
+        .footer-contact i {
+            color: var(--primary-color);
+            margin-right: 8px;
+            width: 18px;
+        }
+
+        .footer-contact .email-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-top: 5px;
+        }
+        
+        .footer-contact .email-list a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-contact .email-list a:hover {
+            color: var(--vert);
+            text-decoration: underline;
+            transform: translateX(3px);
+        }
+        
+        .footer-contact .email-list i {
+            font-size: 0.75rem;
+            margin-right: 6px;
+            color: var(--vert);
+        }
+        
+        .email-sync-note {
+            background: var(--sable);
+            border-radius: 5px;
+            padding: 6px 10px;
+            margin-top: 12px;
+            font-size: 0.75rem;
+            color: var(--indigo);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .email-sync-note i {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            margin-top: 12px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background-color: var(--primary-color);
+            color: white !important;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            margin-right: 8px;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--indigo);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(2, 91, 165, 0.2);
+            padding-top: 15px;
+            margin-top: 25px;
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--indigo);
+            text-decoration: underline;
+        }
+
+        .footer-logo-image {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border: none !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 55px;
+            }
+            
+            .navbar {
+                min-height: 50px;
+            }
+            
+            .logo-image {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .hotel-name {
+                font-size: 1rem;
+            }
+            
+            .hotel-subtitle {
+                font-size: 0.6rem;
+            }
+            
+            .engagements-hero {
+                height: 300px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .emails-container {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .action-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .action-icon {
+                margin: 0 auto;
+            }
+
+            .stat-number {
+                font-size: 2.2rem;
+            }
+            
+            .footer-contact .email-list {
+                align-items: center;
+            }
+            
+            .footer-logo-image {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation réduite -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-container">
+                    <img src="images/logo1.png" alt="Logo officiel Les Résidences du Lawmar" class="logo-image" style="border-radius: 0; border: none; background: transparent;" onerror="this.onerror=null; this.src='https://via.placeholder.com/35x35/1E3A5F/ffffff?text=LAWMAR';">
+                    <div class="brand-text">
+                        <h1 class="hotel-name" id="nav-hotel-name">LAWMAR</h1>
+                        <span class="hotel-subtitle" id="nav-hotel-subtitle">
+                            <span class="senegal-flag-icon">🇸🇳</span> Les Résidences du Lawmar
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" id="nav-home">Accueil</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="residencesDropdown" role="button" data-bs-toggle="dropdown" data-i18n="nav-residences">
+                            Résidences
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="residences.html" id="nav-our-residences">Lawmar</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="experiences.html" id="nav-experiences">Expériences</a></li>
+                            <li><a class="dropdown-item active" href="engagements.html" id="nav-commitments">Engagements</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="restauration.html" id="nav-restaurant">Restauration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chambres.html" id="nav-services">Hebergements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html" id="nav-services">Services</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="galerie.html" id="nav-gallery">Galerie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html" id="nav-contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html" id="nav-admin">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-reservation" href="chambres.html" id="nav-book">Réserver</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-globe"></i> <span id="current-lang">FR</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('fr'); return false;">Français</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeLanguage('en'); return false;">English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section des emails professionnels -->
+    <section class="emails-section">
+        <div class="container">
+            <div class="emails-container">
+                <div class="email-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:contact@residenceslawmar.com">contact@residenceslawmar.com</a>
+                </div>
+                <div class="email-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:reservation@residencelawmar.com">reservation@residencelawmar.com</a>
+                </div>
+                <div class="email-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:residencelawmar@gmail.com">residencelawmar@gmail.com</a>
+                </div>
+                <div class="email-sync-badge" id="email-sync-badge">
+                    <i class="fas fa-sync-alt"></i> <span id="sync-text">Synchronisation automatique</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section réduite -->
+    <section class="engagements-hero">
+        <div class="container text-center">
+            <h1 class="hero-title" id="hero-title">Nos Engagements</h1>
+            <p class="hero-subtitle" id="hero-subtitle">Conjuguer hospitalité et responsabilité pour un tourisme durable</p>
+        </div>
+    </section>
+
+    <!-- Introduction avec le nouveau texte -->
+    <section class="engagement-philosophy">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="philosophy-text">
+                        <p class="lead fw-bold" style="color: var(--vert);" id="philosophy-intro">
+                            Les Résidences du Lawmar s'inscrivent dans une démarche de valorisation du territoire et de respect de l'environnement.
+                        </p>
+                        
+                        <p id="philosophy-text1">
+                            Nous favorisons l'emploi local, collaborons avec des producteurs du terroir et veillons à une intégration harmonieuse dans notre environnement naturel. Notre ambition : conjuguer hospitalité et responsabilité.
+                        </p>
+                        
+                        <div class="philosophy-quote" id="philosophy-quote">
+                            <i class="fas fa-quote-left me-2" style="color: var(--teranga);"></i>
+                            Chaque séjour chez nous est une contribution à la préservation de ce territoire exceptionnel et au bien-être de sa communauté.
+                        </div>
+                        
+                        <p id="philosophy-text2">
+                            Cette philosophie guide toutes nos décisions, du choix de nos fournisseurs à la conception de nos infrastructures, en passant par la formation de nos équipes et les activités que nous proposons à nos hôtes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3 piliers d'engagement -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="engagement-card">
+                        <div class="engagement-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 id="pillar1-title">Environnement</h3>
+                        <p id="pillar1-text">Protection de la biodiversité locale, gestion responsable des ressources, réduction de notre empreinte écologique et préservation des écosystèmes uniques de Gandiol.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="engagement-card">
+                        <div class="engagement-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 id="pillar2-title">Social</h3>
+                        <p id="pillar2-text">Emploi local, formation professionnelle, soutien aux associations, développement de la communauté et promotion de l'artisanat local.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="engagement-card">
+                        <div class="engagement-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3 id="pillar3-title">Culturel</h3>
+                        <p id="pillar3-text">Préservation et valorisation du patrimoine culturel local, transmission des traditions, soutien à l'artisanat et promotion de la gastronomie sénégalaise.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nos actions concrètes -->
+    <section class="section-padding bg-vert">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 style="color: white;" id="actions-title">Nos Actions Concrètes</h2>
+                <p style="color: rgba(255,255,255,0.9);" id="actions-subtitle">Ce que nous mettons en œuvre au quotidien</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4 id="action1-title">Énergie Solaire</h4>
+                            <p id="action1-text">Installation de panneaux solaires pour l'eau chaude sanitaire et l'éclairage des parties communes.</p>
+                            <div class="action-stats" id="action1-stats">-40% de consommation énergétique</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4 id="action2-title">Gestion de l'Eau</h4>
+                            <p id="action2-text">Récupération des eaux de pluie pour l'arrosage et systèmes économiseurs d'eau dans toutes les salles de bain.</p>
+                            <div class="action-stats" id="action2-stats">+10,000L d'eau économisés/mois</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4 id="action3-title">Zéro Plastique</h4>
+                            <p id="action3-text">Suppression totale des plastiques à usage unique. Gourdes en verre, pailles en bambou, produits d'accueil en vrac.</p>
+                            <div class="action-stats" id="action3-stats">-5,000 bouteilles plastique/an</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4 id="action4-title">Reforestation</h4>
+                            <p id="action4-text">Participation à la reforestation de la mangrove avec les associations locales. 1 arbre planté par séjour réservé.</p>
+                            <div class="action-stats" id="action4-stats">+500 arbres plantés</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-fish"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4 id="action5-title">Pêche Durable</h4>
+                            <p id="action5-text">Partenariat avec les pêcheurs locaux pour une pêche responsable et le respect des saisons de reproduction.</p>
+                            <div class="action-stats" id="action5-stats">15 pêcheurs partenaires</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4 id="action6-title">Formation Professionnelle</h4>
+                            <p id="action6-text">Programmes de formation pour les jeunes de Gandiol dans les métiers de l'hôtellerie et de la restauration.</p>
+                            <div class="action-stats" id="action6-stats">25 jeunes formés en 2023</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chiffres clés -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-tree"></i></div>
+                        <div class="stat-number" id="stat1-number">500+</div>
+                        <div class="stat-label" id="stat1-label">Arbres plantés</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-number" id="stat2-number">90%</div>
+                        <div class="stat-label" id="stat2-label">Employés locaux</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-store"></i></div>
+                        <div class="stat-number" id="stat3-number">25</div>
+                        <div class="stat-label" id="stat3-label">Fournisseurs locaux</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="stat-number" id="stat4-number">40%</div>
+                        <div class="stat-label" id="stat4-label">Énergie économisée</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engagement local détaillé -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="images/vue2.jpeg" alt="Communauté locale" class="img-fluid rounded-4 shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 style="color: var(--indigo);" id="community-title">Soutien à la Communauté</h2>
+                    <p class="lead" id="community-subtitle">Nous travaillons main dans la main avec les habitants de Gandiol.</p>
+                    
+                    <div class="progress mb-4" style="height: 30px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" id="progress-label">90% d'emplois locaux</div>
+                    </div>
+                    
+                    <ul class="list-unstyled" id="community-list">
+                        <li class="mb-3" id="community-item1">
+                            <i class="fas fa-check-circle text-success me-2 fs-5"></i>
+                            <strong>90%</strong> de nos employés sont originaires de Gandiol
+                        </li>
+                        <li class="mb-3" id="community-item2">
+                            <i class="fas fa-check-circle text-success me-2 fs-5"></i>
+                            <strong>25 jeunes</strong> formés aux métiers de l'hôtellerie en 2023
+                        </li>
+                        <li class="mb-3" id="community-item3">
+                            <i class="fas fa-check-circle text-success me-2 fs-5"></i>
+                            <strong>15 pêcheurs</strong> partenaires pour une pêche durable
+                        </li>
+                        <li class="mb-3" id="community-item4">
+                            <i class="fas fa-check-circle text-success me-2 fs-5"></i>
+                            <strong>8 femmes</strong> artisans soutenues dans leur activité
+                        </li>
+                        <li class="mb-3" id="community-item5">
+                            <i class="fas fa-check-circle text-success me-2 fs-5"></i>
+                            <strong>1 école</strong> primaire soutenue à Tassinère
+                        </li>
+                    </ul>
+
+                    <!-- Témoignage local -->
+                    <div class="bg-sable p-4 rounded-4 mt-4">
+                        <i class="fas fa-quote-left fa-2x text-muted mb-3"></i>
+                        <p class="fst-italic" id="testimonial-text">"Travailler au Lawmar m'a permis de me former et d'avoir un emploi stable tout en restant dans mon village. Je suis fier de représenter ma communauté."</p>
+                        <div class="d-flex align-items-center">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <span class="fw-bold">M.D.</span>
+                            </div>
+                            <div class="ms-3">
+                                <strong id="testimonial-name">Moussa Diop</strong>
+                                <br>
+                                <small class="text-muted" id="testimonial-role">Réceptionniste, originaire de Gandiol</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action - Participez à nos engagements -->
+    <section class="section-padding bg-vert text-white">
+        <div class="container text-center">
+            <h2 class="mb-4" id="cta-title">Vous aussi, participez à nos engagements</h2>
+            <p class="lead mb-4" id="cta-subtitle">Chaque séjour contribue à nos actions pour l'environnement et la communauté</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="mb-3">
+                                <i class="fas fa-tree fa-2x mb-2"></i>
+                                <h5 id="cta-icon1">1 arbre planté</h5>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="mb-3">
+                                <i class="fas fa-fish fa-2x mb-2"></i>
+                                <h5 id="cta-icon2">Pêche durable</h5>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="mb-3">
+                                <i class="fas fa-users fa-2x mb-2"></i>
+                                <h5 id="cta-icon3">Emploi local</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <a href="residences.html" class="btn btn-light btn-lg me-2" id="cta-button1">
+                    <i class="fas fa-calendar-check me-2"></i>Réserver mon séjour
+                </a>
+                <a href="experiences.html" class="btn btn-outline-light btn-lg" id="cta-button2">
+                    <i class="fas fa-compass me-2"></i>Découvrir nos expériences
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer avec emails professionnels -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-about">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <img src="images/logo1.png" alt="Logo Lawmar" class="footer-logo-image" onerror="this.style.display='none';">
+                            <h3>LAWMAR</h3>
+                        </div>
+                        <p id="footer-about">Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.</p>
+                        <div class="social-links">
+                            <a href="https://facebook.com/lawmar.gandiol" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="https://instagram.com/lawmar.gandiol" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://tiktok.com/@lawmar.gandiol" target="_blank"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://wa.me/221779952020" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h4 id="footer-nav-title">Navigation</h4>
+                        <ul>
+                            <li><a href="index.html" id="footer-home">Accueil</a></li>
+                            <li><a href="residences.html" id="footer-residences">Résidences</a></li>
+                            <li><a href="experiences.html" id="footer-experiences">Expériences</a></li>
+                            <li><a href="engagements.html" id="footer-commitments">Engagements</a></li>
+                            <li><a href="chambres.html" id="footer-rooms">Chambres</a></li>
+                            <li><a href="restauration.html" id="footer-restaurant">Restauration</a></li>
+                            <li><a href="services.html" id="footer-services">Services</a></li>
+                            <li><a href="galerie.html" id="footer-gallery">Galerie</a></li>
+                            <li><a href="contact.html" id="footer-contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-contact">
+                        <h4 id="footer-contact-title">Contact - Gandiol</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> <span id="footer-address">Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳</span></p>
+                        <p><i class="fas fa-phone"></i> +221 77 995 20 20</p>
+                        <p><i class="fas fa-phone"></i> +221 77 291 72 15</p>
+                        
+                        <!-- Liste des emails professionnels -->
+                        <div class="email-list">
+                            <a href="mailto:contact@residenceslawmar.com"><i class="fas fa-envelope"></i> contact@residenceslawmar.com</a>
+                            <a href="mailto:reservation@residencelawmar.com"><i class="fas fa-envelope"></i> reservation@residencelawmar.com</a>
+                            <a href="mailto:residencelawmar@gmail.com"><i class="fas fa-envelope"></i> residencelawmar@gmail.com</a>
+                        </div>
+                        
+                        <!-- Note de synchronisation -->
+                        <div class="email-sync-note" id="email-sync-note">
+                            <i class="fas fa-sync-alt"></i>
+                            <span id="sync-note-text">Tous les emails sont synchronisés automatiquement</span>
+                        </div>
+                        
+                        <p class="mt-3"><i class="fab fa-whatsapp"></i> <span id="footer-wa">WhatsApp: +221 77 995 20 20</span></p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-newsletter">
+                        <h4 id="footer-newsletter-title">Newsletter</h4>
+                        <p id="footer-newsletter-text">Recevez nos actualités et offres spéciales</p>
+                        <form id="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Votre email" id="newsletter-input">
+                                <button class="btn btn-primary" type="submit" id="newsletter-submit"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <!-- MODIFICATION ICI : Ajout de BCM GROUPE 2026 et lien vers bcmgroupe -->
+                <p>&copy; 2026 Lawmar Hôtel Les Résidences - Gandiol. <span id="footer-rights">Tous droits réservés.</span> | 
+                   <span class="senegal-flag-icon">🇸🇳</span> Sénégal | 
+                   <a href="#" data-bs-toggle="modal" data-bs-target="#adminLoginModal" id="footer-admin">Accès personnel</a> | 
+                   <strong>BCM GROUPE 2026</strong> | <a href="https://bcmgroupe.com" target="_blank">bcmgroupe.com</a>
+                </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Traductions anglais/français
+        const translations = {
+            fr: {
+                // Navigation
+                'nav-hotel-name': 'LAWMAR',
+                'nav-hotel-subtitle': 'Les Résidences du Lawmar',
+                'nav-home': 'Accueil',
+                'nav-residences': 'Résidences',
+                'nav-our-residences': 'Nos Résidences',
+                'nav-experiences': 'Expériences',
+                'nav-commitments': 'Engagements',
+                'nav-restaurant': 'Restauration',
+                'nav-services': 'Services',
+                'nav-gallery': 'Galerie',
+                'nav-contact': 'Contact',
+                'nav-book': 'Réserver',
+                'current-lang': 'FR',
+                
+                // Emails section
+                'sync-text': 'Synchronisation automatique',
+                
+                // Hero
+                'hero-title': 'Nos Engagements',
+                'hero-subtitle': 'Conjuguer hospitalité et responsabilité pour un tourisme durable',
+                
+                // Philosophy
+                'philosophy-intro': 'Les Résidences du Lawmar s\'inscrivent dans une démarche de valorisation du territoire et de respect de l\'environnement.',
+                'philosophy-text1': 'Nous favorisons l\'emploi local, collaborons avec des producteurs du terroir et veillons à une intégration harmonieuse dans notre environnement naturel. Notre ambition : conjuguer hospitalité et responsabilité.',
+                'philosophy-quote': 'Chaque séjour chez nous est une contribution à la préservation de ce territoire exceptionnel et au bien-être de sa communauté.',
+                'philosophy-text2': 'Cette philosophie guide toutes nos décisions, du choix de nos fournisseurs à la conception de nos infrastructures, en passant par la formation de nos équipes et les activités que nous proposons à nos hôtes.',
+                
+                // Pillars
+                'pillar1-title': 'Environnement',
+                'pillar1-text': 'Protection de la biodiversité locale, gestion responsable des ressources, réduction de notre empreinte écologique et préservation des écosystèmes uniques de Gandiol.',
+                'pillar2-title': 'Social',
+                'pillar2-text': 'Emploi local, formation professionnelle, soutien aux associations, développement de la communauté et promotion de l\'artisanat local.',
+                'pillar3-title': 'Culturel',
+                'pillar3-text': 'Préservation et valorisation du patrimoine culturel local, transmission des traditions, soutien à l\'artisanat et promotion de la gastronomie sénégalaise.',
+                
+                // Actions
+                'actions-title': 'Nos Actions Concrètes',
+                'actions-subtitle': 'Ce que nous mettons en œuvre au quotidien',
+                'action1-title': 'Énergie Solaire',
+                'action1-text': 'Installation de panneaux solaires pour l\'eau chaude sanitaire et l\'éclairage des parties communes.',
+                'action1-stats': '-40% de consommation énergétique',
+                'action2-title': 'Gestion de l\'Eau',
+                'action2-text': 'Récupération des eaux de pluie pour l\'arrosage et systèmes économiseurs d\'eau dans toutes les salles de bain.',
+                'action2-stats': '+10,000L d\'eau économisés/mois',
+                'action3-title': 'Zéro Plastique',
+                'action3-text': 'Suppression totale des plastiques à usage unique. Gourdes en verre, pailles en bambou, produits d\'accueil en vrac.',
+                'action3-stats': '-5,000 bouteilles plastique/an',
+                'action4-title': 'Reforestation',
+                'action4-text': 'Participation à la reforestation de la mangrove avec les associations locales. 1 arbre planté par séjour réservé.',
+                'action4-stats': '+500 arbres plantés',
+                'action5-title': 'Pêche Durable',
+                'action5-text': 'Partenariat avec les pêcheurs locaux pour une pêche responsable et le respect des saisons de reproduction.',
+                'action5-stats': '15 pêcheurs partenaires',
+                'action6-title': 'Formation Professionnelle',
+                'action6-text': 'Programmes de formation pour les jeunes de Gandiol dans les métiers de l\'hôtellerie et de la restauration.',
+                'action6-stats': '25 jeunes formés en 2023',
+                
+                // Stats
+                'stat1-label': 'Arbres plantés',
+                'stat2-label': 'Employés locaux',
+                'stat3-label': 'Fournisseurs locaux',
+                'stat4-label': 'Énergie économisée',
+                
+                // Community
+                'community-title': 'Soutien à la Communauté',
+                'community-subtitle': 'Nous travaillons main dans la main avec les habitants de Gandiol.',
+                'progress-label': '90% d\'emplois locaux',
+                'community-item1': '<strong>90%</strong> de nos employés sont originaires de Gandiol',
+                'community-item2': '<strong>25 jeunes</strong> formés aux métiers de l\'hôtellerie en 2023',
+                'community-item3': '<strong>15 pêcheurs</strong> partenaires pour une pêche durable',
+                'community-item4': '<strong>8 femmes</strong> artisans soutenues dans leur activité',
+                'community-item5': '<strong>1 école</strong> primaire soutenue à Tassinère',
+                'testimonial-text': '"Travailler au Lawmar m\'a permis de me former et d\'avoir un emploi stable tout en restant dans mon village. Je suis fier de représenter ma communauté."',
+                'testimonial-name': 'Moussa Diop',
+                'testimonial-role': 'Réceptionniste, originaire de Gandiol',
+                
+                // CTA
+                'cta-title': 'Vous aussi, participez à nos engagements',
+                'cta-subtitle': 'Chaque séjour contribue à nos actions pour l\'environnement et la communauté',
+                'cta-icon1': '1 arbre planté',
+                'cta-icon2': 'Pêche durable',
+                'cta-icon3': 'Emploi local',
+                'cta-button1': 'Réserver mon séjour',
+                'cta-button2': 'Découvrir nos expériences',
+                
+                // Footer
+                'footer-about': 'Les Résidences du Lawmar - Hôtel & Restaurant. Authenticité, confort et hospitalité sénégalaise à Tassinère, Gandiol.',
+                'footer-nav-title': 'Navigation',
+                'footer-home': 'Accueil',
+                'footer-residences': 'Résidences',
+                'footer-experiences': 'Expériences',
+                'footer-commitments': 'Engagements',
+                'footer-rooms': 'Chambres',
+                'footer-restaurant': 'Restauration',
+                'footer-services': 'Services',
+                'footer-gallery': 'Galerie',
+                'footer-contact': 'Contact',
+                'footer-contact-title': 'Contact - Gandiol',
+                'footer-address': 'Village de Tassinère<br>Commune de Ndiébène Gandiol<br>Saint-Louis, Sénégal 🇸🇳',
+                'footer-wa': 'WhatsApp: +221 77 995 20 20',
+                'footer-newsletter-title': 'Newsletter',
+                'footer-newsletter-text': 'Recevez nos actualités et offres spéciales',
+                'newsletter-input': 'Votre email',
+                'footer-rights': 'Tous droits réservés.',
+                'email-sync-note': 'Tous les emails sont synchronisés automatiquement',
+                'sync-note-text': 'Tous les emails sont synchronisés automatiquement'
+            },
+            en: {
+                // Navigation
+                'nav-hotel-name': 'LAWMAR',
+                'nav-hotel-subtitle': 'Les Résidences du Lawmar',
+                'nav-home': 'Home',
+                'nav-residences': 'Residences',
+                'nav-our-residences': 'Our Residences',
+                'nav-experiences': 'Experiences',
+                'nav-commitments': 'Commitments',
+                'nav-restaurant': 'Restaurant',
+                'nav-services': 'Services',
+                'nav-gallery': 'Gallery',
+                'nav-contact': 'Contact',
+                'nav-book': 'Book now',
+                'current-lang': 'EN',
+                
+                // Emails section
+                'sync-text': 'Automatic synchronization',
+                
+                // Hero
+                'hero-title': 'Our Commitments',
+                'hero-subtitle': 'Combining hospitality and responsibility for sustainable tourism',
+                
+                // Philosophy
+                'philosophy-intro': 'Les Résidences du Lawmar is committed to valuing the territory and respecting the environment.',
+                'philosophy-text1': 'We promote local employment, collaborate with local producers and ensure harmonious integration into our natural environment. Our ambition: to combine hospitality and responsibility.',
+                'philosophy-quote': 'Every stay with us is a contribution to the preservation of this exceptional territory and the well-being of its community.',
+                'philosophy-text2': 'This philosophy guides all our decisions, from the choice of our suppliers to the design of our infrastructure, including the training of our teams and the activities we offer our guests.',
+                
+                // Pillars
+                'pillar1-title': 'Environment',
+                'pillar1-text': 'Protection of local biodiversity, responsible resource management, reduction of our ecological footprint and preservation of the unique ecosystems of Gandiol.',
+                'pillar2-title': 'Social',
+                'pillar2-text': 'Local employment, professional training, support for associations, community development and promotion of local crafts.',
+                'pillar3-title': 'Cultural',
+                'pillar3-text': 'Preservation and promotion of local cultural heritage, transmission of traditions, support for crafts and promotion of Senegalese gastronomy.',
+                
+                // Actions
+                'actions-title': 'Our Concrete Actions',
+                'actions-subtitle': 'What we implement daily',
+                'action1-title': 'Solar Energy',
+                'action1-text': 'Installation of solar panels for hot water and lighting of common areas.',
+                'action1-stats': '-40% energy consumption',
+                'action2-title': 'Water Management',
+                'action2-text': 'Rainwater harvesting for watering and water-saving systems in all bathrooms.',
+                'action2-stats': '+10,000L water saved/month',
+                'action3-title': 'Zero Plastic',
+                'action3-text': 'Total elimination of single-use plastics. Glass bottles, bamboo straws, bulk welcome products.',
+                'action3-stats': '-5,000 plastic bottles/year',
+                'action4-title': 'Reforestation',
+                'action4-text': 'Participation in mangrove reforestation with local associations. 1 tree planted per booked stay.',
+                'action4-stats': '+500 trees planted',
+                'action5-title': 'Sustainable Fishing',
+                'action5-text': 'Partnership with local fishermen for responsible fishing and respect for breeding seasons.',
+                'action5-stats': '15 partner fishermen',
+                'action6-title': 'Professional Training',
+                'action6-text': 'Training programs for young people from Gandiol in hotel and restaurant trades.',
+                'action6-stats': '25 young people trained in 2023',
+                
+                // Stats
+                'stat1-label': 'Trees planted',
+                'stat2-label': 'Local employees',
+                'stat3-label': 'Local suppliers',
+                'stat4-label': 'Energy saved',
+                
+                // Community
+                'community-title': 'Community Support',
+                'community-subtitle': 'We work hand in hand with the inhabitants of Gandiol.',
+                'progress-label': '90% local employment',
+                'community-item1': '<strong>90%</strong> of our employees are from Gandiol',
+                'community-item2': '<strong>25 young people</strong> trained in hotel trades in 2023',
+                'community-item3': '<strong>15 fishermen</strong> partners for sustainable fishing',
+                'community-item4': '<strong>8 women</strong> artisans supported in their activity',
+                'community-item5': '<strong>1 primary school</strong> supported in Tassinère',
+                'testimonial-text': '"Working at Lawmar allowed me to train and have a stable job while staying in my village. I am proud to represent my community."',
+                'testimonial-name': 'Moussa Diop',
+                'testimonial-role': 'Receptionist, from Gandiol',
+                
+                // CTA
+                'cta-title': 'You too, participate in our commitments',
+                'cta-subtitle': 'Each stay contributes to our actions for the environment and the community',
+                'cta-icon1': '1 tree planted',
+                'cta-icon2': 'Sustainable fishing',
+                'cta-icon3': 'Local employment',
+                'cta-button1': 'Book my stay',
+                'cta-button2': 'Discover our experiences',
+                
+                // Footer
+                'footer-about': 'Les Résidences du Lawmar - Hotel & Restaurant. Authenticity, comfort and Senegalese hospitality in Tassinère, Gandiol.',
+                'footer-nav-title': 'Navigation',
+                'footer-home': 'Home',
+                'footer-residences': 'Residences',
+                'footer-experiences': 'Experiences',
+                'footer-commitments': 'Commitments',
+                'footer-rooms': 'Rooms',
+                'footer-restaurant': 'Restaurant',
+                'footer-services': 'Services',
+                'footer-gallery': 'Gallery',
+                'footer-contact': 'Contact',
+                'footer-contact-title': 'Contact - Gandiol',
+                'footer-address': 'Tassinère Village<br>Ndiébène Gandiol Commune<br>Saint-Louis, Senegal 🇸🇳',
+                'footer-wa': 'WhatsApp: +221 77 995 20 20',
+                'footer-newsletter-title': 'Newsletter',
+                'footer-newsletter-text': 'Receive our news and special offers',
+                'newsletter-input': 'Your email',
+                'footer-rights': 'All rights reserved.',
+                'email-sync-note': 'All emails are automatically synchronized',
+                'sync-note-text': 'All emails are automatically synchronized'
+            }
+        };
+
+        function changeLanguage(lang) {
+            // Mettre à jour le texte de tous les éléments avec id
+            for (let key in translations[lang]) {
+                let element = document.getElementById(key);
+                if (element) {
+                    // Pour les éléments qui peuvent contenir du HTML
+                    if (key === 'community-item1' || key === 'community-item2' || key === 'community-item3' || 
+                        key === 'community-item4' || key === 'community-item5' || key === 'footer-address') {
+                        element.innerHTML = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            }
+            
+            // Mettre à jour les attributs placeholder
+            document.getElementById('newsletter-input').placeholder = translations[lang]['newsletter-input'];
+            
+            // Mettre à jour l'attribut lang de la page
+            document.documentElement.lang = lang;
+            
+            console.log('Langue changée en ' + lang);
+        }
+
+        // Formulaire newsletter
+        document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const currentLang = document.documentElement.lang || 'fr';
+            const message = currentLang === 'fr' ? 'Merci pour votre inscription !' : 'Thank you for subscribing!';
+            alert(message);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
